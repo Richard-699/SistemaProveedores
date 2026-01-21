@@ -47,12 +47,6 @@ if (mysqli_num_rows($consultarCostbreakdown) > 0) {
         $volumen_anual_costbreakdown,
         $id_costbreakdown
     );
-<<<<<<< HEAD
-=======
-
-    $actualizarCostbreakdown->execute();
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     if ($actualizarCostbreakdown->execute()) {
         $response = ['success' => true];
     } else {

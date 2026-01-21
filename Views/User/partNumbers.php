@@ -86,11 +86,7 @@ error_reporting(0);
                     </a>
                 </li>
                 <li class="mt-4">
-<<<<<<< HEAD
                     <a href="index.php" class="text-decoration-none px-3 py-2 d-block">
-=======
-                    <a href="index.php" class="text-decoration-none px-3 py-1 d-block">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>
@@ -206,11 +202,7 @@ error_reporting(0);
                                             <td><?php echo $MostrarPartNumbers['nombre_proveedor']; ?></td>
                                             <td><?php echo $MostrarPartNumbers['partnumber']; ?></td>
                                             <td><?php echo $MostrarPartNumbers['descripcion_partnumber']; ?></td>
-<<<<<<< HEAD
                                             <td><?php echo $MostrarPartNumbers['commodity_partnumber']; ?></td>
-=======
-                                            <td><?php echo $MostrarPartNumbers['commodity_partnumber']; ?></td>                                            
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                             <td>
                                                 <button class="btn-edit" data-id="<?php echo $partnumber; ?>" onclick="editarPartnumber('<?php echo $partnumber; ?>')">
                                                     <i class="fas fa-edit"></i>

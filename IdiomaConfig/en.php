@@ -408,7 +408,6 @@ $lang = array(
     3. It is not necessary to send the information on shareholders or final beneficiaries, for companies listed on the stock exchange.',
 
     'carta_beneficiarios_finales' => 'Attach certification detailing the reason why beneficial owner information is not shared: *',
-<<<<<<< HEAD
 
     'precio simplified' => 'Price: *',
     'Login' => 'Login',
@@ -417,7 +416,5 @@ $lang = array(
     'Forgot_Password' => '¿Forgot Password?',
     'Sin_cuenta' => 'Dont have an account?',
     'Register' => 'Sign up'
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 );
 ?>

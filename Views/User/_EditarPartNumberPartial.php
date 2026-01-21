@@ -21,7 +21,6 @@
         .swal-custom-popup {
             z-index: 9999 !important;
         }
-<<<<<<< HEAD
 
         .logo-container {
             display: flex;
@@ -57,8 +56,6 @@
             font-size: 30px;
             color: #6c757d;
         }
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     </style>
 </head>
 
@@ -67,10 +64,7 @@
     <div id="editarPartNumberPartial" style="display: none; width: 75%;">
         <h2>Editar Part Number</h2>
         <form id="formEditarPartNumber">
-<<<<<<< HEAD
             <input type="hidden" name="ruta_imagen_anterior" value="<?php echo $result_partnumber['imagen_partnumber']; ?>">
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             <div class="row">
                 <div class="col-md-6 mt-5">
                     <label for="partnumber" class="floating-label">Part Number: *</label>
@@ -102,7 +96,6 @@
                         </select>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <div class="col-md-6 mt-4">
                     <label for="descripcion_partnumber" class="floating-label">% Peso BOM: *</label>
                     <input type="text" name="porcentaje_peso_bom_partnumber" value="<?php echo $result_partnumber['porcentaje_peso_bom_partnumber']; ?>" class="form-control custom-input" id="porcentaje_peso_bom_partnumber" placeholder="Ingrese el porcentaje" required>
@@ -118,8 +111,6 @@
                         <input type="file" name="imagen_partnumber" class="form-control custom-input" id="imagen_partnumber_input" accept="image/*" style="display: none;">
                     </div>
                 </div>
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             </div>
         </form>
         <div class="text-end mt-5">
@@ -135,7 +126,6 @@
     $(document).ready(function() {
         var commodity_partnumber = '<?php echo $result_partnumber['commodity_partnumber']; ?>';
         $('#Commodity').val(commodity_partnumber);
-<<<<<<< HEAD
 
         <?php $ruta_base = $result_partnumber['imagen_partnumber']; ?>
         var rutaImagenActual = '<?php echo $ruta_base ? $ruta_base . '?' . time() : ''; ?>';
@@ -166,10 +156,6 @@
         });
     });
     
-=======
-    });
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     document.getElementById("cerrarFancybox").addEventListener("click", function() {
         $.fancybox.close();
     });
@@ -177,22 +163,15 @@
     $('.btn-update').on('click', function(e) {
         e.preventDefault();
 
-<<<<<<< HEAD
         var form = $('#formEditarPartNumber')[0]; 
         var formData = new FormData(form);
-=======
-        var formData = $('#formEditarPartNumber').serialize();
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
         $.ajax({
             url: '../../Actions/User/actualizarPartNumber.php',
             type: 'POST',
             data: formData,
-<<<<<<< HEAD
             processData: false, 
             contentType: false,
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             success: function(response) {
                 var result = JSON.parse(response);
                 $.fancybox.close();

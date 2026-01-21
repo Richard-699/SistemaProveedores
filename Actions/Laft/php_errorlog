@@ -1,0 +1,84 @@
+[11-Oct-2024 15:21:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[31-Oct-2024 19:32:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[19-Nov-2024 18:49:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[28-Nov-2024 14:13:06 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[28-Nov-2024 14:15:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[28-Nov-2024 14:18:12 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[28-Nov-2024 14:25:42 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'tipo_identificacion_beneficiarios_finales' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php:125
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php(125): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/beneficiariosFinales.php on line 125
+[20-Jan-2025 20:43:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Id_laft_documentos' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/personaJuridica.php:172
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/personaJuridica.php(172): mysqli_stmt->execute()
+#1 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/personaJuridica.php(186): cargarArchivos(Object(mysqli), NULL, NULL, 'doc_permiso_lic...', 'requiere_permis...')
+#2 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/personaJuridica.php on line 172
+[11-Apr-2025 15:08:47 America/Bogota] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Id_proveedor_laft_historico' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php:55
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php(55): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php on line 55
+[21-Apr-2025 06:58:20 America/Bogota] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Id_proveedor_laft_historico' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php:55
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php(55): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php on line 55
+[21-Apr-2025 11:52:17 America/Bogota] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'Id_proveedor_laft_historico' cannot be null in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php:55
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php(55): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Actions/Laft/tipoPersona.php on line 55
+[29-Oct-2025 16:15:11 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:19:08 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:21:03 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:21:08 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:21:55 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:22:29 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:23:11 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:24:12 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:24:58 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:26:11 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:26:21 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:26:39 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:27:01 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:27:10 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:29:43 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:15 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:19 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:22 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:24 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:27 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:29 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:30 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:33 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:37 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:47 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:50 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:52 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404
+[29-Oct-2025 16:30:58 UTC] PHP Deprecated:  Function imagedestroy() is deprecated since 8.5, as it has no effect since PHP 8.0 in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/vendor/tecnickcom/tcpdf/tcpdf.php on line 7404

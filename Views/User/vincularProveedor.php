@@ -54,11 +54,7 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                     </a>
                 </li>
                 <li class="mt-4">
-<<<<<<< HEAD
                     <a href="index.php" class="text-decoration-none px-3 py-2 d-block">
-=======
-                    <a href="index.php" class="text-decoration-none px-3 py-1 d-block">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>
@@ -109,11 +105,7 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                 <?php } ?>
                 <li class="">
                     <a href="proveedores.php" class="text-decoration-none px-3 py-2 d-block">
-<<<<<<< HEAD
                        <i class="material-icons">how_to_reg</i> Proveedores Vinculados
-=======
-                        <i class="material-icons">how_to_reg</i> Proveedores Vinculados
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     </a>
                 </li>
                 <?php
@@ -150,11 +142,7 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                     //Negociación
                     if ($Id_area_usuario == 1) {
                         $consultarProveedoresLaft = mysqli_query($conexion, "SELECT * FROM proveedores
-<<<<<<< HEAD
                                 LEFT JOIN laft ON proveedores.Id_proveedor = laft.Id_proveedor_laft
-=======
-                                INNER JOIN laft ON proveedores.Id_proveedor = laft.Id_proveedor_laft
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                 INNER JOIN vinculacion_proveedor ON proveedores.Id_proveedor = vinculacion_proveedor.Id_proveedor_vinculacion_proveedor");
                     }
 
@@ -163,29 +151,20 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                         $consultarProveedoresLaft = mysqli_query($conexion, "SELECT * FROM proveedores
                                 INNER JOIN laft ON proveedores.Id_proveedor = laft.Id_proveedor_laft
                                 INNER JOIN vinculacion_proveedor ON proveedores.Id_proveedor = vinculacion_proveedor.Id_proveedor_vinculacion_proveedor
-<<<<<<< HEAD
                                 WHERE formulario_ambiental = '1' AND proveedores.idioma_proveedor = 'Es'");
-=======
-                                INNER JOIN laft ON proveedores.Id_proveedor = laft.Id_proveedor_laft
-                                WHERE formulario_ambiental = '1'");
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     }
 
                     //Cumplimiento
                     if ($Id_area_usuario == 3) {
                         $consultarProveedoresLaft = mysqli_query($conexion, "SELECT * FROM proveedores
-                        INNER JOIN laft ON proveedores.Id_proveedor = laft.Id_proveedor_laft
-                        INNER JOIN vinculacion_proveedor ON proveedores.Id_proveedor = vinculacion_proveedor.Id_proveedor_vinculacion_proveedor");
+                                INNER JOIN laft ON proveedores.Id_proveedor = laft.Id_proveedor_laft
+                                INNER JOIN vinculacion_proveedor ON proveedores.Id_proveedor = vinculacion_proveedor.Id_proveedor_vinculacion_proveedor");
                     }
 
                     if (mysqli_num_rows($consultarProveedoresLaft) > 0) {
                     ?>
                         <h2 class="title">Vinculación Proveedor</h2>
-<<<<<<< HEAD
                         <div style="width: 100%; font-size: 15px; margin-left: -50px; margin-top: 80px;">
-=======
-                        <div style="width: 90%; margin-left: -40px; margin-top: 80px;">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                             <table id="MostrarAccesos" class="table table-hover">
                                 <thead>
                                     <tr>

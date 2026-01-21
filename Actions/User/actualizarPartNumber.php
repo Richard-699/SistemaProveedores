@@ -2,7 +2,6 @@
 
 include('../../ConexionBD/conexion.php');
 
-<<<<<<< HEAD
 $partnumber = $_POST['partnumber'] ?? null;
 $descripcion_partnumber = $_POST['descripcion_partnumber'] ?? null;
 $commodity_partnumber = $_POST['commodity_partnumber'] ?? null;
@@ -46,21 +45,11 @@ $query = "UPDATE proveedor_partnumbers
               commodity_partnumber = ?,
               porcentaje_peso_bom_partnumber = ?,
               imagen_partnumber = ?
-=======
-$partnumber = $_POST['partnumber'];
-$descripcion_partnumber = $_POST['descripcion_partnumber'];
-$commodity_partnumber = $_POST['commodity_partnumber'];
-
-$query = "UPDATE proveedor_partnumbers 
-          SET partnumber = ?, descripcion_partnumber = ?,
-          commodity_partnumber = ?
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
           WHERE partnumber = ?";
 
 $stmt = $conexion->prepare($query);
 
 if($stmt === false) {
-<<<<<<< HEAD
     echo json_encode(['success' => false, 'message' => 'Error al preparar la consulta: ' . $conexion->error]);
     exit;
 }
@@ -71,30 +60,14 @@ $stmt->bind_param("sssdss",
     $commodity_partnumber,
     $porcentaje_peso_bom_partnumber,
     $imagen_partnumber_nueva_ruta,
-=======
-    die("Error al preparar la consulta: " . $conexion->error);
-}
-
-$stmt->bind_param("ssss", 
-    $partnumber, 
-    $descripcion_partnumber,
-    $commodity_partnumber,
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     $partnumber
 );
 
 if($stmt->execute()) {
     echo json_encode(['success' => true, 'message' => 'PartNumber actualizado con éxito']);
 } else {
-<<<<<<< HEAD
     echo json_encode(['success' => false, 'message' => 'Error al actualizar el PartNumber: ' . $stmt->error]);
 }
 
 $stmt->close();
-=======
-    echo json_encode(['success' => false, 'message' => 'Error al actualizar el PartNumber']);
-}
-
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 ?>

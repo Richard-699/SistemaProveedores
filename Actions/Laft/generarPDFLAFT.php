@@ -39,11 +39,7 @@ if ($result->num_rows > 0) {
         $dataRow = $row;
 
         if ($row['tipo_persona_laft'] == 'Juridica') {
-<<<<<<< HEAD
             $details_sql = "SELECT * FROM laft_persona_juridica 
-=======
-            $details_sql = "SELECT * FROM laft_persona_juridica
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                             INNER JOIN pais ON laft_persona_juridica.Id_pais_persona_juridica = pais.id_pais
                             WHERE Id_laft_persona_juridica = '$Id_laft'";
             $details_result = $conexion->query($details_sql);
@@ -199,9 +195,6 @@ foreach ($data as $row) {
         }
 
         $pdf->MultiCell(0, 10, 'Número Identificación: ' . $row['numero_identificacion_persona_juridica'], 0, 'L', 0, 1, '', '', true);
-        $pdf->MultiCell(0, 10, 'País: ' . $row['pais'], 0, 'L', 0, 1, '', '', true);
-        $pdf->MultiCell(0, 10, 'Departamento: ' . $row['departamento_persona_juridica'], 0, 'L', 0, 1, '', '', true);
-        $pdf->MultiCell(0, 10, 'Ciudad: ' . $row['ciudad_persona_juridica'], 0, 'L', 0, 1, '', '', true);
         $pdf->MultiCell(0, 10, 'Dirección: ' . $row['direccion_persona_juridica'], 0, 'L', 0, 1, '', '', true);
         $pdf->MultiCell(0, 10, 'País: ' . $row['pais'], 0, 'L', 0, 1, '', '', true);
         $pdf->MultiCell(0, 10, 'Departamento: ' . $row['departamento_persona_juridica'], 0, 'L', 0, 1, '', '', true);
@@ -357,7 +350,7 @@ foreach ($data as $row) {
                 if ($certificaciones_laft_row['otro_certificacion'] !== null) {
                     $pdf->MultiCell(0, 10, 'Otro: ' . $certificaciones_laft_row['otro_certificacion'], 0, 'L', 0, 1, '', '', true);
                 }
-
+                
                 $pdf->Ln(10);
             }
         }
@@ -450,7 +443,7 @@ foreach ($data as $row) {
             $pdf->MultiCell(0, 10, 'Cargo que Ocupa y Cataloga como PEP: ' . $pep_row['cargo_ocupa_ocupo_cataloga_pep'], 0, 'L', 0, 1, '', '', true);
             $pdf->MultiCell(0, 10, 'Desde: ' . $pep_row['desde_cuando_pep'], 0, 'L', 0, 1, '', '', true);
             $pdf->MultiCell(0, 10, 'Hasta: ' . $pep_row['hasta_cuando_pep'], 0, 'L', 0, 1, '', '', true);
-
+            
             $pdf->Ln(5);
             $pdf->SetDrawColor(0, 0, 0);
             $pdf->Line(10, $pdf->GetY(), 200, $pdf->GetY());
@@ -562,11 +555,7 @@ if (file_exists($save_path)) {
             $mail->SMTPSecure = 'ssl';
             $mail->Port       = 465;
             $mail->setFrom('hwiverificacion@hacebwhirlpoolindustrial.com', 'Equipo BI');
-<<<<<<< HEAD
             $mail->addAddress('laura.gallego@hacebwhirlpool.com');
-=======
-            $mail->addAddress('administrador.smartcenter@hacebwhirlpool.com');
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             $mail->addAddress($correo_negociador);
             $mail->isHTML(true);
             $mail->Subject = 'Nuevo Registro LAFT';

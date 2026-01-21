@@ -71,18 +71,13 @@ $hashedPassword = password_hash($password_proveedor, PASSWORD_DEFAULT);
 $rol_usuario = '3';
 $estado_registro = true;
 $is_temporal = true;
-<<<<<<< HEAD
 $proveedor_aprobado    = false;
-=======
-$proveedor_aprobado	= false;
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 $carta_beneficiarios_finales = false;
 
 $correo_envio = $_POST['correo_envio'];
 $correo_negociador = $_SESSION["correo_usuario"];
 
 $insertarProveedor = mysqli_prepare($conexion, "INSERT INTO proveedores
-<<<<<<< HEAD
     (Id_proveedor, numero_acreedor, nombre_proveedor, id_commodity_proveedor, tipo_proveedor, idioma_proveedor, 
     maneja_formato_costbreakdown, historia_proveedor, descripcion_proveedor, porcentaje_bom_proveedor, logo_proveedor,
     Id_categoria, Id_sub_categoria, formulario_ambiental, carta_beneficiarios_finales, correo_negociador, 
@@ -92,16 +87,6 @@ $insertarProveedor = mysqli_prepare($conexion, "INSERT INTO proveedores
 mysqli_stmt_bind_param(
     $insertarProveedor,
     "sisisssssdsiisisss",
-=======
-    (Id_proveedor, numero_acreedor, nombre_proveedor, commodity_proveedor, tipo_proveedor, idioma_proveedor, 
-    maneja_formato_costbreakdown, Id_categoria, Id_sub_categoria, formulario_ambiental, carta_beneficiarios_finales, correo_negociador, 
-    correo_proveedor, proveedor_aprobado) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-mysqli_stmt_bind_param(
-    $insertarProveedor,
-    "sisssssiisisss",
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     $id_proveedor,
     $numero_acreedor,
     $nombre_proveedor,

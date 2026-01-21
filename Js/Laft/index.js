@@ -883,55 +883,6 @@ $(document).ready(function() {
         });
     }
 
-    function cargarCartaBeneficiariosFinales() {
-        var isconsulta = true;
-
-        $.ajax({
-            url: '../../Actions/Laft/cartaBeneficiariosFinales.php',
-            type: 'POST',
-            data: { isconsulta: isconsulta },
-            success: function(response) {
-                var data = JSON.parse(response);
-                ocultarSpinner();
-                if (data.success) {
-                    var cartabeneficiariosFinales = data.cartabeneficiariosFinales;
-                    if (cartabeneficiariosFinales.length > 0) {
-                        loadPartial('_Partials/_CartaBeneficiariosFinales.php', function() {
-                            var filePreviewContainercarta_beneficiarios_finales = document.getElementById("filePreviewContainercarta_beneficiarios_finales");
-                            var filePreviewContentcarta_beneficiarios_finales = document.getElementById("filePreviewContentcarta_beneficiarios_finales");
-                            var modifyFileButtoncarta_beneficiarios_finales = document.getElementById("modifyFileButtoncarta_beneficiarios_finales");
-                            var file_carta_beneficiarios_finales = document.getElementById("file_carta_beneficiarios_finales");
-                            
-                            var fileType = cartabeneficiariosFinales[0].documento_laft.split('.').pop().toLowerCase();
-
-                            filePreviewContentcarta_beneficiarios_finales.innerHTML = '';
-                            filePreviewContainercarta_beneficiarios_finales.style.display = 'block';
-    
-                            if (fileType === 'pdf') {
-                                var iframe = document.createElement("iframe");
-                                iframe.src = cartabeneficiariosFinales[0].documento_laft + "#toolbar=0&navpanes=0&scrollbar=0";
-                                iframe.width = "100%";
-                                iframe.height = "200px";
-                                filePreviewContentcarta_beneficiarios_finales.appendChild(iframe);
-                            }
-
-                            file_carta_beneficiarios_finales.style.display = "none";
-                            modifyFileButtoncarta_beneficiarios_finales.style.display = "block";
-                            $('#carta_beneficiarios_finales').removeAttr("required", "required");
-                        });
-                    } else {
-                        loadPartial('_Partials/_CartaBeneficiariosFinales.php');
-                    }
-                } else {
-                    loadPartial('_Partials/_CartaBeneficiariosFinales.php');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error en la solicitud AJAX:', error);
-            }
-        });
-    }
-
     function agregarFormularioBeneficiario(beneficiario, index) {
         $.ajax({
             url: '../../Actions/Laft/consultarIdioma.php',
@@ -2204,52 +2155,6 @@ $(document).ready(function() {
     }
 
     $(document).on('click', '#next_cartaBeneficiariosFinales', function() {
-<<<<<<< HEAD
-=======
-
-        mostrarSpinner();
-
-        var form = document.querySelector('#formCartaBeneficiariosFinales');
-        
-        if (validateForm(form)) {
-            var formData = new FormData(form);
-
-            $.ajax({
-                url: '../../Actions/Laft/cartaBeneficiariosFinales.php',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    var data = JSON.parse(response);
-                    if (data.success) {
-                        var enviarCorreo = false;
-                        $.ajax({
-                            url: '../../Actions/Laft/generarPDFLAFT.php',
-                            type: 'POST',
-                            data: { enviarCorreo: enviarCorreo },
-                            success: function(response) {
-                            }
-                        });
-                        cargarContactoComercial();
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error en la solicitud AJAX: ", error);
-                }
-            });
-        }else{
-            ocultarSpinner();
-        }
-    });
-
-    $(document).on('click', '#back_cartaBeneficiariosFinales', function() {
-        mostrarSpinner();
-        cargarSuplenteRepresentanteLegal();
-    });
-
-    $(document).on('click', '#next_beneficiariosFinales', function() {
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
         mostrarSpinner();
 

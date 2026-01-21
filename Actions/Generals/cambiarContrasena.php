@@ -75,7 +75,7 @@ if($updateContrasena){
                 showConfirmButton: false,
                 timer: 2000 // Cierra automáticamente después de 3 segundos
             });';
-    echo 'setTimeout(function() { window.location.href = "../../cambiarContrasenaProveedor.php"; }, 2000);';
+    echo 'setTimeout(function() { window.location.href = "../../cambiarContraseñaProveedor.php"; }, 2000);';
     echo '</script>';
 }
 ?>

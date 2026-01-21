@@ -44,8 +44,8 @@ error_reporting(0);
                         <img src="../../img/hwiLogo.png" class="img-logo">
                     </a>
                 </li>
-                <li class="mt-4">
-                    <a href="#" class="text-decoration-none px-3 py-1 d-block">
+                <li class="mt-5">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block">
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>
@@ -98,17 +98,6 @@ error_reporting(0);
                         <i class="material-icons">how_to_reg</i> Proveedores Vinculados
                     </a>
                 </li>
-                <?php
-                if ($Id_area_usuario == 1) {
-                ?>
-                    <li class="">
-                        <a href="serviciosSuministros.php" class="text-decoration-none px-3 py-2 d-block">
-                            <i class="material-icons">design_services</i> Servicios/Suministros
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
             </ul>
         </div>
         <div class="content" id="contenido">

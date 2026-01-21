@@ -12,11 +12,7 @@ $carta_beneficiarios_finales = $_SESSION['carta_beneficiarios_finales'];
         </div>
         <div class="card-body">
             <form id="formSuplenteRepresentanteLegal">
-<<<<<<< HEAD
             <input type="hidden" name="carta_beneficiarios_finales" value="<?php echo $carta_beneficiarios_finales; ?>">
-=======
-                <input type="hidden" name="carta_beneficiarios_finales" value="<?php echo $carta_beneficiarios_finales; ?>">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                 <div class="row">
                     <div class="col-md-6 mt-4">
                         <p><?php echo $lang['tipo_identificacion'] ?></p>

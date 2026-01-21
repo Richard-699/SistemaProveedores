@@ -12,7 +12,6 @@ include("../../ConexionBD/conexion.php");
 $partnumbers = $_POST['partnumber'];
 $descripciones = $_POST['descripcion_partnumber'];
 $commodities_proveedor = $_POST['commodity_proveedor'];
-<<<<<<< HEAD
 $porcentajes_peso_bom_partnumber = $_POST['porcentaje_peso_bom_partnumber'];
 $imagenes_partnumber = $_POST['imagen_partnumber'];
 $imagen_partnumber = null;
@@ -21,15 +20,6 @@ $id_proveedor = $_POST['id_proveedor'];
 $query = "INSERT INTO proveedor_partnumbers (partnumber, descripcion_partnumber, 
                     commodity_partnumber, porcentaje_peso_bom_partnumber, imagen_partnumber, id_proveedor_partnumber) 
                     VALUES (?, ?, ?, ?, ?, ?)";
-=======
-$id_proveedor = $_POST['id_proveedor'];
-
-$query = "INSERT INTO proveedor_partnumbers (partnumber,
-                                             descripcion_partnumber, 
-                                             commodity_partnumber, 
-                                             id_proveedor_partnumber) 
-                                             VALUES (?, ?, ?, ?)";
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 $stmt = $conexion->prepare($query);
 
 if (!$stmt) {
@@ -42,7 +32,6 @@ for ($i = 0; $i < count($partnumbers); $i++) {
     $partnumber = $partnumbers[$i];
     $descripcion = $descripciones[$i];
     $commodity_proveedor = $commodities_proveedor[$i];
-<<<<<<< HEAD
     $porcentaje_peso_bom = $porcentajes_peso_bom_partnumber[$i]; // Asignar el valor individual
 
     if (isset($_FILES['imagen_partnumber']) && $_FILES['imagen_partnumber']['error'][$i] === UPLOAD_ERR_OK) {
@@ -87,14 +76,6 @@ for ($i = 0; $i < count($partnumbers); $i++) {
         $imagen_partnumber,
         $id_proveedor
     );
-=======
-
-    $stmt->bind_param("ssss",
-    $partnumber, 
-    $descripcion, 
-    $commodity_proveedor, 
-    $id_proveedor);
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
     if (!$stmt->execute()) {
         $registroExitoso = false;

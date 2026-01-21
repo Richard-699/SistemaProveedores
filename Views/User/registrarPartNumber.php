@@ -45,11 +45,7 @@ error_reporting(0);
                     </a>
                 </li>
                 <li class="mt-4">
-<<<<<<< HEAD
                     <a href="index.php" class="text-decoration-none px-3 py-2 d-block">
-=======
-                    <a href="index.php" class="text-decoration-none px-3 py-1 d-block">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>
@@ -195,7 +191,6 @@ error_reporting(0);
                             <input name="descripcion_partnumber[]" id="descripcionForm1" oninput="activarBoton1()" type="text" class="form-control custom-input" placeholder="Ingrese la descripción del PartNumber">
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div class="col-md-6 mt-4">
                         <label for="imagen_partnumber" class="floating-label">Imagen PartNumber: *</label>
                         <div class="input-group">
@@ -208,8 +203,6 @@ error_reporting(0);
                             <input name="porcentaje_peso_bom_partnumber[]" id="porcentaje_peso_bom_partnumberForm1" oninput="activarBoton1()" type="text" class="form-control custom-input" placeholder="Ingrese el % del peso en la BOM del PartNumber">
                         </div>
                     </div>
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     <div class="col-md-11 mt-4">
                         <div class="form-group">
                             <label for="Commodity" class="floating-label">Commodity: *</label>
@@ -246,11 +239,7 @@ error_reporting(0);
             var nuevoFormulario = `
                 <div class="row mt-5">
                     <div class="col-md-6">
-<<<<<<< HEAD
                         <label for="PartNumber" class="floating-label">PartNumber: *</label>
-=======
-                        <label for="PartNumber" class="floating-label">PartNumber</label>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <input name="partnumber[]" type="text" id="partnumberForm2" oninput="activarBoton2()" class="form-control custom-input" placeholder="Ingrese el PartNumber">
                     </div>
                     <div class="col-md-6">
@@ -259,7 +248,6 @@ error_reporting(0);
                             <input name="descripcion_partnumber[]" id="descripcionForm2" oninput="activarBoton2()" type="text" class="form-control custom-input" placeholder="Ingrese la descripción del PartNumber">
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div class="col-md-6 mt-4">
                         <label for="imagen_partnumber" class="floating-label">Imagen PartNumber: *</label>
                         <div class="input-group">
@@ -272,8 +260,6 @@ error_reporting(0);
                             <input name="porcentaje_peso_bom_partnumber[]" id="porcentaje_peso_bom_partnumberForm2" oninput="activarBoton1()" type="text" class="form-control custom-input" placeholder="Ingrese el % del peso en la BOM del PartNumber">
                         </div>
                     </div>
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     <div class="col-md-11 mt-4">
                             <div class="form-group">
                                 <label for="Commodity" class="floating-label">Commodity: *</label>

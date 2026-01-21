@@ -1,7 +1,6 @@
 <html>
 
 <head>
-<<<<<<< HEAD
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -12,10 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 
-=======
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     <style>
         .btn-update {
             padding: 5px;
@@ -34,7 +29,6 @@
         .swal-custom-popup {
             z-index: 9999 !important;
         }
-<<<<<<< HEAD
 
         .select2-results__option {
             display: block !important;
@@ -80,8 +74,6 @@
             font-size: 30px;
             color: #6c757d;
         }
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     </style>
 </head>
 
@@ -89,11 +81,7 @@
 
     <div id="editarProveedorPartial" style="display: none; width: 75%;">
         <h2>Editar Proveedor</h2>
-<<<<<<< HEAD
         <form id="formEditarProveedor" enctype="multipart/form-data">
-=======
-        <form id="formEditarProveedor">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
             <input type="hidden" id="Id_proveedor" name="Id_proveedor" value="<?php echo $proveedor['Id_proveedor']; ?>">
 
@@ -173,11 +161,7 @@
                             if (mysqli_num_rows($consultarCommodities) > 0) {
                                 while ($MostrarCommodities = mysqli_fetch_array($consultarCommodities)) {
                             ?>
-<<<<<<< HEAD
                                     <option value="<?php echo $MostrarCommodities['Id_commodity']; ?>"><?php echo $MostrarCommodities['descripcion_commodity'] ?></option>
-=======
-                                    <option value="<?php echo $MostrarCommodities['descripcion_commodity']; ?>"><?php echo $MostrarCommodities['descripcion_commodity'] ?></option>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                             <?php
                                 }
                             }
@@ -215,23 +199,17 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
 
                 <div class="col-md-6 mt-5" id="hiddenIndirectos" style="display: none">
                     <label for="servicio_suministro">Servicios o Suministros: *</label>
                     <select id="servicio_suministro" name="servicios_suministros[]" class="form-control" multiple></select>
                 </div>
 
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                 <div class="col-md-6 mt-5">
                     <label for="correo_proveedor" class="floating-label">Correo Proveedor:*</label>
                     <input type="text" name="correo_proveedor" value="<?php echo $proveedor['correo_proveedor']; ?>" class="form-control custom-input" id="correo_proveedor" placeholder="Ingrese el correo del proveedor">
                 </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                 <div class="col-md-6 mt-5">
                     <label>¿Autoriza Carta para Beneficiarios Finales?: *</label>
                     <div class="d-flex mt-4">
@@ -246,7 +224,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
 
                 <div class="col-md-12 mt-5" id="hiddenDirectos" style="display: none">
                     <label for="historia_proveedor" class="floating-label">Historia: *</label>
@@ -279,16 +256,10 @@
                     </div>
                 </div>
 
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             </div>
         </form>
         <div class="text-end mt-5">
             <button class="btn-update">Actualizar</button>
-<<<<<<< HEAD
-=======
-            <button id="cerrarFancybox" class="btn btn-secondary">Cerrar</button>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
         </div>
     </div>
 </body>
@@ -360,7 +331,6 @@
                 elemento.style.display = 'none';
             });
 
-<<<<<<< HEAD
             <?php $ruta_base = $proveedor['logo_proveedor']; ?>
             var logo_proveedor = '<?php echo $ruta_base ? $ruta_base . '?' . time() : ''; ?>';
             var logoPreview = document.getElementById('logoPreview');
@@ -400,10 +370,6 @@
             var logo_bd = '<?php echo $proveedor['logo_proveedor']; ?>';
             $('#logo_bd').val(logo_bd);
             
-=======
-            var commodity_proveedor = '<?php echo $proveedor['commodity_proveedor']; ?>';
-            $('#Commodity').val(commodity_proveedor);
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
             var maneja_formato_costbreakdown = '<?php echo $proveedor['maneja_formato_costbreakdown']; ?>';
             if (maneja_formato_costbreakdown == 1) {
@@ -421,11 +387,8 @@
                 elemento.style.display = 'block';
             });
 
-<<<<<<< HEAD
             cargarServiciosSuministros();
 
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             var Id_categoria = '<?php echo $proveedor['Id_categoria']; ?>';
             $('#categorias').val(Id_categoria);
 
@@ -532,7 +495,6 @@
         xhr.send();
     }
 
-<<<<<<< HEAD
     function cargarServiciosSuministros() {
         var Id_proveedor = '<?php echo $proveedor['Id_proveedor']; ?>';
 
@@ -576,34 +538,21 @@
             }
         });
     }
-=======
-    document.getElementById("cerrarFancybox").addEventListener("click", function() {
-        $.fancybox.close();
-    });
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
     $('.btn-update').on('click', function(e) {
         e.preventDefault();
 
-<<<<<<< HEAD
         var form = $('#formEditarProveedor')[0]; 
         var formData = new FormData(form);
-=======
-        var formData = $('#formEditarProveedor').serialize();
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 
         $.ajax({
             url: '../../Actions/User/actualizarProveedor.php',
             type: 'POST',
             data: formData,
-<<<<<<< HEAD
             processData: false,
             contentType: false,
             success: function(response) {
                 console.log(response);
-=======
-            success: function(response) {
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                 var result = JSON.parse(response);
                 $.fancybox.close();
                 if (result.success) {
