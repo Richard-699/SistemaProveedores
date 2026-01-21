@@ -1,0 +1,405 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#side_nav {
+    background: #072B31;
+    min-width: 220px;
+    max-width: 350px;
+    width: 240px;
+    transition: all 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100vh
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+    margin-left: 250px;
+    margin-top: 40px;
+}
+
+.sidebar li.active {
+    background: #0093B2;
+    border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+    color: white;
+}
+
+.sidebar li a {
+    color: #ccd2e0;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.sidebar li a:hover {
+    color: white;
+}
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: absolute;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    #side_nav.active {
+        margin-left: 0;
+    }
+}
+
+.material-icons {
+    vertical-align: -4px;
+}
+
+.form-container {
+    position: relative;
+    z-index: 1;
+    max-width: 78%;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+.custom-input {
+    margin-top: 15px;
+}
+
+.prop {
+    display: none;
+}
+
+.card-primary {
+    margin-top: 50px;
+}
+
+.one-header {
+    background-color: #072B31;
+    color: white;
+}
+
+.card-title {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.card-title2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.card-body {
+    margin-top: 15px;
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+.fixed-button-container {
+    position: fixed;
+    top: 370px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.removeamortizacion,
+.removeprocesoproductivo,
+.removemateriaprima {
+    margin-top: 38px;
+    height: 37px;
+}
+
+.hidden {
+    display: none;
+}
+
+.four-header {
+    background-color: #00a8cc;
+    color: white;
+}
+
+.card-subtitle {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.text-totalProcess1 {
+    margin-top: 65px;
+}
+
+.text-totalProcess2 {
+    margin-top: 75px;
+}
+
+p,
+label {
+    margin-left: 3px;
+}
+
+.dropdown-toggle:hover {
+    background-color: #0093B2 !important;
+    color: white !important;
+}
+
+.addAmortizacion {
+    background: #00a8cc;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.precioTotal {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.cbd2{
+    width: 93%;
+}
+
+.inputcbd2{
+    margin-left: -25px;
+    width: 48.5%;
+}
+
+.removecbd2{
+    margin-top: 11px;
+}
+
+#cargarDatosCbd2{
+    margin-top: 85px;
+    height: 38px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 90px;
+    max-width: 80%;
+}
+
+.nav-item {
+    width: 100px; /* Ancho fijo para los elementos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #333;
+    position: relative;
+    z-index: 1;
+    height: 100px;
+}
+
+.nav-item i {
+    background-color: #0093B2;
+    border-radius: 50%;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.nav-item p {
+    margin: 0;
+    text-align: center;
+}
+
+/* Línea que conecta los íconos */
+
+.nav-connector {
+    position: absolute;
+    top: 25%;
+    left: 3.5%;
+    width: 93%;
+    height: 2px;
+    background-color: #ccc;
+    transform: translateY(-1px);
+    z-index: 0;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: dodgerblue;
+    transition: width 0.5s ease;
+}
+
+
+.nav-item.active i {
+    background-color: #0b282d;
+    color: #fff;
+}
+
+.fondo-img{
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-left: 15px;
+}
+
+.img-logo{
+    width: 85px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.subtitles-seccions{
+    color: red;
+}
+
+.btn-buscar{
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 38px;
+}
+
+.btn-buscar:hover{
+    background-color: #0b282d;
+}
+.btn-descarga{  
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.subtitle{
+    font-size: 20px;
+}
+.buttons{
+    float: right;
+}
+.docum{
+    margin-top: 50px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner-container {
+    text-align: center;
+}
+
+.custom-iframe {
+    margin-top: 40px;
+}
+
+.cbd{
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 50px;
+    float: right;
+}
+
+.cbd2{
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 50px;
+    float: left;
+    width: 75px;
+}
+
+.btn-aprobar{  
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 7px;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.btn-aprobarAdmin{  
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 7px;
+    display: inline-block;
+}
+
+.editbtnPassNew{  
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 4px;
+    display: inline-block;
+}
+.export-btn{
+    background-color: #0093B2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 9px;
+    display: inline-block;
+}
+
+.mensaje{
+    text-align: center;
+    color: #ffffff;
+    background-color: #0093B2; /* Fondo verde corporativo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    position: absolute;
+    top: 50%;
+    left: 57%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Ancho del mensaje */
+    max-width: 550px; /* Ancho máximo para pantallas grandes */
+}

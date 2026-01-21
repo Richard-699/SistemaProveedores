@@ -1,0 +1,74 @@
+.bg {
+    background-image: url(../../img/hwiLogo.png);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+
+body {
+    background: #072B31;
+    background: linear-gradient(to left, #0093B2, #072B31);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    top: -12px;
+    left: 0px;
+    transition: top 0.3s, font-size 0.3s, color 0.3s;
+    color: #333;
+}
+
+.custom-input {
+    border: none;
+    border-bottom: 2px solid #ced4da;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    transition: border-color 0.3s;
+    margin-bottom: 30px;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #17a2b8;
+}
+
+.custom-input:focus+.floating-label,
+.custom-input:not(:placeholder-shown)+.floating-label {
+    top: -30px;
+    font-size: 0.9rem;
+    color: #17a2b8;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-top: -15px;
+    display: none;
+    background: none;
+    border: none;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.btn-success{
+    background-color:  #0093B2;
+}
+.btn-success:hover{
+    background-color:  #072B31;
+}
+.text-Ingresar{
+    margin-top: -10px;
+}

@@ -1,0 +1,49 @@
+.franja {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0093B2;
+    height: 70px;
+}
+
+.contenedor-img {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.img-Laft {
+    width: 70px;
+    height: 50px;
+    margin-left: 8px;
+}
+
+.datos-sesion {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.usuario {
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+.usuario:hover {
+    color: white;
+}
+
+.icon-nav {
+    color: white;
+}
+.contenedor-img{
+    background-color: white;
+    padding: 7px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 100px;
+}

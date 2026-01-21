@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#side_nav {
+    background: #072B31;
+    min-width: 220px;
+    max-width: 220px;
+    transition: all 0.3s;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sidebar li.active {
+    background: #0093B2;
+    border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+    color: white;
+}
+
+.sidebar li a {
+    color: #BEC5D4;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.sidebar li a:hover {
+    color: white;
+}
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: absolute;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    #side_nav.active {
+        margin-left: 0;
+    }
+}
+
+.form-container {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    /* Centra horizontalmente */
+}
+
+.title {
+    text-align: center;
+    z-index: 2;
+    /* Nuevo */
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+.custom-input {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+ 
+    /* Añadido margen inferior */
+}
+
+.registrarBtn{
+    width: 15%;
+    margin-top: 30px;
+}
+
+#btnContinuar {
+    margin-top: 43px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.material-icons {
+    vertical-align: -3px;
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+.mlcheck {
+    margin-left: 20px;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+.costbreakdown_simplified{
+    display: none;
+}
+.hr1{
+    margin-top: 15px;
+}
+.title2{
+    margin-top: 45px;
+}
+.msg_error{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: red; 
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 38, 38, 0.5); /* Color de fondo semi-transparente */
+    z-index: 1000; /* Z-index alto para asegurar que esté en la parte superior */
+}
+
+.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; /* Z-index aún más alto para asegurar que esté encima del overlay */
+}

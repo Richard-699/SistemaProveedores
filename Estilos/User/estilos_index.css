@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+#side_nav {
+    background: #072B31;
+    min-width: 220px;
+    max-width: 220px;
+    transition: all 0.3s;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sidebar li.active {
+    background: #0093B2;
+    border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+    color: white;
+}
+
+.sidebar li a {
+    color: #BEC5D4;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.sidebar li a:hover {
+    color: white;
+}
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: absolute;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    #side_nav.active {
+        margin-left: 0;
+    }
+}
+
+.material-icons{
+    vertical-align: -3px;
+}
+
+.franja-animated {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #0093B2;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 0;
+    animation: dropDown 1s ease forwards;
+    margin-top: 30vh;
+}
+
+.texto-fraja {
+    color: white;
+    font-size: 2.5rem;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInText 1.5s ease 1s forwards;
+    margin-top: 10px;
+}
+
+@keyframes dropDown {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

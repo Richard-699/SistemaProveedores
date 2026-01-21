@@ -1,0 +1,342 @@
+[25-Sep-2024 21:06:04 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[30-Sep-2024 17:27:49 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[07-Oct-2024 17:05:12 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[10-Oct-2024 12:25:49 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[15-Oct-2024 22:54:30 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[21-Oct-2024 14:59:36 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[29-Oct-2024 20:06:03 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:150
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(150): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 150
+[08-Nov-2024 14:07:27 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[08-Nov-2024 20:21:18 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[12-Nov-2024 21:03:42 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[14-Nov-2024 23:36:42 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[21-Nov-2024 15:18:44 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[22-Nov-2024 15:58:28 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[02-Dec-2024 15:40:17 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[19-Dec-2024 19:25:46 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[20-Dec-2024 21:22:31 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[10-Jan-2025 18:44:02 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:153
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(153): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 153
+[15-Jan-2025 20:10:43 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[15-Jan-2025 20:51:20 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[16-Jan-2025 15:24:34 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[10-Feb-2025 16:18:20 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[11-Feb-2025 15:40:57 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[14-Feb-2025 19:44:52 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[17-Feb-2025 18:17:23 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[27-Feb-2025 15:55:46 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[04-Mar-2025 12:29:24 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[04-Mar-2025 13:15:00 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[18-Mar-2025 14:33:35 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[25-Mar-2025 15:21:55 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[28-Mar-2025 21:21:33 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[08-Apr-2025 14:06:30 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[14-Apr-2025 18:47:50 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[16-Apr-2025 14:58:24 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[16-Apr-2025 15:01:24 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[21-Apr-2025 18:53:36 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[28-Apr-2025 15:53:51 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[08-May-2025 14:49:25 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[13-May-2025 19:42:40 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[15-May-2025 18:20:55 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[20-May-2025 15:56:48 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[21-May-2025 19:38:00 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/proveedorDetalles.php on line 178
+[21-May-2025 19:38:11 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/proveedorDetalles.php on line 178
+[22-May-2025 19:41:34 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[28-May-2025 20:52:50 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[09-Jun-2025 21:58:27 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[12-Jun-2025 20:55:31 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[02-Jul-2025 14:41:33 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[03-Jul-2025 12:29:49 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[07-Jul-2025 12:24:54 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[14-Jul-2025 12:32:59 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[14-Jul-2025 21:02:03 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[14-Jul-2025 21:17:12 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[29-Jul-2025 13:26:23 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[05-Aug-2025 14:25:42 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[15-Aug-2025 18:34:41 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[19-Aug-2025 18:05:35 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[26-Aug-2025 13:39:25 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[26-Aug-2025 16:33:13 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[02-Sep-2025 15:29:05 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[11-Sep-2025 20:16:48 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[19-Sep-2025 14:05:41 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[30-Sep-2025 11:57:24 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[02-Oct-2025 18:59:33 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[06-Oct-2025 18:37:52 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[07-Oct-2025 11:52:30 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[10-Oct-2025 15:49:31 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[23-Oct-2025 19:58:46 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[24-Nov-2025 14:15:38 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[26-Nov-2025 14:33:14 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164
+[01-Dec-2025 14:04:08 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, null given in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php:164
+Stack trace:
+#0 /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php(164): mysqli_num_rows(NULL)
+#1 {main}
+  thrown in /home/customer/www/sistema.proveedores.hacebwhirlpoolindustrial.com/public_html/SistemaProveedores/Views/User/vincularProveedor.php on line 164

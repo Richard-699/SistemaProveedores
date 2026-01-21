@@ -1,0 +1,93 @@
+.card{
+    width: 80%;
+    margin: 0 auto;
+}
+.card-principal{
+    margin-top: 100px;
+}
+.card-secondary{
+    margin-top: 40px;
+}
+.card-header{
+    background-color: #072B31;
+    color: white;
+    font-size: 24px;
+}
+.card-body{
+    font-size: 16px;
+}
+.btn{
+    padding: 7px;
+    background-color:  #0093B2;
+    color: white;
+}
+.btn-Laft{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-inline-end: 10px;
+}
+.btn-Laft-next{
+    float: right;
+    margin-right: 10%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 85px;
+}
+.btn-Laft-back{
+    float: left;
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 85px;
+}
+.btn-Laft:hover,
+.btn-Laft-next:hover,
+.btn-Laft-back:hover{
+    background-color:  #0093B2;
+    color: white;
+}
+.then{
+    background-color: red;
+}
+.then:hover{
+    background-color: red;
+}
+.medium{
+    font-size: 18px;
+}
+.medium-2{
+    font-size: 18px;
+}
+.error-message{
+    margin-left: 5px;
+}
+.mlcheck{
+    margin-left: 15px;
+}
+.custom-margin{
+    margin-right: 10px;
+}
+
+.custom-margin-2{
+    margin-left: 10px;
+}
+
+.btn-success{
+    padding: 7px;
+    background-color:  #198754;
+    color: white;
+}
+
+.fixed-btn {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.btn-danger{
+    background-color: red;
+    height: 40px;
+}
+.col-md-1{
+    margin-top: 57px;
+}

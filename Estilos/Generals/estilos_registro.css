@@ -1,0 +1,115 @@
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    top: -12px;
+    left: 30px;
+    transition: top 0.3s, font-size 0.3s, color 0.3s; /* Añadido color a la transición */
+    color: #333; /* Color oscuro para el texto del label */
+}
+
+/* Estilo personalizado para el input */
+.custom-input {
+    border: none;
+    border-bottom: 2px solid #ced4da;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    width: 90%; /* Ocupar el ancho completo */
+    transition: border-color 0.3s; /* Añadido para la transición del color de la línea */
+    margin-bottom: 20px;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #17a2b8; /* Cambia el color de la línea al enfocar */
+}
+
+.custom-input:focus + .floating-label,
+.custom-input:not(:placeholder-shown) + .floating-label {
+    top: -30px;
+    font-size: 0.9rem;
+    color: #17a2b8; /* Cambia el color del texto del label al enfocar */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-top: -15px;
+    display: none; /* Inicialmente oculto */
+    background: none;
+    border: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190vh;
+    margin: 0;
+    background: #072B31;
+    background: linear-gradient(to left, #0093B2, #072B31);
+    color: #333; /* Color de texto predeterminado */
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Añadido para centrar el contenido */
+    position: relative;
+    z-index: 1; /* Nuevo */
+    max-width: 500px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.title {
+    text-align: center;
+    z-index: 2; /* Nuevo */
+    margin-top: 40px;
+}
+
+.subtitle{
+    font-size: 14px;
+    color: red;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 70px;
+    height: auto;
+    margin: 10px;
+    z-index: 2;
+}
+
+.btn-success{
+    background-color:  #0093B2;
+}
+.btn-success:hover{
+    background-color:  #072B31;
+}
+.label_format2{
+    float: left;
+    margin-left: 23px;
+    margin-top: -24px;
+}
+.form-select{
+    margin-top: 15px;
+    width: 91%;
+    margin-left: 18px;
+}
+
+span{
+    float: left;
+    margin-left: 24px;
+}

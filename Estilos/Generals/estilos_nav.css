@@ -1,0 +1,52 @@
+.franja {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: #0093B2;
+    height: 70px;
+    position: fixed; /* Fija la franja en la pantalla */
+    top: 0;          /* Alinea la franja en la parte superior */
+    left: 0;         /* Alinea la franja en el borde izquierdo */
+    z-index: 500;
+}
+
+.datos-sesion {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.usuario{
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.usuario:hover{
+    color: white;
+}
+.text-cerrarsesion{
+    margin-left: 33px;
+    font-size: 14px;
+    margin-top: -20px;
+}
+.cerrar-sesion {
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+}
+.cerrar-sesion:hover{
+    color: white;
+}
+
+.separador {
+    width: 1px;
+    height: 40px;
+    background-color: white;
+    margin: 0 10px;
+}
+
+.icon-nav{
+    color: white;
+}
