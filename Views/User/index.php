@@ -40,11 +40,7 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                     </a>
                 </li>
                 <li class="mt-4">
-<<<<<<< HEAD
                     <a href="#" class="text-decoration-none px-3 py-2 d-block">
-=======
-                    <a href="#" class="text-decoration-none px-3 py-1 d-block">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>

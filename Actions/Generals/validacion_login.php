@@ -49,9 +49,8 @@ if (!empty($_POST["btningresar"])) {
                     $_SESSION['correo_negociador'] = $arrayConsulta['correo_negociador'];
                     $_SESSION['carta_beneficiarios_finales'] = $arrayConsulta['carta_beneficiarios_finales'];
                     $is_temporal = $arrayConsulta['is_temporal'];
-                    
                     if ($is_temporal) {
-                        header("Location: ../../cambiarContrasenaProveedor.php");
+                        header("Location: ../../cambiarContraseñaProveedor.php");
                     } else {
                         if ($_SESSION["id_rol_usuarios"] == 1) {
                             header("Location:../../Views/Admin/index.php");

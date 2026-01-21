@@ -69,20 +69,6 @@ $formulario_ambiental = $row['formulario_ambiental'];
                         <button class="btn btn-success" id="modifyFileButtoncopia_cedula_representante_legal" type="button" style="display: none; margin-top: 10px;" onclick="showFileInputId(this)">Modificar archivo</button>
                     </div>
 
-<<<<<<< HEAD
-=======
-                    <?php if ($tipo_persona_laft == "Juridica") { ?>
-                        <div class="col-md-12 mt-4" id="file_RUB">
-                            <p class="mb-0 custom-margin-2"><?php echo $lang['RUB'] ?></p>
-                            <input type="file" class="form-control file-input mt-4" name="RUB" id="RUB" accept=".pdf">
-                            <div style="color: red; margin-top: 15px;" id="error_RUB" style="color: red; display: none;"></div>
-                        </div>
-                        <div class="col-md-12 mt-4" style="display: none;" id="filePreviewContainerRUB">
-                            <p class="mb-0 custom-margin-2"><?php echo $lang['RUB'] ?></p>
-                            <div id="filePreviewContentRUB" class="mt-4"></div>
-                            <button class="btn btn-success" id="modifyFileButtonRUB" type="button" style="display: none; margin-top: 10px;" onclick="showFileInputId(this)">Modificar archivo</button>
-                        </div>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     <?php
                     if ($tipo_persona_laft == "Natural") {
                     ?>

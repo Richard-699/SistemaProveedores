@@ -408,7 +408,6 @@ $lang = array(
     3. No es necesario enviar la información de accionistas o beneficiarios finales, para empresas que coticen en bolsa.',
 
     'carta_beneficiarios_finales' => 'Adjunte la certificación en la que se detalla la razón por la cual no se comparte la información de los beneficiarios finales: *',
-<<<<<<< HEAD
 
     'precio simplified' => 'Precio: *',
 
@@ -418,6 +417,4 @@ $lang = array(
     'Forgot_Password' => '¿Haz Olvidado la Contraseña?',
     'Sin_cuenta' => '¿No tienes una cuenta?',
     'Register' => 'Regístrate'
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 );

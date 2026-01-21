@@ -524,17 +524,13 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                 </div>
 
                 <br><br><br>
+        </div>
 
-            <?php
+    <?php
 
             } else {
-<<<<<<< HEAD
     ?>
         <div class="form-container">
-=======
-            ?>
-                <div class="form-container">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     <br><br>
                     <h2 class="title">Cost BreakDown</h2>
                     <br><br>
@@ -568,7 +564,6 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                                 <input id="desc_partnumber" type="text" class="form-control custom-input" disabled readonly>
                             </div>
 
-<<<<<<< HEAD
                             <div class="col-md-6 mt-5 hidden">
                                         <label class="floating-label"><?php echo $lang['Moneda']; ?></label>
                                         <select required class="form-select custom-input" name="moneda_costbreakdown" id="moneda_costbreakdown" onchange="calcularTotalCbdSimplified()">
@@ -590,11 +585,6 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                             <div id="ContenedorCostbreakDownSimplified"></div>
 
                             <div class="col-md-6 mt-5 hidden">
-=======
-                            <div id="ContenedorCostbreakDownSimplified"></div>
-
-                            <div class="col-md-6 mt-5 hidden">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                 <label class="floating-label">Total %</label>
                                 <input id="total_final_cbd" type="text" class="form-control custom-input" disabled readonly>
                             </div>
@@ -608,23 +598,15 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     <br><br><br>
                 </div>
 
-<<<<<<< HEAD
         <div class="fixed-button-container">
             <button disabled type="button" class="btn btn-primary addSeccion" onclick="addSeccion()"><?php echo $lang['AgregarSeccion']; ?></button>
         </div>
 
     <?php
-=======
-                <div class="fixed-button-container">
-                    <button disabled type="button" class="btn btn-primary addSeccion" onclick="addSeccion()"><?php echo $lang['AgregarSeccion']; ?></button>
-                </div>
-
-            <?php
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             };
-            ?>
+    ?>
 
-        </div>
+    </div>
     </div>
 
 </body>
@@ -2155,11 +2137,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
 
@@ -2300,11 +2278,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
                             contadorFormulariosProcesoProductivo = 0;
@@ -2507,11 +2481,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
 
@@ -2620,11 +2590,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
 
@@ -2644,11 +2610,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                                     isconsulta: isconsulta
                                 },
                                 success: function(response) {
-<<<<<<< HEAD
                                     
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                     var data = JSON.parse(response);
                                     if (data.success) {
 
@@ -2687,11 +2649,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
                             contentSections.forEach(section => section.style.display = 'none');
@@ -2709,11 +2667,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                                     isconsulta: isconsulta
                                 },
                                 success: function(response) {
-<<<<<<< HEAD
                                     
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                     var data = JSON.parse(response);
                                     if (data.success) {
 
@@ -2756,11 +2710,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
 
@@ -2779,11 +2729,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                                     isconsulta: isconsulta
                                 },
                                 success: function(response) {
-<<<<<<< HEAD
                                     
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                     var data = JSON.parse(response);
                                     if (data.success) {
 
@@ -2850,11 +2796,7 @@ if ($_SESSION["id_rol_usuarios"] != 3 && $maneja_formato_costbreakdown == 0) {
                     type: 'POST',
                     data: formData,
                     success: function(response) {
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         var data = JSON.parse(response);
                         if (data.success) {
 

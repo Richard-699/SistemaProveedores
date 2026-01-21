@@ -48,45 +48,27 @@ if (isset($_POST['isconsulta']) && $_POST['isconsulta'] === "true") {
     function cargarArchivos($conexion, $Id_proveedor_laft, $Id_laft, $fileKey, $tipo_documento_laft)
     {
         $is_url_documento_laft = false;
-<<<<<<< HEAD
 
         if ($_FILES[$fileKey]['error'] === UPLOAD_ERR_OK) {
             $fileTmpPath = $_FILES[$fileKey]['tmp_name'];
             $fileType = strtolower(pathinfo($_FILES[$fileKey]['name'], PATHINFO_EXTENSION));
 
-=======
-        
-        if ($_FILES[$fileKey]['error'] === UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES[$fileKey]['tmp_name'];
-            $fileName = $_FILES[$fileKey]['name'];
-
-            $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             if ($fileType !== 'pdf') {
                 return json_encode(['success' => false, 'message' => 'El archivo debe estar en formato PDF.']);
             }
 
             $carpeta = '../../documents/' . $Id_proveedor_laft;
-<<<<<<< HEAD
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             if (!file_exists($carpeta)) {
                 if (!mkdir($carpeta, 0755, true)) {
                     return json_encode(['success' => false, 'message' => 'Error al crear la carpeta.']);
                 }
             }
 
-<<<<<<< HEAD
             // Nombre fijo del archivo
             $nombreArchivoFijo = 'Carta_Beneficiarios_Finales.pdf';
             $targetFilePath = $carpeta . '/' . $nombreArchivoFijo;
 
             // Verificar si ya existe en BD
-=======
-            $targetFilePath = $carpeta . '/' . $fileName;
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             $stmt_verificar = $conexion->prepare("SELECT documento_laft FROM laft_documentos WHERE tipo_documento_laft = ? AND Id_laft_documentos = ?");
             $stmt_verificar->bind_param('ss', $tipo_documento_laft, $Id_laft);
             $stmt_verificar->execute();
@@ -94,30 +76,18 @@ if (isset($_POST['isconsulta']) && $_POST['isconsulta'] === "true") {
 
             if ($fila = $resultado->fetch_assoc()) {
                 $documentoExistente = $fila['documento_laft'];
-<<<<<<< HEAD
                 if (file_exists($documentoExistente)) {
                     unlink($documentoExistente);
                 }
 
                 // Actualizar ruta en BD
-=======
-
-                $documentoExistentePath = $carpeta . '/' . $documentoExistente;
-                if (file_exists($documentoExistentePath)) {
-                    unlink($documentoExistentePath);
-                }
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                 $stmt_actualizar = $conexion->prepare("UPDATE laft_documentos SET documento_laft = ?, is_url_documento_laft = ? WHERE tipo_documento_laft = ? AND Id_laft_documentos = ?");
                 $stmt_actualizar->bind_param('siss', $targetFilePath, $is_url_documento_laft, $tipo_documento_laft, $Id_laft);
                 if (!$stmt_actualizar->execute()) {
                     return json_encode(['success' => false, 'message' => 'Error al actualizar el nombre del archivo en la base de datos.']);
                 }
             } else {
-<<<<<<< HEAD
                 // Insertar si no existe
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                 $stmt_insertar = $conexion->prepare("INSERT INTO laft_documentos (tipo_documento_laft, is_url_documento_laft, documento_laft, Id_laft_documentos) VALUES (?, ?, ?, ?)");
                 $stmt_insertar->bind_param('siss', $tipo_documento_laft, $is_url_documento_laft, $targetFilePath, $Id_laft);
                 if (!$stmt_insertar->execute()) {
@@ -125,10 +95,7 @@ if (isset($_POST['isconsulta']) && $_POST['isconsulta'] === "true") {
                 }
             }
 
-<<<<<<< HEAD
             // Mover archivo con nombre fijo
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             if (!move_uploaded_file($fileTmpPath, $targetFilePath)) {
                 return json_encode(['success' => false, 'message' => 'Error al mover el archivo.']);
             }

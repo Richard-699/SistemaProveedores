@@ -34,11 +34,10 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <title>HWI</title>
     <style>
-        th,
-        td {
-            text-align: left;
-        }
-    </style>
+    th, td {
+        text-align: left;
+    }
+</style>
 </head>
 
 <body>
@@ -54,11 +53,7 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                     </a>
                 </li>
                 <li class="mt-4">
-<<<<<<< HEAD
                     <a href="index.php" class="text-decoration-none px-3 py-2 d-block">
-=======
-                    <a href="index.php" class="text-decoration-none px-3 py-1 d-block">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>
@@ -91,17 +86,6 @@ if ($_SESSION["id_rol_usuarios"] != 2) {
                             <i class="material-icons">description</i> Resultado Cbd
                         </a>
                     </li>
-                    <?php
-                    if ($Id_area_usuario == 1) {
-                    ?>
-                        <li class="">
-                            <a href="serviciosSuministros.php" class="text-decoration-none px-3 py-2 d-block">
-                                <i class="material-icons">design_services</i> Servicios/Suministros
-                            </a>
-                        </li>
-                    <?php
-                    }
-                    ?>
                 <?php
                 }
                 ?>

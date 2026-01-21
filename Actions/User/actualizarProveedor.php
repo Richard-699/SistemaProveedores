@@ -12,7 +12,6 @@ $carta_beneficiarios_finales = $_POST['carta_beneficiarios_finales'];
 
 $Id_categoria = NULL;
 $Id_sub_categoria = NULL;
-<<<<<<< HEAD
 $id_commodity_proveedor = NULL;
 $maneja_formato_costbreakdown = NULL;
 $historia_proveedor = null;
@@ -55,14 +54,6 @@ if($tipo_proveedor == "Directo"){
             exit;
         }
     }
-=======
-$commodity_proveedor = NULL;
-$maneja_formato_costbreakdown = NULL;
-
-if($tipo_proveedor == "Directo"){
-    $commodity_proveedor = $_POST['commodity_proveedor'];
-    $maneja_formato_costbreakdown = $_POST['maneja_el_formato_CostBreakDown'];
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 }else{
     $Id_categoria = $_POST['id_categoria'];
     $Id_sub_categoria = $_POST['id_sub_categoria'];
@@ -72,15 +63,10 @@ $formulario_ambiental = $_POST['formulario_ambiental'];
 
 $query = "UPDATE proveedores 
           SET numero_acreedor = ?, nombre_proveedor = ?, idioma_proveedor = ?, tipo_proveedor = ?, 
-<<<<<<< HEAD
               Id_categoria = ?, Id_sub_categoria = ?, id_commodity_proveedor = ?, 
               maneja_formato_costbreakdown = ?, historia_proveedor = ?, descripcion_proveedor = ?,
               porcentaje_bom_proveedor = ?, logo_proveedor = ?,
               formulario_ambiental = ?, correo_proveedor = ?,
-=======
-              Id_categoria = ?, Id_sub_categoria = ?, commodity_proveedor = ?, 
-              maneja_formato_costbreakdown = ?, formulario_ambiental = ?, correo_proveedor = ?,
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
               carta_beneficiarios_finales = ?
           WHERE Id_proveedor = ?";
 
@@ -90,35 +76,25 @@ if($stmt === false) {
     die("Error al preparar la consulta: " . $conexion->error);
 }
 
-<<<<<<< HEAD
 $stmt->bind_param("isssiiisssdsssis", 
-=======
-$stmt->bind_param("isssiissssis", 
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     $numero_acreedor, 
     $nombre_proveedor,
     $idioma_proveedor,
     $tipo_proveedor, 
     $Id_categoria, 
     $Id_sub_categoria, 
-<<<<<<< HEAD
     $id_commodity_proveedor, 
     $maneja_formato_costbreakdown,
     $historia_proveedor,
     $descripcion_proveedor,
     $porcentaje_bom_proveedor,
     $logo_proveedor,
-=======
-    $commodity_proveedor, 
-    $maneja_formato_costbreakdown, 
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
     $formulario_ambiental,
     $correo_proveedor,
     $carta_beneficiarios_finales,
     $Id_proveedor
 );
 
-<<<<<<< HEAD
 if ($stmt->execute()) {
     $success = true;
 }else{
@@ -150,13 +126,4 @@ if($success){
     echo json_encode(['success' => false, 'message' => 'Error al actualizar el proveedor']);
 }
 
-=======
-if($stmt->execute()) {
-    echo json_encode(['success' => true, 'message' => 'Proveedor actualizado con éxito']);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Error al actualizar el proveedor']);
-}
-
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
 ?>

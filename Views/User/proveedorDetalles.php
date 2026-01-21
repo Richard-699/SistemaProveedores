@@ -52,11 +52,7 @@ error_reporting(0);
                     </a>
                 </li>
                 <li class="mt-4">
-<<<<<<< HEAD
                     <a href="index.php" class="text-decoration-none px-3 py-2 d-block">
-=======
-                    <a href="index.php" class="text-decoration-none px-3 py-1 d-block">
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         <i class="material-icons">home</i> Inicio
                     </a>
                 </li>
@@ -142,11 +138,7 @@ error_reporting(0);
                 <div class="pdf-preview">
                     <div class="pdf-container">
                         <?php
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         $stmt = $conexion->prepare("SELECT MAX(fecha_actualizacion_historico) AS ultima_fecha
                                                     FROM laft_historico
                                                     WHERE Id_proveedor_laft_historico = ?");
@@ -156,10 +148,6 @@ error_reporting(0);
                         $ultimaActualizacionLAFT = $result->fetch_assoc();
 
                         $rutaLAFT = '../../documents/' . $Id_proveedor . '/LAFT/' . $ultimaActualizacionLAFT['ultima_fecha'] . '/LAFT.pdf';
-<<<<<<< HEAD
-=======
-
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                         $rutaAmbiental = '../../documents/' . $Id_proveedor . '/Ambiental.pdf';
 
                         $consultarTipoPersona = $conexion->prepare("SELECT * FROM laft WHERE Id_proveedor_laft = ?");
@@ -372,11 +360,7 @@ error_reporting(0);
                                     } elseif ($fila['tipo_documento_laft'] == "Carta Beneficiarios Finales") {
                                     ?>
                                         <div class="col-md-6 mt-5">
-<<<<<<< HEAD
                                             <h3 class="subtitle"><?php echo "RUB"; ?></h3>
-=======
-                                            <h3 class="subtitle"><?php echo "Carta Beneficiarios Finales"; ?></h3>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                             <iframe width="100%" height="200px" src="<?php echo $fila['documento_laft'] ?>#toolbar=0"></iframe>
                                             <a href="<?php echo $fila['documento_laft'] ?>" target="_blank" class="btn-descarga">Abrir Documento</a>
                                         </div>
@@ -398,20 +382,20 @@ error_reporting(0);
                                         </div>
                                     <?php
                                     } elseif ($fila['tipo_documento_laft'] == "PDF Portafolio Servicios" && $fila['is_url_documento_laft'] == 0) {
-                                    ?>
-                                        <div class="col-md-6 mt-5">
-                                            <h3 class="subtitle"><?php echo "Pdf Portafolio Servicios/Suministros"; ?></h3>
-                                            <iframe width="100%" height="200px" src="<?php echo $fila['documento_laft'] ?>#toolbar=0"></iframe>
-                                            <a href="<?php echo $fila['documento_laft'] ?>" target="_blank" class="btn-descarga">Abrir Documento</a>
-                                        </div>
-                                    <?php
+                                        ?>
+                                            <div class="col-md-6 mt-5">
+                                                <h3 class="subtitle"><?php echo "Pdf Portafolio Servicios/Suministros"; ?></h3>
+                                                <iframe width="100%" height="200px" src="<?php echo $fila['documento_laft'] ?>#toolbar=0"></iframe>
+                                                <a href="<?php echo $fila['documento_laft'] ?>" target="_blank" class="btn-descarga">Abrir Documento</a>
+                                            </div>
+                                        <?php
                                     } elseif ($fila['tipo_documento_laft'] == "PDF Portafolio Servicios" && $fila['is_url_documento_laft'] == 1) {
-                                    ?>
-                                        <div class="col-md-6 mt-5">
-                                            <h3 class="subtitle"><?php echo "Url Portafolio Servicios/Suministros"; ?></h3>
-                                            <a href="<?php echo $fila['documento_laft'] ?>" target="_blank"><?php echo $fila['documento_laft'] ?></a>
-                                        </div>
-                                    <?php
+                                        ?>
+                                            <div class="col-md-6 mt-5">
+                                                <h3 class="subtitle"><?php echo "Url Portafolio Servicios/Suministros"; ?></h3>
+                                                <a href="<?php echo $fila['documento_laft'] ?>" target="_blank"><?php echo $fila['documento_laft'] ?></a>
+                                            </div>
+                                        <?php
                                     }
                                 }
 
@@ -479,28 +463,19 @@ error_reporting(0);
 
                                 $aprobado_ambiental = $row['aprobado_ambiental'];
                                 $observaciones_ambiental = $row['observaciones_ambiental'];
-<<<<<<< HEAD
                                 if($observaciones_cumplimiento != null){
                         ?>
-=======
-                            if($observaciones_cumplimiento != null){
-                                ?>
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                                 <p>Cumplimiento: <?php echo $aprobado_cumplimiento == 1 ? "Aprobado" : "Rechazado"; ?></p>
                                 <p>Observaciones: <?php echo htmlspecialchars($observaciones_cumplimiento); ?></p>
-                                <?php
-                                if ($observaciones_ambiental != null) { ?>
+
+                                <?php if ($observaciones_ambiental != null) { ?>
                                     <p>Ambiental: <?php echo $aprobado_ambiental == 1 ? "Aprobado" : "Rechazado"; ?></p>
                                     <p>Observaciones: <?php echo htmlspecialchars($observaciones_ambiental); ?></p>
                                 <?php } ?>
+
                                 <hr>
-<<<<<<< HEAD
                         <?php
                                 }
-=======
-                                <?php
-                            }
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                             } else {
                                 echo "<p>No se encontraron registros para el proveedor seleccionado.</p>";
                             }
@@ -510,11 +485,7 @@ error_reporting(0);
                         }
                         ?>
                         <div class="buttons">
-<<<<<<< HEAD
                         <?php
-=======
-                            <?php
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                             if($Id_area_usuario == 1){
                                 if(!$ocultarButtons){
                                     ?>
@@ -839,27 +810,18 @@ if ($Id_area_usuario == 1) {
             });
         });
 
-<<<<<<< HEAD
         function aprobarNegociacion(opcion, id_proveedor, numero_acreedor) {
             
             if(numero_acreedor == null){
                 numero_acreedor = document.getElementById('numero_acreedor').value;
             }
-=======
-        function aprobarNegociacion(opcion, id_proveedor) {
-            var numero_acreedor = document.getElementById('numero_acreedor');
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             var observaciones = document.getElementById('observaciones_negociacion').value;
 
             var formData = new FormData();
             formData.append('opcion', opcion);
             formData.append('id_proveedor', id_proveedor);
             if(numero_acreedor){
-<<<<<<< HEAD
                 formData.append('numero_acreedor', numero_acreedor);
-=======
-                formData.append('numero_acreedor', numero_acreedor).value;
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
             }
             formData.append('observaciones_negociacion', observaciones);
 
