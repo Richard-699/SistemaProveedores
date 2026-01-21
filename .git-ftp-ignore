@@ -1,0 +1,7 @@
+# Ignorar carpetas de carga de usuarios
+public_html/SistemaProveedores/documents/
+
+.env
+.gitignore
+.git-ftp-ignore
+node_modules/
