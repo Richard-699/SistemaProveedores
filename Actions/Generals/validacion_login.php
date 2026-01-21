@@ -46,14 +46,12 @@ if (!empty($_POST["btningresar"])) {
                     $_SESSION['maneja_formato_costbreakdown'] = $arrayConsulta['maneja_formato_costbreakdown'];
                     $_SESSION['Id_area_usuario'] = $arrayConsulta['Id_area_usuario'];
                     $_SESSION['tipo_proveedor'] = $arrayConsulta['tipo_proveedor'];
-<<<<<<< HEAD
                     $_SESSION['correo_negociador'] = $arrayConsulta['correo_negociador'];
-=======
->>>>>>> 8fe25a02a378af3db1c5f09c74bddd125a144800
                     $_SESSION['carta_beneficiarios_finales'] = $arrayConsulta['carta_beneficiarios_finales'];
                     $is_temporal = $arrayConsulta['is_temporal'];
+                    
                     if ($is_temporal) {
-                        header("Location: ../../cambiarContraseñaProveedor.php");
+                        header("Location: ../../cambiarContrasenaProveedor.php");
                     } else {
                         if ($_SESSION["id_rol_usuarios"] == 1) {
                             header("Location:../../Views/Admin/index.php");
