@@ -102,30 +102,40 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
             <div class="form-container">
                 <h2 class="title"><?php echo $lang['consultar_documentacion'] ?></h2>
                 <div class="row docum">
-                    <div class="col-md-3 mt-5">
-                        <p><?php echo $lang['seleccionar_ano'] ?></p>
-                        <input class="form-control" name="ano_documento" id="ano_documento" type="number" id="year" name="year" min="1900" max="2100" step="1" required>
-                    </div>
                     <div class="col-md-4 mt-5">
-                        <p><?php echo $lang['seleccionar_tipo_doc'] ?></p>
-                        <select class="form-select" id="tipo_documento" name="tipo_documento">
-                            <option value="" selected disabled><?php echo $lang['seleccionar_opcion'] ?></option>
-                            <option value="Rete. Fuente">Rete. Fuente</option>
-                            <option value="Rete. Ica">Rete. Ica</option>
-                            <option value="Rete. Iva">Rete. Iva</option>
+                        <p>Tipo de documento</p>
+                        <select class="form-select" id="tipo_general_documento">
+                            <option value="" selected disabled>Seleccionar opción</option>
+                            <option value="certificados">Certificados de Retenciones</option>
+                            <option value="estado_cuenta">Estados de cuenta</option>
                         </select>
                     </div>
-                    <div class="col-md-3 mt-5 hidden" id="vigencia_container">
-                        <p><?php echo $lang['seleccionar_vigencia'] ?></p>
-                        <select class="form-select" id="vigencia" name="vigencia">
-                            <option value="" selected disabled><?php echo $lang['seleccionar_opcion'] ?></option>
-                            <option value="01. Bimestre I">Bimestre I</option>
-                            <option value="02. Bimestre II">Bimestre II</option>
-                            <option value="03. Bimestre III">Bimestre III</option>
-                            <option value="04. Bimestre IV">Bimestre IV</option>
-                            <option value="05. Bimestre V">Bimestre V</option>
-                            <option value="06. Bimestre VI">Bimestre VI</option>
-                        </select>
+                    <div id="filtros-certificados" class="row" style="display: none;">
+                        <div class="col-md-3 mt-5">
+                            <p><?php echo $lang['seleccionar_ano'] ?></p>
+                            <input class="form-control" name="ano_documento" id="ano_documento" type="number" id="year" name="year" min="1900" max="2100" step="1" required>
+                        </div>
+                        <div class="col-md-4 mt-5">
+                            <p><?php echo $lang['seleccionar_tipo_doc'] ?></p>
+                            <select class="form-select" id="tipo_documento" name="tipo_documento">
+                                <option value="" selected disabled><?php echo $lang['seleccionar_opcion'] ?></option>
+                                <option value="Rete. Fuente">Rete. Fuente</option>
+                                <option value="Rete. Ica">Rete. Ica</option>
+                                <option value="Rete. Iva">Rete. Iva</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mt-5 hidden" id="vigencia_container">
+                            <p><?php echo $lang['seleccionar_vigencia'] ?></p>
+                            <select class="form-select" id="vigencia" name="vigencia">
+                                <option value="" selected disabled><?php echo $lang['seleccionar_opcion'] ?></option>
+                                <option value="01. Bimestre I">Bimestre I</option>
+                                <option value="02. Bimestre II">Bimestre II</option>
+                                <option value="03. Bimestre III">Bimestre III</option>
+                                <option value="04. Bimestre IV">Bimestre IV</option>
+                                <option value="05. Bimestre V">Bimestre V</option>
+                                <option value="06. Bimestre VI">Bimestre VI</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="col-md-2 mt-5">
                         <button class="btn btn-primary btn-buscar">
@@ -141,6 +151,19 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            const tipoGeneralSelect = document.getElementById('tipo_general_documento');
+            const filtrosCertificados = document.getElementById('filtros-certificados');
+
+            tipoGeneralSelect.addEventListener('change', function() {
+                const valor = this.value;
+
+                if (valor === 'estado_cuenta') {
+                    filtrosCertificados.style.display = 'none';
+                } else if (valor === 'certificados') {
+                    filtrosCertificados.style.display = 'flex';
+                }
+            });
             const yearInput = document.getElementById('ano_documento');
             const tipoDocumentoSelect = document.getElementById('tipo_documento');
             const vigenciaContainer = document.getElementById('vigencia_container');
@@ -169,6 +192,7 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
             });
 
             $('.btn-buscar').on('click', function() {
+                var tipo_general_documento = $('#tipo_general_documento').val();
                 var ano_documento = $('#ano_documento').val();
                 var tipo_documento = $('#tipo_documento').val();
                 var vigencia = $('#vigencia').val();
@@ -191,6 +215,7 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
                     type: 'POST',
                     dataType: 'json',
                     data: {
+                        tipo_general_documento: tipo_general_documento,
                         ano_documento: ano_documento,
                         tipo_documento: tipo_documento,
                         vigencia: vigencia
@@ -201,6 +226,32 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
                         }
 
                         if (response.success) {
+                            if (tipo_general_documento === 'estado_cuenta') {
+
+                                var documentosContainer = $('#documentos-container');
+                                documentosContainer.empty();
+
+                                $.each(response.files, function(index, file) {
+
+                                    var card = `
+                                    <div class="card mt-4 shadow-sm">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Estado de Cuenta</h5>
+                                            <p class="card-text">${file.name}</p>
+                                            <a href="${file.downloadUrl}" target="_blank" class="btn btn-primary btn-buscar d-inline-flex align-items-center gap-2">
+                                                <span class="material-icons">download</span>
+                                                Descargar estado de cuenta
+                                            </a>
+                                        </div>
+                                    </div>
+                                `;
+
+                                    documentosContainer.append(card);
+                                });
+
+                                return;
+                            }
+
                             var files = response.files;
                             var documentosContainer = $('#documentos-container');
                             documentosContainer.empty();
@@ -232,6 +283,7 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
                         }
                     },
                     error: function(xhr, status, error) {
+                        console.log(xhr.responseText);
                         // Eliminar el spinner y overlay al finalizar la solicitud con error
                         if (overlay) {
                             overlay.parentNode.removeChild(overlay);

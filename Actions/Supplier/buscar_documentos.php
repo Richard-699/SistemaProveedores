@@ -12,6 +12,7 @@ $client->setScopes(['https://www.googleapis.com/auth/drive.readonly']);
 $service = new Google_Service_Drive($client);
 
 $baseFolderId = '1RYGIdvzscpqcr5GHAUTkvid7-mV73gii';
+$tipo_general_documento = $_POST['tipo_general_documento'];
 $ano_documento = $_POST['ano_documento'];
 $tipo_documento = $_POST['tipo_documento'];
 $vigencia = $_POST['vigencia'];
@@ -29,49 +30,129 @@ try {
     } else {
         $acreedorFolderId = $resultsFolder->getFiles()[0]->getId();
 
-        $queryYearFolder = "'$acreedorFolderId' in parents and name='$ano_documento' and mimeType='application/vnd.google-apps.folder' and trashed=false";
-        $paramsYearFolder = [
-            'q' => $queryYearFolder,
-            'fields' => 'files(id, name)',
-        ];
-
-        $resultsYearFolder = $service->files->listFiles($paramsYearFolder);
-
-        if (count($resultsYearFolder->getFiles()) == 0) {
-            echo json_encode(['success' => false, 'message' => 'No se encontró información para el año seleccionado.']);
-        } else {
-            $yearFolderId = $resultsYearFolder->getFiles()[0]->getId();
-
-            $queryDocTypeFolder = "'$yearFolderId' in parents and name='$tipo_documento' and mimeType='application/vnd.google-apps.folder' and trashed=false";
-            $paramsDocTypeFolder = [
-                'q' => $queryDocTypeFolder,
+        if ($tipo_general_documento == 'estado_cuenta') {
+            $queryEstadoCuentaFolder = "'$acreedorFolderId' in parents and name='Estados de Cuenta' and mimeType='application/vnd.google-apps.folder' and trashed=false";
+            $paramsEstadosCuentaFolder = [
+                'q' => $queryEstadoCuentaFolder,
                 'fields' => 'files(id, name)',
             ];
 
-            $resultsDocTypeFolder = $service->files->listFiles($paramsDocTypeFolder);
+            $resultsEstadosCuentaFolder = $service->files->listFiles($paramsEstadosCuentaFolder);
 
-            if (count($resultsDocTypeFolder->getFiles()) == 0) {
-                echo json_encode(['success' => false, 'message' => 'No se encontró información para el tipo de documento seleccionado en ese año, a partir del 15 de febrero estarán disponibles. ']);
+            if (count($resultsEstadosCuentaFolder->getFiles()) == 0) {
+                echo json_encode(['success' => false, 'message' => 'No se encontró información de estados de cuenta.']);
                 exit;
-            } else {
-                $docTypeFolderId = $resultsDocTypeFolder->getFiles()[0]->getId();
             }
 
-            if ($tipo_documento !== 'Rete. Fuente') {
-                $queryVigenciaFolder = "'$docTypeFolderId' in parents and name='$vigencia' and mimeType='application/vnd.google-apps.folder' and trashed=false";
-                $paramsVigenciaFolder = [
-                    'q' => $queryVigenciaFolder,
+            $estadoCuentaFolderId = $resultsEstadosCuentaFolder->getFiles()[0]->getId();
+
+            // 🔎 Buscar archivos dentro de la carpeta
+            $queryFiles = "'$estadoCuentaFolderId' in parents and trashed=false";
+            $paramsFiles = [
+                'q' => $queryFiles,
+                'fields' => 'files(id, name, mimeType)',
+            ];
+
+            $resultsFiles = $service->files->listFiles($paramsFiles);
+
+            if (count($resultsFiles->getFiles()) == 0) {
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'No hay archivos en Estados de Cuenta.'
+                ]);
+                exit;
+            }
+
+            $filesData = [];
+
+            foreach ($resultsFiles->getFiles() as $file) {
+                $fileId = $file->getId();
+                $fileName = $file->getName();
+
+                $filesData[] = [
+                    'name' => $fileName,
+                    'downloadUrl' => "https://drive.google.com/uc?export=download&id=$fileId"
+                ];
+            }
+
+            echo json_encode([
+                'success' => true,
+                'files' => $filesData
+            ]);
+
+            exit;
+        } else {
+
+            $queryYearFolder = "'$acreedorFolderId' in parents and name='$ano_documento' and mimeType='application/vnd.google-apps.folder' and trashed=false";
+            $paramsYearFolder = [
+                'q' => $queryYearFolder,
+                'fields' => 'files(id, name)',
+            ];
+
+            $resultsYearFolder = $service->files->listFiles($paramsYearFolder);
+
+            if (count($resultsYearFolder->getFiles()) == 0) {
+                echo json_encode(['success' => false, 'message' => 'No se encontró información para el año seleccionado.']);
+            } else {
+                $yearFolderId = $resultsYearFolder->getFiles()[0]->getId();
+
+                $queryDocTypeFolder = "'$yearFolderId' in parents and name='$tipo_documento' and mimeType='application/vnd.google-apps.folder' and trashed=false";
+                $paramsDocTypeFolder = [
+                    'q' => $queryDocTypeFolder,
                     'fields' => 'files(id, name)',
                 ];
 
-                $resultsVigenciaFolder = $service->files->listFiles($paramsVigenciaFolder);
+                $resultsDocTypeFolder = $service->files->listFiles($paramsDocTypeFolder);
 
-                if (count($resultsVigenciaFolder->getFiles()) == 0) {
-                    echo json_encode(['success' => false, 'message' => 'No se encontró información para la vigencia seleccionada, se generan el 7° día hábil siguiente al bimestre. ']);
+                if (count($resultsDocTypeFolder->getFiles()) == 0) {
+                    echo json_encode(['success' => false, 'message' => 'No se encontró información para el tipo de documento seleccionado en ese año, a partir del 15 de febrero estarán disponibles. ']);
+                    exit;
                 } else {
-                    $vigenciaFolderId = $resultsVigenciaFolder->getFiles()[0]->getId();
+                    $docTypeFolderId = $resultsDocTypeFolder->getFiles()[0]->getId();
+                }
 
-                    $queryFiles = "'$vigenciaFolderId' in parents and trashed=false";
+                if ($tipo_documento !== 'Rete. Fuente') {
+                    $queryVigenciaFolder = "'$docTypeFolderId' in parents and name='$vigencia' and mimeType='application/vnd.google-apps.folder' and trashed=false";
+                    $paramsVigenciaFolder = [
+                        'q' => $queryVigenciaFolder,
+                        'fields' => 'files(id, name)',
+                    ];
+
+                    $resultsVigenciaFolder = $service->files->listFiles($paramsVigenciaFolder);
+
+                    if (count($resultsVigenciaFolder->getFiles()) == 0) {
+                        echo json_encode(['success' => false, 'message' => 'No se encontró información para la vigencia seleccionada, se generan el 7° día hábil siguiente al bimestre. ']);
+                    } else {
+                        $vigenciaFolderId = $resultsVigenciaFolder->getFiles()[0]->getId();
+
+                        $queryFiles = "'$vigenciaFolderId' in parents and trashed=false";
+                        $paramsFiles = [
+                            'q' => $queryFiles,
+                            'fields' => 'files(id, name)',
+                        ];
+
+                        $resultsFiles = $service->files->listFiles($paramsFiles);
+
+                        if (count($resultsFiles->getFiles()) == 0) {
+                            echo json_encode(['success' => false, 'message' => 'No se encontró información para la vigencia seleccionada, se generan el 7° día hábil siguiente al bimestre.']);
+                        } else {
+                            $filesData = [];
+                            foreach ($resultsFiles->getFiles() as $file) {
+                                $fileId = $file->getId();
+                                $fileName = $file->getName();
+                                $filePreviewUrl = "https://drive.google.com/file/d/$fileId/preview";
+                                $fileDownloadUrl = "https://drive.google.com/uc?export=download&id=$fileId";
+                                $filesData[] = [
+                                    'name' => $fileName,
+                                    'previewUrl' => $filePreviewUrl,
+                                    'downloadUrl' => $fileDownloadUrl,
+                                ];
+                            }
+                            echo json_encode(['success' => true, 'files' => $filesData]);
+                        }
+                    }
+                } else {
+                    $queryFiles = "'$docTypeFolderId' in parents and trashed=false";
                     $paramsFiles = [
                         'q' => $queryFiles,
                         'fields' => 'files(id, name)',
@@ -80,7 +161,7 @@ try {
                     $resultsFiles = $service->files->listFiles($paramsFiles);
 
                     if (count($resultsFiles->getFiles()) == 0) {
-                        echo json_encode(['success' => false, 'message' => 'No se encontró información para la vigencia seleccionada, se generan el 7° día hábil siguiente al bimestre.']);
+                        echo json_encode(['success' => false, 'message' => 'No se encontraron archivos en la carpeta del tipo de documento.']);
                     } else {
                         $filesData = [];
                         foreach ($resultsFiles->getFiles() as $file) {
@@ -97,36 +178,9 @@ try {
                         echo json_encode(['success' => true, 'files' => $filesData]);
                     }
                 }
-            } else {
-                $queryFiles = "'$docTypeFolderId' in parents and trashed=false";
-                $paramsFiles = [
-                    'q' => $queryFiles,
-                    'fields' => 'files(id, name)',
-                ];
-
-                $resultsFiles = $service->files->listFiles($paramsFiles);
-
-                if (count($resultsFiles->getFiles()) == 0) {
-                    echo json_encode(['success' => false, 'message' => 'No se encontraron archivos en la carpeta del tipo de documento.']);
-                } else {
-                    $filesData = [];
-                    foreach ($resultsFiles->getFiles() as $file) {
-                        $fileId = $file->getId();
-                        $fileName = $file->getName();
-                        $filePreviewUrl = "https://drive.google.com/file/d/$fileId/preview";
-                        $fileDownloadUrl = "https://drive.google.com/uc?export=download&id=$fileId";
-                        $filesData[] = [
-                            'name' => $fileName,
-                            'previewUrl' => $filePreviewUrl,
-                            'downloadUrl' => $fileDownloadUrl,
-                        ];
-                    }
-                    echo json_encode(['success' => true, 'files' => $filesData]);
-                }
             }
         }
     }
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => 'Ha ocurrido un error: ' . $e->getMessage()]);
 }
-?>
