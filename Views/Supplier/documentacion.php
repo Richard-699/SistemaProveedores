@@ -226,7 +226,9 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
                                 documentosContainer.append(fileContainer);
                             });
                         } else {
-                            $('#documentos-container').html('<p>' + response.message + '</p>');
+                            $('#documentos-container').html(
+                                '<p style="margin-top: 20px; color: red;">' + response.message + '</p>'
+                            );
                         }
                     },
                     error: function(xhr, status, error) {

@@ -25,7 +25,7 @@ $paramsFolder = [
 try {
     $resultsFolder = $service->files->listFiles($paramsFolder);
     if (count($resultsFolder->getFiles()) == 0) {
-        echo json_encode(['success' => false, 'message' => 'No se encontró la carpeta del acreedor.']);
+        echo json_encode(['success' => false, 'message' => 'No se encuentra registrado el número del acreedor.']);
     } else {
         $acreedorFolderId = $resultsFolder->getFiles()[0]->getId();
 
@@ -38,7 +38,7 @@ try {
         $resultsYearFolder = $service->files->listFiles($paramsYearFolder);
 
         if (count($resultsYearFolder->getFiles()) == 0) {
-            echo json_encode(['success' => false, 'message' => 'No se encontró la subcarpeta del año.']);
+            echo json_encode(['success' => false, 'message' => 'No se encontró información para el año seleccionado.']);
         } else {
             $yearFolderId = $resultsYearFolder->getFiles()[0]->getId();
 
@@ -51,7 +51,7 @@ try {
             $resultsDocTypeFolder = $service->files->listFiles($paramsDocTypeFolder);
 
             if (count($resultsDocTypeFolder->getFiles()) == 0) {
-                echo json_encode(['success' => false, 'message' => 'No se encontró la subcarpeta del tipo de documento.']);
+                echo json_encode(['success' => false, 'message' => 'No se encontró información para el tipo de documento seleccionado en ese año, a partir del 15 de febrero estarán disponibles. ']);
                 exit;
             } else {
                 $docTypeFolderId = $resultsDocTypeFolder->getFiles()[0]->getId();
@@ -67,7 +67,7 @@ try {
                 $resultsVigenciaFolder = $service->files->listFiles($paramsVigenciaFolder);
 
                 if (count($resultsVigenciaFolder->getFiles()) == 0) {
-                    echo json_encode(['success' => false, 'message' => 'No se encontró la subcarpeta de la vigencia.']);
+                    echo json_encode(['success' => false, 'message' => 'No se encontró información para la vigencia seleccionada, se generan el 7° día hábil siguiente al bimestre. ']);
                 } else {
                     $vigenciaFolderId = $resultsVigenciaFolder->getFiles()[0]->getId();
 
@@ -80,7 +80,7 @@ try {
                     $resultsFiles = $service->files->listFiles($paramsFiles);
 
                     if (count($resultsFiles->getFiles()) == 0) {
-                        echo json_encode(['success' => false, 'message' => 'No se encontraron archivos en la subcarpeta de la vigencia.']);
+                        echo json_encode(['success' => false, 'message' => 'No se encontró información para la vigencia seleccionada, se generan el 7° día hábil siguiente al bimestre.']);
                     } else {
                         $filesData = [];
                         foreach ($resultsFiles->getFiles() as $file) {
