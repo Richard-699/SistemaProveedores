@@ -256,26 +256,36 @@ if ($_SESSION["id_rol_usuarios"] != 3) {
                             var documentosContainer = $('#documentos-container');
                             documentosContainer.empty();
 
-                            $.each(files, function(index, file) {
-                                var fileName = file.name;
-                                var filePreviewUrl = file.previewUrl;
-                                var fileDownloadUrl = file.downloadUrl;
+                            if (files.length > 0) {
 
-                                var fileContainer = $('<div class="file-container"></div>');
+                                var tituloTexto;
 
                                 if (tipo_documento != 'Rete. Fuente') {
                                     var vigencia2 = vigencia.substr(4);
-                                    var fileTitle = $('<h2 class="title"></h2>').text(tipo_documento + ' ' + vigencia2 + ' ' + ano_documento);
+                                    tituloTexto = tipo_documento + ' ' + vigencia2 + ' ' + ano_documento;
                                 } else {
-                                    var fileTitle = $('<h2 class="title"></h2>').text(tipo_documento + ' ' + ano_documento);
+                                    tituloTexto = tipo_documento + ' ' + ano_documento;
                                 }
 
-                                var iframe = $('<iframe width="450" height="300" src="' + filePreviewUrl + '" class="custom-iframe"></iframe>');
-                                var downloadButton = $('<a href="' + fileDownloadUrl + '" target="_blank"><button class="btn-buscar">Descargar</button></a>');
+                                var titulo = $('<h2 class="title mb-4 text-center"></h2>').text(tituloTexto);
+                                documentosContainer.append(titulo);
 
-                                fileContainer.append(fileTitle, iframe, $('<br>'), downloadButton);
-                                documentosContainer.append(fileContainer);
-                            });
+                                var row = $('<div class="row"></div>');
+
+                                $.each(files, function(index, file) {
+                                    var col = $('<div class="col-12 col-md-6 mb-4"></div>');
+                                    var card = $('<div class="card shadow-sm h-100"></div>');
+                                    var cardBody = $('<div class="card-body text-center"></div>');
+                                    var iframe = $('<iframe width="100%" height="300" src="' + file.previewUrl + '" class="custom-iframe mb-3"></iframe>');
+                                    var downloadButton = $('<a href="' + file.downloadUrl + '" target="_blank" class="d-block mt-2"><button class="btn-buscar">Descargar</button></a>');
+                                    cardBody.append(iframe, downloadButton);
+                                    card.append(cardBody);
+                                    col.append(card);
+                                    row.append(col);
+                                });
+
+                                documentosContainer.append(row);
+                            }
                         } else {
                             $('#documentos-container').html(
                                 '<p style="margin-top: 20px; color: red;">' + response.message + '</p>'
