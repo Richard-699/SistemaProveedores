@@ -1,6 +1,5 @@
 <?php
 session_start();
-ob_start();
 include "../../ConexionBD/conexion.php";
 ?>
 <html>
@@ -55,12 +54,13 @@ if (!empty($_POST["btningresar"])) {
                         if ($_SESSION["id_rol_usuarios"] == 1) {
                             header("Location:../../Views/Admin/index.php");
                         }
-                        if ($_SESSION["id_rol_usuarios"] == 2) {
+                        elseif ($_SESSION["id_rol_usuarios"] == 2) {
                             header("Location:../../Views/User/index.php");
                         }
-                        if ($_SESSION["id_rol_usuarios"] == 3 && !$_SESSION["proveedor_aprobado"]) {
-                            header("Location:../../Views/Laft/index.php");
-                        } else if ($_SESSION["id_rol_usuarios"] == 3 && $_SESSION["proveedor_aprobado"]) {
+                        elseif ($_SESSION["id_rol_usuarios"] == 3){ /* && !$_SESSION["proveedor_aprobado"]) {*/
+                            header("Location:../../Views/Supplier/index.php");
+                            exit;
+                        } /* else if ($_SESSION["id_rol_usuarios"] == 3 && $_SESSION["proveedor_aprobado"]) {
                             $Id_proveedor_laft = $_SESSION["id_proveedor_usuarios"];
                             $consultaLaft = $conexion->prepare("SELECT * FROM laft WHERE Id_proveedor_laft = ?");
                             $consultaLaft->bind_param("s", $Id_proveedor_laft);
@@ -105,7 +105,7 @@ if (!empty($_POST["btningresar"])) {
                                     header("Location:../../Views/Supplier/index.php");
                                 }
                             }
-                        }
+                        } */
                     }
                 } else {
                     echo '<script>';

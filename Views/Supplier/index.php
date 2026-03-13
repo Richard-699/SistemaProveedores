@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$proveedor_aprobado = $_SESSION["proveedor_aprobado"];
+/* $proveedor_aprobado = $_SESSION["proveedor_aprobado"];
 if (!$proveedor_aprobado) {
     header("Location: ../../index.php");
-}
+} */
 
 $ruta = '../../IdiomaConfig/' . $_SESSION['lang'] . '.php';
 include($ruta);

@@ -57,11 +57,12 @@ if($updateContrasena){
     if($Id_proveedor == null){
         echo 'setTimeout(function() { window.location.href = "../../Views/User/index.php"; }, 2000);';
     }else{
-        if($proveedor_aprobado == 1){
+        echo 'setTimeout(function() { window.location.href = "../../Views/Supplier/index.php"; }, 2000);';
+        /* if($proveedor_aprobado == 1){
             echo 'setTimeout(function() { window.location.href = "../../Views/Supplier/index.php"; }, 2000);';
         }else{
             echo 'setTimeout(function() { window.location.href = "../../Views/Laft/index.php"; }, 2000);';
-        }
+        } */
     }
 
     
