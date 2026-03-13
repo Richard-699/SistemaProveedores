@@ -56,11 +56,11 @@ if (!empty($_POST["btningresar"])) {
                         }
                         elseif ($_SESSION["id_rol_usuarios"] == 2) {
                             header("Location:../../Views/User/index.php");
-                        }
-                        elseif ($_SESSION["id_rol_usuarios"] == 3){ /* && !$_SESSION["proveedor_aprobado"]) {*/
-                            header("Location:../../Views/Supplier/index.php");
-                            exit;
-                        } /* else if ($_SESSION["id_rol_usuarios"] == 3 && $_SESSION["proveedor_aprobado"]) {
+                        /*}
+                        elseif ($_SESSION["id_rol_usuarios"] == 3 && !$_SESSION["proveedor_aprobado"]) {
+                            header("Location:../../Views/LAFT/index.php");
+                            exit; */
+                        } else if ($_SESSION["id_rol_usuarios"] == 3 /* && $_SESSION["proveedor_aprobado"] */) {
                             $Id_proveedor_laft = $_SESSION["id_proveedor_usuarios"];
                             $consultaLaft = $conexion->prepare("SELECT * FROM laft WHERE Id_proveedor_laft = ?");
                             $consultaLaft->bind_param("s", $Id_proveedor_laft);
@@ -105,7 +105,7 @@ if (!empty($_POST["btningresar"])) {
                                     header("Location:../../Views/Supplier/index.php");
                                 }
                             }
-                        } */
+                        }
                     }
                 } else {
                     echo '<script>';
