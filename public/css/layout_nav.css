@@ -1,0 +1,109 @@
+.franja {
+    width: calc(100% - 220px);
+    display: flex;
+    justify-content: space-between;
+    background: #0093B2;
+    height: 55px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 500;
+    transition: width 0.3s;
+    border-bottom: 1px solid #ccc;
+}
+
+#contenido.expanded .franja {
+    width: calc(100% - 70px);
+}
+
+.datos-sesion {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.usuario-name {
+    color: #fff;
+    margin-right: 15px;
+}
+
+.usuario {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.usuario:hover {
+    color: #fff;
+}
+
+.text-cerrarsesion {
+    margin-left: 33px;
+    font-size: 14px;
+    margin-top: -20px;
+}
+
+.cerrar-sesion {
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cerrar-sesion:hover {
+    color: #fff;
+}
+
+.separador {
+    width: 1px;
+    height: 40px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.btn-menu {
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 10000;
+}
+
+.icon-nav {
+    color: #fff;
+}
+
+.nav-icon {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-menu:hover {
+    color: #ccc !important;
+}
+
+@media(max-width: 767px) {
+    .franja {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+
+    #contenido.expanded .franja {
+        width: 100% !important;
+    }
+
+    .datos-sesion {
+        margin-right: 15px;
+    }
+
+    .usuario-name {
+        display: none !important;
+    }
+}
