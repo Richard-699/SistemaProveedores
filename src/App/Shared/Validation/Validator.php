@@ -3,53 +3,68 @@
 namespace App\Shared\Validation;
 
 use Exception;
-use App\Domain\DTO\Auth\UsuariosDTO;
 
 class Validator
 {
-    public static function validateDTO(object $dto): array
+    public static function validateDTO(object $dto): void
     {
         switch (true) {
-            case $dto instanceof UsuariosDTO:
-                return self::validateUsuariosDTO($dto);
+            case $dto instanceof \App\Domain\DTO\AdministradoresDTO:
+                self::validateAdministradoresDTO($dto);
+                break;
+            case $dto instanceof \App\Domain\DTO\LoginDTO:
+                self::validateLoginDTO($dto);
+                break;/*
+            case $dto instanceof \App\Domain\DTO\ResetPasswordDTO:
+                self::validateResetPasswordDTO($dto);
+                break;*/
             default:
                 throw new Exception('No hay reglas de validación definidas para este DTO.');
         }
     }
 
-    private static function validateUsuariosDTO(UsuariosDTO $dto): array
+    private static function validateAdministradoresDTO(\App\Domain\DTO\AdministradoresDTO $dto): void
     {
-        $errors = [];
-
-        if (empty($dto->nombre_usuario)) {
-            $errors['inputNombre'] = 'El nombre es obligatorio.';
+        if (empty($dto->nombre_administrador)) {
+            throw new Exception('El nombre es obligatorio.');
         }
-        if (empty($dto->apellidos_usuario)) {
-            $errors['inputApellidos'] = 'Los apellidos son obligatorios.';
+        if (empty($dto->apellidos_administrador)) {
+            throw new Exception('Los apellidos son obligatorios.');
         }
-        if (empty($dto->correo_usuario)) {
-            $errors['inputCorreo'] = 'El correo electrónico es obligatorio.';
-        } elseif (!filter_var($dto->correo_usuario, FILTER_VALIDATE_EMAIL)) {
-            $errors['inputCorreo'] = 'El correo electrónico no es válido.';
+        if (empty($dto->correo_hwi_administrador)) {
+            throw new Exception('El correo electrónico es obligatorio.');
+        } elseif (!filter_var($dto->correo_hwi_administrador, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('El correo electrónico no es válido.');
         }
-        if (empty($dto->id_area_usuario)) {
-            $errors['id_area_usuario'] = 'El área es obligatoria.';
+        if (empty($dto->id_area_administrador)) {
+            throw new Exception('El área es obligatoria.');
         }
-        if (empty($dto->password_usuario)) {
-            $errors['inputPassword'] = 'La contraseña es obligatoria.';
-        } elseif (strlen($dto->password_usuario) < 8) {
-            $errors['inputPassword'] = 'La contraseña debe tener mínimo 8 caracteres.';
-        } elseif (!preg_match('/[A-Z]/', $dto->password_usuario)) {
-            $errors['inputPassword'] = 'La contraseña debe contener al menos una letra mayúscula.';
-        } elseif (!preg_match('/[\W_]/', $dto->password_usuario)) {
-            $errors['inputPassword'] = 'La contraseña debe contener al menos un carácter especial.';
+        if (empty($dto->password_administrador)) {
+            throw new Exception('La contraseña es obligatoria.');
+        } elseif (strlen($dto->password_administrador) < 8) {
+            throw new Exception('La contraseña debe tener mínimo 8 caracteres.');
+        } elseif (!preg_match('/[A-Z]/', $dto->password_administrador)) {
+            throw new Exception('La contraseña debe contener al menos una letra mayúscula.');
+        } elseif (!preg_match('/[\W_]/', $dto->password_administrador)) {
+            throw new Exception('La contraseña debe contener al menos un carácter especial.');
         }
-        if (empty($dto->password_confirmacion)) {
-            $errors['confirmPassword'] = 'La confirmación de contraseña es obligatoria.';
-        } elseif ($dto->password_usuario !== $dto->password_confirmacion) {
-            $errors['confirmPassword'] = 'Las contraseñas no coinciden.';
-        }
-
-        return $errors;
     }
+    private static function validateLoginDTO(\App\Domain\DTO\LoginDTO $dto): void
+    {
+        if (empty($dto->usuario)) {
+            throw new Exception('El usuario o correo es obligatorio.');
+        }
+        if (empty($dto->password)) {
+            throw new Exception('La contraseña es obligatoria.');
+        }
+    }
+    /*
+    private static function validateResetPasswordDTO(\App\Domain\DTO\ResetPasswordDTO $dto): void
+    {
+        if (empty($dto->correo)) {
+            throw new Exception('El correo electrónico es obligatorio.');
+        } elseif (!filter_var($dto->correo, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('El correo electrónico no es válido.');
+        }
+    }*/
 }

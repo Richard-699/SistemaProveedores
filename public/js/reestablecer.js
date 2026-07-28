@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('correo', correo);
         formData.append('btnRecuperar', 'Recuperar');
 
-        fetch('../../Handler/Auth/reestablecerHandler.php', {
+        fetch('../../Handler/reestablecerHandler.php', {
             method: 'POST',
             body: formData
         })

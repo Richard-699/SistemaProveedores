@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // === Cargar áreas dinámicamente ===
     const selectArea = document.getElementById('id_area_usuario');
     if (selectArea) {
-        fetch('../../Handler/Auth/registerHandler.php?action=getAreas')
+        fetch('../../Handler/registerHandler.php?action=getAreas')
             .then(res => res.json())
             .then(data => {
                 if (data.status === 'success') {

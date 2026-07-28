@@ -20,7 +20,7 @@
             <img src="../../../../../img/LogoBlanco.png" alt="Logo HWI">
         </div>
 
-            <form id="form_proveedor" action="../../Handler/Auth/registerHandler.php" method="POST" class="registro-form" autocomplete="off" novalidate>
+            <form id="form_proveedor" action="../../Handler/registerHandler.php" method="POST" class="registro-form" autocomplete="off" novalidate>
                 
                 <div class="form-group">
                     <label class="form-label">Nombre:</label>

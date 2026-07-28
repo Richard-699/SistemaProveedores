@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('nuevaPassword', nuevaPassword.value);
         formData.append('btnCambiar', 'Guardar');
 
-        fetch('../../Handler/Auth/changePasswordHandler.php', {
+        fetch('../../Handler/changePasswordHandler.php', {
             method: 'POST',
             body: formData
         })

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentHref = logoutLink.getAttribute('href') || '';
         // Calcular la ruta base relativa al handler
         const basePath = currentHref.replace(/Actions\/Generals\/cerrarsesion\.php.*$/, '');
-        const handlerUrl = basePath + 'src/App/Pages/Handler/Auth/logoutHandler.php';
+        const handlerUrl = basePath + 'src/App/Pages/Handler/logoutHandler.php';
 
         fetch(handlerUrl, {
             method: 'POST',
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.status === 'success') {
                 // Redirigir al login después de 2 segundos para que el spinner sea visible
                 setTimeout(() => {
-                    window.location.href = basePath + 'src/App/Pages/View/Auth/index.php';
+                    window.location.href = basePath + 'src/App/Pages/View/Auth/login.php';
                 }, 2000);
             } else {
                 if (typeof ocultarCarga === 'function') ocultarCarga();

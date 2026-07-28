@@ -2,7 +2,7 @@
 
 namespace App\Shared\Util;
 
-use App\Aplication\Interface\Service\Auth\IMailService;
+use App\Aplication\Interface\Service\IMailService;
 use Exception as GlobalException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
