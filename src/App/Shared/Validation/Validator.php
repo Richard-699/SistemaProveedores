@@ -79,6 +79,18 @@ class Validator
         } elseif (!filter_var($dto->correo, FILTER_VALIDATE_EMAIL)) {
             throw new Exception('El correo electrónico no es válido.');
         }
+
+        if ($dto->isAdmin !== null) {
+            if ($dto->isAdmin && $dto->administradorDTO === null) {
+                throw new Exception("El administrador no está registrado.");
+            } elseif (!$dto->isAdmin && $dto->proveedorDTO === null) {
+                throw new Exception("El proveedor no está registrado.");
+            }
+
+            if (empty($dto->correosList)) {
+                throw new Exception("El proveedor no tiene correos registrados para enviar la notificación.");
+            }
+        }
     }
 
     private static function validateChangePasswordDTO(ChangePasswordDTO $dto): void

@@ -135,7 +135,11 @@ class LoginService implements ILoginService
         $hashedPassword = password_hash($dto->nuevaPassword, PASSWORD_DEFAULT);
 
         if ($dto->isAdmin) {
-            $admin = new Administradores($dto->usuarioId, '', '', '', 0, $hashedPassword, 0, 0);
+            $adminDTO = new AdministradoresDTO(
+                id_administrador: $dto->usuarioId,
+                password_administrador: $hashedPassword
+            );
+            $admin = Mapper::administradoresDTOToModel($adminDTO);
             $this->adminRepository->updatePassword($admin);
             
             $asunto = "Cambio de Contraseña Exitoso";
@@ -144,7 +148,11 @@ class LoginService implements ILoginService
             
             $redirect = "../../../../../Views/Admin/index.php";
         } else {
-            $proveedor = new Proveedores($dto->usuarioId, null, '', 0, 0, 0, 0, '', '', 0.0, null, null, 0, null, 0, 0, null, '', $hashedPassword, 0);
+            $proveedorDTO = new ProveedoresDTO(
+                id_proveedor: $dto->usuarioId,
+                password_proveedor: $hashedPassword
+            );
+            $proveedor = Mapper::proveedoresDTOToModel($proveedorDTO);
             $this->proveedorRepository->updatePassword($proveedor);
 
             $correosList = $this->proveedorRepository->getCorreosByProveedorId($dto->usuarioId);

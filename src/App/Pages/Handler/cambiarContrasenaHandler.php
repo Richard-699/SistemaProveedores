@@ -12,20 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'sendEmail') {
         try {
             $resetDTO = new \App\Domain\DTO\ResetPasswordDTO(correo: $_POST['correo'] ?? '');
-            \App\Shared\Validation\Validator::validateDTO($resetDTO);
-
+            
             $service = new LoginService();
             $resetDTO = $service->obtenerDatosReset($resetDTO);
 
-            if ($resetDTO->isAdmin && $resetDTO->administradorDTO === null) {
-                throw new \Exception("El administrador no está registrado.");
-            } elseif (!$resetDTO->isAdmin && $resetDTO->proveedorDTO === null) {
-                throw new \Exception("El proveedor no está registrado.");
-            }
-
-            if (empty($resetDTO->correosList)) {
-                throw new \Exception("El proveedor no tiene correos registrados para enviar la notificación.");
-            }
+            \App\Shared\Validation\Validator::validateDTO($resetDTO);
 
             $response = $service->restablecerContrasena($resetDTO);
 
