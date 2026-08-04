@@ -18,9 +18,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             \App\Shared\Validation\Validator::validateDTO($resetDTO);
 
-            $response = $service->restablecerContrasena($resetDTO);
+            $tempPassword = \App\Shared\Util\Utils::generarContrasenaTemporal();
+            $hashedPassword = password_hash($tempPassword, PASSWORD_DEFAULT);
 
-            echo json_encode($response);
+            if ($resetDTO->isAdmin) {
+                $adminDTO = $resetDTO->administradorDTO;
+                $adminDTO->password_administrador = $hashedPassword;
+                $adminDTO->password_is_temporal = 1;
+                $service->actualizarPasswordAdministrador($adminDTO);
+                
+                $asunto = "Recuperación de Contraseña - Administrador";
+                $cuerpo = \App\Shared\Util\EmailTemplates::getResetPasswordTemplate($tempPassword);
+                $enviado = \App\Shared\Util\Utils::enviarCorreo($asunto, $cuerpo, $resetDTO->correosList);
+            } else {
+                $proveedorDTO = $resetDTO->proveedorDTO;
+                $proveedorDTO->password_proveedor = $hashedPassword;
+                $proveedorDTO->password_is_temporal_proveedor = 1;
+                $service->actualizarPasswordProveedor($proveedorDTO);
+
+                $asunto = "Recuperación de Contraseña - Proveedor";
+                $cuerpo = \App\Shared\Util\EmailTemplates::getResetPasswordTemplate($tempPassword);
+                $enviado = \App\Shared\Util\Utils::enviarCorreo($asunto, $cuerpo, $resetDTO->correosList);
+            }
+
+            if (!$enviado) {
+                throw new \Exception("Se actualizó la contraseña pero hubo un error al enviar el correo.");
+            }
+
+            echo json_encode(['status' => 'success', 'message' => 'Se ha enviado una contraseña temporal a tu correo.']);
             exit;
         } catch (Exception $e) {
             echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
@@ -50,18 +75,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             \App\Shared\Validation\Validator::validateDTO($changePasswordDTO);
 
             $service = new LoginService();
-            $response = $service->cambiarContrasenaTemporal($changePasswordDTO);
-            
-            if ($response['status'] === 'success') {
-                $_SESSION['is_temporal'] = 0;
-                if ($isAdmin && isset($_SESSION['administrador'])) {
-                    $_SESSION['administrador']->password_is_temporal = 0;
-                } elseif (!$isAdmin && isset($_SESSION['proveedor'])) {
-                    $_SESSION['proveedor']->password_is_temporal_proveedor = 0;
+            $hashedPassword = password_hash($changePasswordDTO->nuevaPassword, PASSWORD_DEFAULT);
+
+            if ($isAdmin) {
+                $adminDTO = new \App\Domain\DTO\AdministradoresDTO(
+                    id_administrador: $userId,
+                    password_administrador: $hashedPassword,
+                    password_is_temporal: 0
+                );
+                $service->actualizarPasswordAdministrador($adminDTO);
+                $_SESSION['administrador']->password_is_temporal = 0;
+                
+                $asunto = "Cambio de Contraseña Exitoso";
+                $cuerpo = \App\Shared\Util\EmailTemplates::getPasswordChangedTemplate();
+                \App\Shared\Util\Utils::enviarCorreo($asunto, $cuerpo, $usuarioCorreo);
+                
+                $redirect = "../../../../../Views/Admin/index.php";
+            } else {
+                $proveedorDTO = new \App\Domain\DTO\ProveedoresDTO(
+                    id_proveedor: $userId,
+                    password_proveedor: $hashedPassword,
+                    password_is_temporal_proveedor: 0
+                );
+                $service->actualizarPasswordProveedor($proveedorDTO);
+                $_SESSION['proveedor']->password_is_temporal_proveedor = 0;
+
+                $correosList = $service->getCorreosProveedor($userId);
+                if (!empty($correosList)) {
+                    $asunto = "Cambio de Contraseña Exitoso";
+                    $cuerpo = \App\Shared\Util\EmailTemplates::getPasswordChangedTemplate();
+                    \App\Shared\Util\Utils::enviarCorreo($asunto, $cuerpo, $correosList);
                 }
+
+                $redirect = "../../../../../Views/Supplier/index.php";
             }
-            
-            echo json_encode($response);
+            $_SESSION['is_temporal'] = 0;
+
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Tu contraseña ha sido actualizada exitosamente.',
+                'redirect' => $redirect
+            ]);
             exit;
         } catch (Exception $e) {
             echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
