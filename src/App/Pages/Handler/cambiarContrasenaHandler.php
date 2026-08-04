@@ -15,6 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             \App\Shared\Validation\Validator::validateDTO($resetDTO);
 
             $service = new LoginService();
+            $resetDTO = $service->obtenerDatosReset($resetDTO);
+
+            if ($resetDTO->isAdmin && $resetDTO->administradorDTO === null) {
+                throw new \Exception("El administrador no está registrado.");
+            } elseif (!$resetDTO->isAdmin && $resetDTO->proveedorDTO === null) {
+                throw new \Exception("El proveedor no está registrado.");
+            }
+
+            if (empty($resetDTO->correosList)) {
+                throw new \Exception("El proveedor no tiene correos registrados para enviar la notificación.");
+            }
+
             $response = $service->restablecerContrasena($resetDTO);
 
             echo json_encode($response);
