@@ -2,12 +2,19 @@
 
 namespace App\Shared\Mapper;
 
+use App\Domain\Model\Administradores;
+use App\Domain\Model\Proveedores;
+use App\Domain\Model\Permisos;
+use App\Domain\DTO\AdministradoresDTO;
+use App\Domain\DTO\ProveedoresDTO;
+use App\Domain\DTO\PermisosDTO;
 
+class Mapper
+{
 
-class Mapper {
-
-    public static function modelToAdministradoresDTO(\App\Domain\Model\Administradores $administrador, array $permisos = []): \App\Domain\DTO\AdministradoresDTO {
-        return new \App\Domain\DTO\AdministradoresDTO(
+    public static function modelToAdministradoresDTO(Administradores $administrador, array $permisos = []): AdministradoresDTO
+    {
+        return new AdministradoresDTO(
             id_administrador: $administrador->id_administrador,
             nombre_administrador: $administrador->nombre_administrador,
             apellidos_administrador: $administrador->apellidos_administrador,
@@ -20,8 +27,9 @@ class Mapper {
         );
     }
 
-    public static function administradoresDTOToModel(\App\Domain\DTO\AdministradoresDTO $dto): \App\Domain\Model\Administradores {
-        return new \App\Domain\Model\Administradores(
+    public static function administradoresDTOToModel(AdministradoresDTO $dto): Administradores
+    {
+        return new Administradores(
             id_administrador: $dto->id_administrador,
             nombre_administrador: $dto->nombre_administrador,
             apellidos_administrador: $dto->apellidos_administrador,
@@ -32,8 +40,9 @@ class Mapper {
             password_is_temporal: $dto->password_is_temporal
         );
     }
-    public static function modelToProveedoresDTO(\App\Domain\Model\Proveedores $proveedor): \App\Domain\DTO\ProveedoresDTO {
-        return new \App\Domain\DTO\ProveedoresDTO(
+    public static function modelToProveedoresDTO(Proveedores $proveedor): ProveedoresDTO
+    {
+        return new ProveedoresDTO(
             id_proveedor: $proveedor->id_proveedor,
             numero_acreedor_proveedor: $proveedor->numero_acreedor_proveedor,
             nombre_proveedor: $proveedor->nombre_proveedor,
@@ -57,8 +66,9 @@ class Mapper {
         );
     }
 
-    public static function proveedoresDTOToModel(\App\Domain\DTO\ProveedoresDTO $dto): \App\Domain\Model\Proveedores {
-        return new \App\Domain\Model\Proveedores(
+    public static function proveedoresDTOToModel(ProveedoresDTO $dto): Proveedores
+    {
+        return new Proveedores(
             id_proveedor: $dto->id_proveedor,
             numero_acreedor_proveedor: $dto->numero_acreedor_proveedor,
             nombre_proveedor: $dto->nombre_proveedor,
@@ -83,13 +93,14 @@ class Mapper {
     }
 
     /**
-     * @param \App\Domain\Model\Permisos[] $permisos
-     * @return \App\Domain\DTO\PermisosDTO[]
+     * @param Permisos[] $permisos
+     * @return PermisosDTO[]
      */
-    public static function listModelToPermisosDTO(array $permisos): array {
+    public static function listModelToPermisosDTO(array $permisos): array
+    {
         $dtos = [];
         foreach ($permisos as $permiso) {
-            $dtos[] = new \App\Domain\DTO\PermisosDTO(
+            $dtos[] = new PermisosDTO(
                 id_permiso: $permiso->id_permiso,
                 nombre_permiso: $permiso->nombre_permiso,
                 descripcion_permiso: $permiso->descripcion_permiso
@@ -98,8 +109,9 @@ class Mapper {
         return $dtos;
     }
 
-    public static function permisosDTOToModel(\App\Domain\DTO\PermisosDTO $dto): \App\Domain\Model\Permisos {
-        return new \App\Domain\Model\Permisos(
+    public static function permisosDTOToModel(PermisosDTO $dto): Permisos
+    {
+        return new Permisos(
             id_permiso: $dto->id_permiso,
             nombre_permiso: $dto->nombre_permiso,
             descripcion_permiso: $dto->descripcion_permiso

@@ -31,11 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 2000);
             } else {
                 if (typeof ocultarCarga === 'function') ocultarCarga();
-                if (typeof showAlert === 'function') {
-                    showAlert(data.message || 'Error al cerrar sesión', 'error');
-                } else {
-                    alert(data.message || 'Error al cerrar sesión');
-                }
+                notify('error', data.message || 'Error al cerrar sesión');
             }
         })
         .catch(err => {

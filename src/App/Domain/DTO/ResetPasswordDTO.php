@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Domain\DTO\Auth;
+namespace App\Domain\DTO;
 
-class ResetPasswordDTO {
+class ResetPasswordDTO
+{
     public function __construct(
         public string $correo
     ) {}

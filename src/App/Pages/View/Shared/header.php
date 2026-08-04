@@ -14,12 +14,11 @@
     
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
     
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    <link rel="stylesheet" href="../../public/css/layout_admin.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../../public/css/layout_user.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../public/css/Auth/layout_admin.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../public/css/Auth/layout_user.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../Estilos/Supplier/estilos_costBreakDown.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../../public/css/layout_nav.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../public/css/Auth/layout_nav.css?v=<?php echo time(); ?>">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 </head>

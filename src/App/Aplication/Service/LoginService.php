@@ -5,59 +5,155 @@ namespace App\Aplication\Service;
 use App\Aplication\Interface\Service\ILoginService;
 
 use App\Domain\DTO\LoginDTO;
+use App\Domain\DTO\ResetPasswordDTO;
+use App\Domain\DTO\ChangePasswordDTO;
 use App\Domain\DTO\AdministradoresDTO;
 use App\Domain\DTO\ProveedoresDTO;
 use App\Domain\Model\Administradores;
 use App\Domain\Model\Proveedores;
 use App\Shared\Mapper\Mapper;
 use App\Infrastructure\Repository\AdministradoresRepository;
+use App\Infrastructure\Repository\AdministradoresPermisosRepository;
 use App\Infrastructure\Repository\ProveedoresRepository;
 use App\Infrastructure\Database\Connection;
+use App\Shared\Util\Utils;
+use App\Shared\Util\EmailTemplates;
 
 
 class LoginService implements ILoginService
 {
     private $db;
     private $adminRepository;
+    private $adminPermisosRepository;
     private $proveedorRepository;
 
     public function __construct()
     {
         $this->db = (new Connection())->dbsistemas_proveedores;
         $this->adminRepository = new AdministradoresRepository($this->db);
+        $this->adminPermisosRepository = new AdministradoresPermisosRepository($this->db);
         $this->proveedorRepository = new ProveedoresRepository($this->db);
     }
 
-    public function obtenerDatosUsuario(LoginDTO $dto): LoginDTO
+    public function obtenerdatoslogin(LoginDTO $dto): LoginDTO
     {
         $usuario = $dto->usuario;
         $isAdmin = $dto->isAdmin;
 
         if ($isAdmin) {
-            $userData = $this->adminRepository->findByCorreoForAuth($usuario);
-            
-            if (!$userData) {
+            $administradorDTO = Mapper::modelToAdministradoresDTO($this->adminRepository->findByCorreo($usuario));
+
+            if (!$administradorDTO) {
                 return $dto;
             }
 
-            $permisosRaw = $this->adminRepository->findPermissionsByUserId($userData['id_administrador']);
-            $permisosModels = [];
-            foreach ($permisosRaw as $permisoRow) {
-                $permisosModels[] = \App\Domain\Model\Permisos::fromArray($permisoRow);
-            }
-            $permisosDTOs = Mapper::listModelToPermisosDTO($permisosModels);
-
-            $dto->administradorDTO = Mapper::modelToAdministradoresDTO(Administradores::fromArray($userData), $permisosDTOs);
+            $permisosDTO = Mapper::listModelToPermisosDTO($this->adminPermisosRepository->findPermissionsByUserId($administradorDTO->id_administrador));
+            $administradorDTO->permisosDTO = $permisosDTO;
+            $dto->administradorDTO = $administradorDTO;
         } else {
-            $userData = $this->proveedorRepository->findByUsuarioForAuth($usuario);
-            
-            if (!$userData) {
+            $proveedorDTO = Mapper::modelToProveedoresDTO($this->proveedorRepository->findByUsuario($usuario));
+
+            if (!$proveedorDTO) {
                 return $dto;
             }
 
-            $dto->proveedorDTO = Mapper::modelToProveedoresDTO(Proveedores::fromArray($userData));
+            $dto->proveedorDTO = $proveedorDTO;
         }
 
         return $dto;
+    }
+
+    public function restablecerContrasena(ResetPasswordDTO $dto): array
+    {
+        $correo = trim($dto->correo);
+        $dominio = explode('@', strtolower($correo))[1] ?? '';
+        $isAdmin = (strpos($dominio, 'whirlpool') !== false || strpos($dominio, 'haceb') !== false);
+
+        $tempPassword = Utils::generarContrasenaTemporal();
+        $hashedPassword = password_hash($tempPassword, PASSWORD_DEFAULT);
+
+        if ($isAdmin) {
+            $admin = $this->adminRepository->findByCorreo($correo);
+            if (!$admin) {
+                throw new \Exception("El administrador no está registrado.");
+            }
+
+            $admin->password_administrador = $hashedPassword;
+            $admin->password_is_temporal = 1;
+            $this->adminRepository->updatePassword($admin);
+
+            $asunto = "Recuperación de Contraseña - Administrador";
+            $cuerpo = EmailTemplates::getResetPasswordTemplate($tempPassword);
+            $enviado = Utils::enviarCorreo($asunto, $cuerpo, $admin->correo_hwi_administrador);
+
+            if (!$enviado) {
+                throw new \Exception("Se actualizó la contraseña pero hubo un error al enviar el correo.");
+            }
+        } else {
+            $proveedor = $this->proveedorRepository->findByUsuario($correo);
+            if (!$proveedor) {
+                throw new \Exception("El proveedor no está registrado.");
+            }
+
+            $correosList = $this->proveedorRepository->getCorreosByProveedorId($proveedor->id_proveedor);
+            if (empty($correosList)) {
+                $correosList = filter_var($correo, FILTER_VALIDATE_EMAIL) ? [$correo] : [];
+            }
+
+            if (empty($correosList)) {
+                throw new \Exception("El proveedor no tiene correos registrados para enviar la notificación.");
+            }
+
+            $proveedor->password_proveedor = $hashedPassword;
+            $proveedor->password_is_temporal_proveedor = 1;
+            $this->proveedorRepository->updatePassword($proveedor);
+
+            $asunto = "Recuperación de Contraseña - Proveedor";
+            $cuerpo = EmailTemplates::getResetPasswordTemplate($tempPassword);
+            $enviado = Utils::enviarCorreo($asunto, $cuerpo, $correosList);
+
+            if (!$enviado) {
+                throw new \Exception("Se actualizó la contraseña pero hubo un error al enviar el correo a los contactos del proveedor.");
+            }
+        }
+
+        return [
+            'status' => 'success',
+            'message' => 'Se ha enviado una contraseña temporal a tu correo.'
+        ];
+    }
+
+    public function cambiarContrasenaTemporal(ChangePasswordDTO $dto): array
+    {
+        $hashedPassword = password_hash($dto->nuevaPassword, PASSWORD_DEFAULT);
+
+        if ($dto->isAdmin) {
+            $admin = new Administradores($dto->usuarioId, '', '', '', 0, $hashedPassword, 0, 0);
+            $this->adminRepository->updatePassword($admin);
+            
+            $asunto = "Cambio de Contraseña Exitoso";
+            $cuerpo = EmailTemplates::getPasswordChangedTemplate();
+            Utils::enviarCorreo($asunto, $cuerpo, $dto->usuarioCorreo);
+            
+            $redirect = "../../../../../Views/Admin/index.php";
+        } else {
+            $proveedor = new Proveedores($dto->usuarioId, null, '', 0, 0, 0, 0, '', '', 0.0, null, null, 0, null, 0, 0, null, '', $hashedPassword, 0);
+            $this->proveedorRepository->updatePassword($proveedor);
+
+            $correosList = $this->proveedorRepository->getCorreosByProveedorId($dto->usuarioId);
+            if (!empty($correosList)) {
+                $asunto = "Cambio de Contraseña Exitoso";
+                $cuerpo = EmailTemplates::getPasswordChangedTemplate();
+                Utils::enviarCorreo($asunto, $cuerpo, $correosList);
+            }
+            
+            $redirect = "../../../../../Views/Supplier/index.php";
+        }
+
+        return [
+            'status' => 'success',
+            'message' => 'Tu contraseña ha sido actualizada exitosamente.',
+            'redirect' => $redirect
+        ];
     }
 }

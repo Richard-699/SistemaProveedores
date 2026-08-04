@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('loginForm').addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        const isValid = validateForm([
+            { field: '#usuario',       required: true, message: 'El usuario es obligatorio.' },
+            { field: '#inputPassword', required: true, message: 'La contraseña es obligatoria.' },
+        ]);
+        if (!isValid) return;
+
         try {
             const btn = document.getElementById('btningresar');
             if (btn) btn.disabled = true;
@@ -28,9 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (data.status === 'success') {
                 const sessionData = data.data;
-                let redirectUrl = '';
-
-                if (sessionData.is_temporal) {
+                let redirectUrl = "";
+                if (sessionData.is_temporal == 1) {
                     redirectUrl = "cambiarContrasena.php";
                 } else {
                     if (sessionData.is_admin) {
@@ -42,16 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 window.location.href = redirectUrl;
             } else {
-                if (typeof showAlert === 'function') {
-                    showAlert(data.message, 'error');
-                } else {
-                    Swal.fire({ icon: 'error', title: 'Oops...', text: data.message });
-                }
+                notify('error', data.message);
             }
         } catch (err) {
             ocultarCarga();
+            const btn = document.getElementById('btningresar');
             if (btn) btn.disabled = false;
             console.error(err);
+            notify('error', 'Ocurrió un error inesperado. Inténtalo de nuevo.');
         }
     });
 

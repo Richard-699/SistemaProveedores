@@ -10,5 +10,5 @@ interface ILoginService {
      * @param LoginDTO $dto
      * @return LoginDTO
      */
-    public function obtenerDatosUsuario(LoginDTO $dto): LoginDTO;
+    public function obtenerdatoslogin(LoginDTO $dto): LoginDTO;
 }

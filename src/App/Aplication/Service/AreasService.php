@@ -2,24 +2,30 @@
 
 namespace App\Aplication\Service;
 
-use App\Aplication\Interface\Repository\IAreasRepository;
 use App\Aplication\Interface\Service\IAreasService;
+use App\Infrastructure\Repository\AreasRepository;
+use App\Infrastructure\Database\Connection;
 
-class AreasService implements IAreasService {
+class AreasService implements IAreasService
+{
 
-    private IAreasRepository $areasRepository;
+    private $db;
+    private $areasRepository;
 
-    public function __construct(IAreasRepository $areasRepository) {
-        $this->areasRepository = $areasRepository;
+    public function __construct()
+    {
+        $this->db = (new Connection())->dbsistemas_proveedores;
+        $this->areasRepository = new AreasRepository($this->db);
     }
 
-    public function obtenerAreasParaRegistro(): array {
-        $areas = $this->areasRepository->getAllAreas();
+    public function obtenerAreas(): array
+    {
+        $areas = $this->areasRepository->findAll();
         $areasFiltradas = [];
         foreach ($areas as $area) {
             $areasFiltradas[] = [
-                'id_area' => $area['id_area'],
-                'nombre_area' => $area['nombre_area']
+                'id_area' => $area->id_area,
+                'nombre_area' => $area->nombre_area
             ];
         }
         return $areasFiltradas;

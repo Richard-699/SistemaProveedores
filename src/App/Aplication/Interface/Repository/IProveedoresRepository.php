@@ -4,11 +4,11 @@ namespace App\Aplication\Interface\Repository;
 
 use App\Domain\Model\Proveedores;
 
-interface IProveedoresRepository {
-    // You can define methods specific to Proveedores here in the future
-    // like findByUsuario, save, updatePassword, etc.
-    public function findByUsuario(string $usuario): ?int;
-    public function findByUsuarioForAuth(string $usuario): ?array;
+interface IProveedoresRepository
+{
+
+    public function countByUsuario(string $usuario): int;
+    public function findByUsuario(string $usuario): ?Proveedores;
     public function save(Proveedores $proveedor): bool;
     public function updatePassword(Proveedores $proveedor): bool;
 }
