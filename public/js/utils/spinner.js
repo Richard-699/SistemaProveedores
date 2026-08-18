@@ -60,24 +60,26 @@ function mostrarCarga() {
     overlay.appendChild(spinnerBox);
     document.body.appendChild(overlay);
 
-    // Pequeño timeout para asegurar que el transition se aplique
     setTimeout(() => {
         overlay.style.opacity = '1';
     }, 10);
 }
 
 function ocultarCarga() {
-    // Agregamos un retraso artificial de 600ms para que se alcance a ver el spinner
-    setTimeout(() => {
-        const overlay = document.getElementById('global-spinner-overlay');
-        if (overlay) {
-            overlay.style.opacity = '0';
-            // Esperar a que termine la transición de opacidad (300ms) para removerlo del DOM
-            setTimeout(() => {
-                if (overlay && overlay.style.opacity === '0') {
-                    overlay.remove();
-                }
-            }, 300);
-        }
-    }, 600);
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const overlay = document.getElementById('global-spinner-overlay');
+            if (overlay) {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    if (overlay && overlay.style.opacity === '0') {
+                        overlay.remove();
+                    }
+                    resolve();
+                }, 300);
+            } else {
+                resolve();
+            }
+        }, 600);
+    });
 }

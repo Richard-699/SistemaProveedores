@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Repository;
 
 use App\Domain\Model\Proveedores;
+use App\Domain\Model\Correos;
 use App\Aplication\Interface\Repository\IProveedoresRepository;
 use PDO;
 
@@ -64,16 +65,23 @@ class ProveedoresRepository implements IProveedoresRepository
 
         return $stmt->execute();
     }
+    /**
+     * @param string $id
+     * @return Correos[]
+     */
     public function getCorreosByProveedorId(string $id): array
     {
         $stmt = $this->db->prepare("SELECT correo FROM proveedores_hwi_correos WHERE id_proveedor_correo = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
         $correos = [];
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $correos[] = $row['correo'];
+        foreach ($rows as $row) {
+            $correos[] = Correos::fromArray($row);
         }
+
         return $correos;
     }
 }

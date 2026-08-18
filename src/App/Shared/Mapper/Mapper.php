@@ -5,9 +5,11 @@ namespace App\Shared\Mapper;
 use App\Domain\Model\Administradores;
 use App\Domain\Model\Proveedores;
 use App\Domain\Model\Permisos;
+use App\Domain\Model\Correos;
 use App\Domain\DTO\AdministradoresDTO;
 use App\Domain\DTO\ProveedoresDTO;
 use App\Domain\DTO\PermisosDTO;
+use App\Domain\DTO\CorreosDTO;
 
 class Mapper
 {
@@ -116,5 +118,19 @@ class Mapper
             nombre_permiso: $dto->nombre_permiso,
             descripcion_permiso: $dto->descripcion_permiso
         );
+    }
+    /**
+     * @param Correos[] $correos
+     * @return CorreosDTO[]
+     */
+    public static function listModelToCorreosDTO(array $correos): array
+    {
+        $dtos = [];
+        foreach ($correos as $correoModel) {
+            $dtos[] = new CorreosDTO(
+                correo: $correoModel->correo
+            );
+        }
+        return $dtos;
     }
 }

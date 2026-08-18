@@ -1,11 +1,10 @@
 <?php
-require_once __DIR__ . '/../../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../../vendor/autoload.php';
 session_start();
 ob_start();
 
 use App\Aplication\Service\LoginService;
 use App\Domain\DTO\LoginDTO;
-use App\Domain\DTO\ResetPasswordDTO;
 use App\Shared\Validation\Validator;
 
 header('Content-Type: application/json; charset=utf-8');

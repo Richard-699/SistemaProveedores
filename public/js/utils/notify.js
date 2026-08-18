@@ -20,9 +20,9 @@ function notify(type, message) {
 
 
     /* ── Calcular duración dinámica según longitud del mensaje ── */
-    const BASE_MS = 2000;   // Tiempo base mínimo reducido a 2 segundos
-    const MS_PER_CHAR = 30;    // ms adicional por cada carácter reducido a 30
-    const MAX_MS = 5000;   // Tope máximo reducido a 5 segundos
+    const BASE_MS = 1500;   // Tiempo base mínimo reducido a 1.5 segundos
+    const MS_PER_CHAR = 20; // ms adicional por cada carácter reducido a 20
+    const MAX_MS = 3500;    // Tope máximo reducido a 3.5 segundos
     const delay = Math.min(Math.max(BASE_MS, BASE_MS + message.length * MS_PER_CHAR), MAX_MS);
 
     /* ── Mostrar notificación con Bootstrap Notify ── */

@@ -11,4 +11,10 @@ interface IProveedoresRepository
     public function findByUsuario(string $usuario): ?Proveedores;
     public function save(Proveedores $proveedor): bool;
     public function updatePassword(Proveedores $proveedor): bool;
+
+    /**
+     * @param string $id
+     * @return \App\Domain\Model\Correos[]
+     */
+    public function getCorreosByProveedorId(string $id): array;
 }

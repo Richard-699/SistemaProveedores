@@ -27,7 +27,21 @@ class RegistroService implements IRegistroService
 
     public function guardar_administrador(AdministradoresDTO $administradorDTO): bool
     {
-        $administrador = Mapper::administradoresDTOToModel($administradorDTO);
-        return $this->adminRepository->save($administrador);
+        try {
+            if ($this->validar_email_registrado($administradorDTO->correo_hwi_administrador)) {
+                throw new \Exception("Este usuario ya se encuentra registrado.");
+            }
+
+            $administrador = Mapper::administradoresDTOToModel($administradorDTO);
+            $guardado = $this->adminRepository->save($administrador);
+
+            if (!$guardado) {
+                throw new \Exception("Error al registrar, intente nuevamente.");
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 }

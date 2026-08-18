@@ -3,21 +3,15 @@
 namespace App\Aplication\Service;
 
 use App\Aplication\Interface\Service\ILoginService;
-
 use App\Domain\DTO\LoginDTO;
-use App\Domain\DTO\ResetPasswordDTO;
 use App\Domain\DTO\ChangePasswordDTO;
-use App\Domain\DTO\AdministradoresDTO;
-use App\Domain\DTO\ProveedoresDTO;
-use App\Domain\Model\Administradores;
-use App\Domain\Model\Proveedores;
+use App\Domain\DTO\CorreosDTO;
 use App\Shared\Mapper\Mapper;
+use App\Shared\Util\Utils;
 use App\Infrastructure\Repository\AdministradoresRepository;
 use App\Infrastructure\Repository\AdministradoresPermisosRepository;
 use App\Infrastructure\Repository\ProveedoresRepository;
 use App\Infrastructure\Database\Connection;
-use App\Shared\Util\Utils;
-use App\Shared\Util\EmailTemplates;
 
 
 class LoginService implements ILoginService
@@ -41,70 +35,111 @@ class LoginService implements ILoginService
         $isAdmin = $dto->isAdmin;
 
         if ($isAdmin) {
-            $administradorDTO = Mapper::modelToAdministradoresDTO($this->adminRepository->findByCorreo($usuario));
+            $administradorDTO = $this->adminRepository->findByCorreo($usuario);
 
             if (!$administradorDTO) {
                 return $dto;
             }
 
+            $administradorDTO = Mapper::modelToAdministradoresDTO($administradorDTO);
+
             $permisosDTO = Mapper::listModelToPermisosDTO($this->adminPermisosRepository->findPermissionsByUserId($administradorDTO->id_administrador));
             $administradorDTO->permisosDTO = $permisosDTO;
             $dto->administradorDTO = $administradorDTO;
         } else {
-            $proveedorDTO = Mapper::modelToProveedoresDTO($this->proveedorRepository->findByUsuario($usuario));
+            $proveedorDTO = $this->proveedorRepository->findByUsuario($usuario);
 
             if (!$proveedorDTO) {
                 return $dto;
             }
+
+            $proveedorDTO = Mapper::modelToProveedoresDTO($proveedorDTO);
 
             $dto->proveedorDTO = $proveedorDTO;
         }
 
         return $dto;
     }
-
-    public function obtenerDatosReset(ResetPasswordDTO $dto): ResetPasswordDTO
+    public function recuperarContrasena(ChangePasswordDTO $dto): bool
     {
-        $correo = trim($dto->correo);
-        $dominio = explode('@', strtolower($correo))[1] ?? '';
-        $dto->isAdmin = (strpos($dominio, 'whirlpool') !== false || strpos($dominio, 'haceb') !== false);
+        try {
+            $usuario = $dto->usuario; // el trim se hace en el handler
 
-        if ($dto->isAdmin) {
-            $admin = $this->adminRepository->findByCorreo($correo);
-            if ($admin) {
-                $dto->administradorDTO = Mapper::modelToAdministradoresDTO($admin);
-                $dto->correosList = [$admin->correo_hwi_administrador];
-            }
-        } else {
-            $proveedor = $this->proveedorRepository->findByUsuario($correo);
-            if ($proveedor) {
-                $dto->proveedorDTO = Mapper::modelToProveedoresDTO($proveedor);
-                
-                $correosList = $this->proveedorRepository->getCorreosByProveedorId($proveedor->id_proveedor);
-                if (empty($correosList)) {
-                    $correosList = filter_var($correo, FILTER_VALIDATE_EMAIL) ? [$correo] : [];
+            $tempPassword = $dto->tempPassword;
+            $hashedPassword = $dto->nuevaPassword;
+
+            if ($dto->isAdmin) {
+                $adminDTO = $this->adminRepository->findByCorreo($usuario);
+
+                if (!$adminDTO) {
+                    throw new \Exception("No se pudo obtener el id del administrador.");
                 }
-                $dto->correosList = $correosList;
+
+                $adminDTO = Mapper::modelToAdministradoresDTO($adminDTO);
+
+                $adminDTO->password_administrador = $hashedPassword;
+                $adminDTO->password_is_temporal = $dto->isTemporal;
+
+                $adminModel = Mapper::administradoresDTOToModel($adminDTO);
+                if (!$this->adminRepository->updatePassword($adminModel)) {
+                    throw new \Exception("No se pudo actualizar la contraseña del administrador.");
+                }
+            } else {
+                $proveedor = $this->proveedorRepository->findByUsuario($usuario);
+
+                if (!$proveedor) {
+                    throw new \Exception("No se pudo obtener el id del proveedor.");
+                }
+
+                $proveedorDTO = Mapper::modelToProveedoresDTO($proveedor);
+
+                $proveedorId = $proveedorDTO->id_proveedor;
+                $proveedorDTO->password_proveedor = $hashedPassword;
+                $proveedorDTO->password_is_temporal_proveedor = $dto->isTemporal;
+
+                $proveedorModel = Mapper::proveedoresDTOToModel($proveedorDTO);
+                if (!$this->proveedorRepository->updatePassword($proveedorModel)) {
+                    throw new \Exception("No se pudo actualizar la contraseña del proveedor.");
+                }
+
+                $correosModel = $this->proveedorRepository->getCorreosByProveedorId($proveedorId);
+                if (empty($correosModel)) {
+                    throw new \Exception("No se encontraron correos registrados para este proveedor.");
+                }
+
+                $dto->correosList = Mapper::listModelToCorreosDTO($correosModel);
             }
+
+            $tipoUsuario = $dto->isAdmin ? "Administrador" : "Proveedor";
+            $nombreUsuario = $dto->isAdmin ? $dto->administradorDTO->nombre_administrador : $dto->proveedorDTO->nombre_proveedor;
+
+            if (($dto->isTemporal ?? 0) === 1) {
+                $titulo = "Recuperación de Contraseña";
+                $asunto = "Recuperación de Contraseña - " . $tipoUsuario;
+                $contenidoHtml = "Hola " . $nombreUsuario . ",<br><br>"
+                    . "Hemos recibido una solicitud para restablecer el acceso a tu cuenta en el Sistema de Proveedores de Haceb Whirlpool Industrial S.A.S.<br><br>"
+                    . "A continuación encontrarás tu nueva contraseña temporal generada de forma segura:<br><br>"
+                    . $tempPassword . "<br><br>"
+                    . "Por motivos de seguridad, el sistema te solicitará que cambies esta contraseña inmediatamente después de iniciar sesión.<br><br>";
+            } else {
+                $titulo = "Cambio de Contraseña Exitoso";
+                $asunto = "Cambio de Contraseña Exitoso";
+                $contenidoHtml = "Hola " . $nombreUsuario . ",<br><br>"
+                    . "Te informamos que la contraseña de tu cuenta en el Sistema de Proveedores de Haceb Whirlpool Industrial S.A.S. ha sido actualizada de manera exitosa.<br><br>"
+                    . "Si no fuiste tú quien realizó este cambio, por favor contacta inmediatamente con el administrador del sistema.<br><br>";
+            }
+
+            $correosStrings = $dto->isAdmin ? [$dto->usuario] : array_map(fn($c) => $c->correo, $dto->correosList);
+            if (!empty($correosStrings)) {
+                $enviado = Utils::enviarCorreo($correosStrings, $asunto, $titulo, $contenidoHtml);
+                if (!$enviado) {
+                    throw new \Exception("Hubo un error al enviar el correo.");
+                }
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            throw $e;
         }
-
-        return $dto;
-    }
-
-    public function actualizarPasswordAdministrador(AdministradoresDTO $dto): bool
-    {
-        $admin = Mapper::administradoresDTOToModel($dto);
-        return $this->adminRepository->updatePassword($admin);
-    }
-
-    public function actualizarPasswordProveedor(ProveedoresDTO $dto): bool
-    {
-        $proveedor = Mapper::proveedoresDTOToModel($dto);
-        return $this->proveedorRepository->updatePassword($proveedor);
-    }
-
-    public function getCorreosProveedor(string $idProveedor): array
-    {
-        return $this->proveedorRepository->getCorreosByProveedorId($idProveedor);
     }
 }

@@ -32,57 +32,76 @@ class Utils
         return 'Hwi_' . $randomStr;
     }
 
-    private static function getMailer(): PHPMailer
-    {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host       = 'gtxm1009.siteground.biz';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'hwiverificacion@hacebwhirlpoolindustrial.com';
-        $mail->Password   = 'HWI2023*';
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port       = 465;
-        $mail->setFrom('hwiverificacion@hacebwhirlpoolindustrial.com', 'Equipo BI Haceb Whirlpool');
-        $mail->addBCC('ricardo.rojas@hacebwhirlpool.com');
-        $mail->CharSet    = 'UTF-8';
-        $mail->isHTML(true);
-
-        return $mail;
-    }
-
-    public static function enviarCorreo(string $asunto, string $cuerpoHTML, array|string $destinatarios): bool
+    public static function enviarCorreo(array|string $destinatario, string $asunto, string $titulo, string $contenidoHtml): bool
     {
         try {
-            $mail = self::getMailer();
-            $mail->Subject = $asunto;
+            $mail = new PHPMailer(true);
+            $mail->isSMTP();
+            $mail->Host       = 'mail.hacebwhirlpoolindustrial.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'hwiverificacion@hacebwhirlpoolindustrial.com';
+            $mail->Password   = 'HWI2023*';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port       = 465;
+            $mail->CharSet    = 'UTF-8';
+            $mail->Encoding   = 'base64';
 
-            if (is_string($destinatarios)) {
-                $mail->addAddress(trim($destinatarios));
-            } elseif (is_array($destinatarios)) {
-                foreach ($destinatarios as $dest) {
+            $mail->setFrom('hwiverificacion@hacebwhirlpoolindustrial.com', 'Equipo BI');
+
+            if (is_string($destinatario)) {
+                $mail->addAddress(trim($destinatario));
+            } elseif (is_array($destinatario)) {
+                foreach ($destinatario as $dest) {
                     if (!empty(trim($dest))) {
                         $mail->addAddress(trim($dest));
                     }
                 }
             }
 
-            $logoPath = __DIR__ . '/../../../../public/img/hwiLogo.png';
-            if (file_exists($logoPath)) {
-                $mail->AddEmbeddedImage($logoPath, 'logo_hwi');
-                $cuerpoHTML = str_replace('{{LOGO_TAG}}', '<img src="cid:logo_hwi" alt="Haceb Whirlpool Industrial" style="max-width: 180px; height: auto;">', $cuerpoHTML);
-            } else {
-                $cuerpoHTML = str_replace('{{LOGO_TAG}}', '<h2 style="color: #1D92B2; margin: 0;">Haceb Whirlpool</h2>', $cuerpoHTML);
-            }
-            
-            $mail->Body = $cuerpoHTML;
-            
+            $mail->isHTML(true);
+            $mail->Subject = $asunto;
+
+            $logoUrl = "https://sistemaevaluacioncontratistas.hacebwhirlpoolindustrial.com/Evaluador_HWI/Imagenes/LogoBlancoHWI.png";
+            $loginUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]/SistemaProveedores/src/App/Pages/View/Auth/login.php";
+
+            $mail->Body = '
+            <html>
+            <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; margin: 0;">
+                <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    
+                    <div style="text-align: center; padding: 30px 20px; border-bottom: 4px solid #005691;">
+                        <img src="' . $logoUrl . '" alt="Haceb Whirlpool" style="width: 200px; height: auto;">
+                    </div>
+
+                    <div style="padding: 30px; color: #333333; line-height: 1.6;">
+                        <h2 style="text-align: center; color: #222222; margin-bottom: 25px; font-weight: bold;">
+                            ' . $titulo . '
+                        </h2>
+                        
+                        <div style="font-size: 15px;">
+                            ' . $contenidoHtml . '
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 30px;">
+                            <a href="' . $loginUrl . '" style="display: inline-block; padding: 12px 24px; background-color: #005691; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 16px;">Acceder al Sistema</a>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; padding: 20px; background-color: #f9f9f9; color: #888888; font-size: 12px; border-top: 1px solid #eeeeee;">
+                        <p style="margin: 0;">Copyright © Haceb Whirlpool Industrial S.A.S</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+        ';
+
             $mail->send();
             return true;
         } catch (PHPMailerException $e) {
-            error_log("Error PHPMailer: " . $mail->ErrorInfo);
+            error_log("Error al enviar el correo electrónico: " . $e->getMessage());
             return false;
         } catch (GlobalException $e) {
-            error_log("Error enviando correo: " . $e->getMessage());
+            error_log("Error al enviar el correo electrónico: " . $e->getMessage());
             return false;
         }
     }

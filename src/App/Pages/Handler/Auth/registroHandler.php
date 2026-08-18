@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../../vendor/autoload.php';
 session_start();
 ob_start();
 
@@ -39,7 +39,6 @@ function registrar(array $formData)
             : null;
 
         $id_admin = Utils::generarGuid();
-        $id_estado = 2;
 
         $password_hash = password_hash($password_raw, PASSWORD_DEFAULT);
 
@@ -48,7 +47,7 @@ function registrar(array $formData)
             nombre_administrador: $nombre,
             apellidos_administrador: $apellidos,
             correo_hwi_administrador: $correo_completo,
-            id_area_administrador: $id_area_usuario ?? null, //hacer la validación en el validator
+            id_area_administrador: $id_area_usuario ?? null,
             password_administrador: $password_hash,
             id_estado_administrador: 3,
             password_is_temporal: 0,
@@ -60,14 +59,9 @@ function registrar(array $formData)
 
         Validator::validateDTO($administradorDTO);
 
-
         $registroService = new RegistroService();
 
-        $guardado = $registroService->guardar_administrador($administradorDTO);
-
-        if (!$guardado) {
-            throw new \Exception("Error al registrar, intente nuevamente.");
-        }
+        $registroService->guardar_administrador($administradorDTO);
 
         echo json_encode(['status' => 'success']);
         exit;

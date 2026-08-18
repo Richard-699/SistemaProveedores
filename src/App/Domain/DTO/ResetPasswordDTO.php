@@ -4,12 +4,15 @@ namespace App\Domain\DTO;
 
 class ResetPasswordDTO
 {
-    public ?AdministradoresDTO $administradorDTO = null;
-    public ?ProveedoresDTO $proveedorDTO = null;
-    public ?bool $isAdmin = null;
-    public array $correosList = [];
-
+    /**
+     * @param CorreosDTO[] $correosList
+     */
     public function __construct(
-        public string $correo
+        public string $usuario,
+        public array $correosList = [],
+        public bool $isAdmin = false,
+        public ?AdministradoresDTO $administradorDTO = null,
+        public ?ProveedoresDTO $proveedorDTO = null,
+        public ?string $tempPassword = null
     ) {}
 }

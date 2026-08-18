@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectArea) {
         async function loadAreas() {
             try {
-                const res = await fetch('../../Handler/registroHandler.php?action=getAreas');
+                const res = await fetch('../../Handler/Auth/registroHandler.php?action=getAreas');
                 const data = await res.json();
                 if (data.status === 'success') {
                     data.data.forEach(area => {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarCarga();
             const formData = new FormData(this);
 
-            const targetUrl = '../../Handler/registroHandler.php?action=registrarAdministrador';
+            const targetUrl = '../../Handler/Auth/registroHandler.php?action=registrarAdministrador';
 
             const response = await fetch(targetUrl, {
                 method: 'POST',
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
 
-            ocultarCarga();
+            await ocultarCarga();
             if (btn) btn.disabled = false;
 
             if (result.status === 'success') {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 notify('error', result.message);
             }
         } catch (error) {
-            ocultarCarga();
+            await ocultarCarga();
             const btn = document.getElementById('btningresar');
             if (btn) btn.disabled = false;
             console.error(error);

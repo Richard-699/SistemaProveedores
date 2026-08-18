@@ -23,34 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarCarga();
             const formData = new FormData(this);
 
-            const res = await fetch('../../Handler/loginHandler.php', {
+            const res = await fetch('../../Handler/Auth/loginHandler.php', {
                 method: 'POST',
                 body: formData
             });
             const data = await res.json();
 
-            ocultarCarga();
+            await ocultarCarga();
             if (btn) btn.disabled = false;
 
             if (data.status === 'success') {
                 const sessionData = data.data;
-                let redirectUrl = "";
                 if (sessionData.is_temporal == 1) {
-                    redirectUrl = "cambiarContrasena.php";
+                    window.location.href = 'reestablecerContrasena.php';
                 } else {
-                    if (sessionData.is_admin) {
-                        redirectUrl = "../Admin/index.php";
-                    } else {
-                        redirectUrl = "../Supplier/index.php";
-                    }
+                    window.location.href = sessionData.redirect || (sessionData.is_admin ? '../Admin/index.php' : '../Supplier/index.php');
                 }
-
-                window.location.href = redirectUrl;
             } else {
                 notify('error', data.message);
             }
         } catch (err) {
-            ocultarCarga();
+            await ocultarCarga();
             const btn = document.getElementById('btningresar');
             if (btn) btn.disabled = false;
             console.error(err);
