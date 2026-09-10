@@ -21,6 +21,6 @@ class AreasRepository implements IAreasRepository
         $stmt = $this->db->query("SELECT * FROM proveedores_hwi_areas ORDER BY nombre_area ASC");
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        return array_map(fn($row) => Areas::fromArray($row), $rows);
+        return array_map([Areas::class, 'fromArray'], $rows);
     }
 }

@@ -23,6 +23,9 @@ class ProveedoresDTO {
         public ?string $id_administrador_proveedor,
         public string $usuario_proveedor,
         public string $password_proveedor,
-        public int $password_is_temporal_proveedor
+        public int $password_is_temporal_proveedor,
+        public ?string $nombre_administrador = null,
+        public ?string $nombre_tipo = null,
+        public ?string $nombre_estado = null
     ) {}
 }

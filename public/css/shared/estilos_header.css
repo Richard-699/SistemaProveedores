@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body.swal2-height-auto {
+  height: auto !important;
+  overflow-y: auto !important;
+  padding-right: 0 !important;
+}
+
+body.swal2-shown {
+  padding-right: 0 !important;
+  /* evita desplazamiento horizontal falso */
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #072B31;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  /* Añadido */
+  padding-bottom: 60px;
+  /* Añadido para asegurarse de que haya espacio en la parte inferior */
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  /* antes 10px → bajamos un poco */
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sidebar hr {
+  margin: 0px 10px;
+  opacity: 0.2;
+  width: 93%;
+}
+
+.sidebar a i {
+  margin-right: 8px;
+  /* Espacio entre el ícono y el texto */
+  font-size: 16px;
+  /* Tamaño de icono consistente */
+  width: 24px;
+  /* Ajusta el ancho */
+  height: 24px;
+  /* Ajusta el alto */
+  display: inline-flex;
+  align-items: center;
+  /* Centra el ícono verticalmente */
+  justify-content: center;
+  /* Centra el ícono horizontalmente */
+}
+
+.sidebar a.hov:hover {
+  background-color: #495057;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  margin-left: -200px;
+}
+
+.content.expanded {
+  margin-left: 0;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #E0E0E0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.navbar-brand {
+  color: black;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  border: none;
+  background: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.3rem;
+  margin-right: 10px;
+  color: black;
+}
+
+.menu-toggle:hover {
+  color: #072B31;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.fondo-img {
+  background-color: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.img-logo {
+  width: 85px;
+  height: 50px;
+  margin-left: 20%;
+  margin-right: 10px;
+}
+
+.icon-config i {
+  transition: transform 0.5s ease, color 0.3s ease;
+  color: black;
+}
+
+.icon-config:hover i {
+  transform: rotate(180deg);
+  color: #072B31;
+}
+
+.icon-logout i {
+  color: black;
+}
+
+.icon-logout:hover i {
+  color: #072B31;
+}
+
+#BtnCerrarSesion {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 15px;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+#BtnCerrarSesion:hover {
+  background-color: #495057;
+}
+
+
+
+
+
+.dropdown-menu {
+  border-radius: 5px;
+  min-width: 180px;
+  background-color: #072B31;
+  z-index: 9999;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #495057;
+}
+
+/* ---- */
+
+/* Evita la flecha generada por defecto de Bootstrap */
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+/* Alinea engranaje y flecha */
+.icon-config i {
+  line-height: 1;
+}
+
+/* Ajuste visual para asegurar que no haya guiones o subrayados */
+.icon-config {
+  text-decoration: none;
+}
+
+/* Asegura que los íconos estén alineados correctamente */
+.icon-config i+i {
+  font-size: 0.8rem;
+  /* Tamaño menor para la flechita */
+}
+

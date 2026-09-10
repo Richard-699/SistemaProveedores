@@ -17,4 +17,9 @@ interface IProveedoresRepository
      * @return \App\Domain\Model\Correos[]
      */
     public function getCorreosByProveedorId(string $id): array;
+
+    /**
+     * @return \App\Domain\Model\Proveedores[]
+     */
+    public function findAll(): array;
 }

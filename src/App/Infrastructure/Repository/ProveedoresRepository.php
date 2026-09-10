@@ -84,4 +84,20 @@ class ProveedoresRepository implements IProveedoresRepository
 
         return $correos;
     }
+
+    /**
+     * @return Proveedores[]
+     */
+    public function findAll(): array
+    {
+        $stmt = $this->db->prepare("
+            SELECT *
+            FROM proveedores_hwi
+        ");
+        $stmt->execute();
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return array_map([Proveedores::class, 'fromArray'], $rows);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Shared\Validation;
 
 use Exception;
 use App\Domain\DTO\AdministradoresDTO;
+use App\Domain\DTO\AdministradoresPermisosDTO;
 use App\Domain\DTO\LoginDTO;
 use App\Domain\DTO\ChangePasswordDTO;
 
@@ -70,7 +71,6 @@ class Validator
 
     private static function validateChangePasswordDTO(ChangePasswordDTO $dto): void
     {
-        // Validar caso de recuperar contraseña
         if ($dto->isTemporal === 1) {
             if (empty($dto->usuario)) {
                 throw new Exception('El usuario o correo electrónico es obligatorio.');
@@ -80,7 +80,6 @@ class Validator
             return;
         }
 
-        // Validar caso de cambiar contraseña
         if (empty($dto->password_raw)) {
             throw new Exception('La contraseña es obligatoria.');
         } elseif (strlen($dto->password_raw) < 8) {
@@ -95,6 +94,24 @@ class Validator
             throw new Exception('La confirmación de contraseña es obligatoria.');
         } elseif ($dto->password_raw !== $dto->confirmPassword) {
             throw new Exception('Las contraseñas no coinciden.');
+        }
+    }
+
+    public static function validatePermisosAdministrador(AdministradoresPermisosDTO $dto): void
+    {
+        if (empty($dto->id_administrador_permiso)) {
+            throw new Exception("ID de administrador requerido.");
+        }
+
+        if (empty($dto->permisosDTO)) {
+            throw new Exception("Debe seleccionar al menos un permiso.");
+        }
+    }
+
+    public static function validateIdAdministrador(string $id_admin): void
+    {
+        if (empty($id_admin)) {
+            throw new Exception("ID de administrador requerido.");
         }
     }
 }

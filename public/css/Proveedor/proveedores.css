@@ -1,0 +1,63 @@
+.custom-thead th {
+    background-color: #002b36 !important;
+    color: white !important;
+    padding-left: 12px !important;
+    padding-right: 28px !important;
+    white-space: nowrap;
+}
+
+#tabla-proveedores thead th:first-child {
+    min-width: 130px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 20px;
+}
+
+/* Badges de estado */
+.badge-activo,
+.badge-aprobado {
+    background-color: #198754 !important;
+    color: #fff !important;
+}
+
+.badge-pendiente {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.badge-revision {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+.badge-rechazado {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+.badge-inactivo {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.btn-custom-teal {
+    background-color: #002b36 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    padding: 6px 14px !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-custom-teal:hover {
+    background-color: #014354 !important;
+    color: #ffffff !important;
+}

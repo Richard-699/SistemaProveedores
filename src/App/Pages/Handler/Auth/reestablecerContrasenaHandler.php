@@ -5,7 +5,6 @@ session_start();
 use App\Aplication\Service\LoginService;
 use App\Domain\DTO\ChangePasswordDTO;
 use App\Shared\Validation\Validator;
-use App\Shared\Util\Utils;
 
 header('Content-Type: application/json; charset=utf-8');
 

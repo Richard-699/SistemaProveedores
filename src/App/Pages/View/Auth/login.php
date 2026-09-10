@@ -65,7 +65,7 @@ include($ruta);
     <script src="../../../../../public/js/utils/notify-animations.js"></script>
     <script src="../../../../../public/js/utils/notify.js"></script>
     <script src="../../../../../public/js/utils/validateForm.js"></script>
-    <script src="../../../../../public/js/Auth/login.js"></script>
+    <script src="../../../../../public/js/Auth/login.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>

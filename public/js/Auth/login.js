@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (sessionData.is_temporal == 1) {
                     window.location.href = 'reestablecerContrasena.php';
                 } else {
-                    window.location.href = sessionData.redirect || (sessionData.is_admin ? '../Admin/index.php' : '../Supplier/index.php');
+                    window.location.href = sessionData.redirect || (sessionData.is_admin ? '../Administrador/index.php' : '../Supplier/index.php');
                 }
             } else {
                 notify('error', data.message);

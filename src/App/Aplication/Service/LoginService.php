@@ -5,27 +5,29 @@ namespace App\Aplication\Service;
 use App\Aplication\Interface\Service\ILoginService;
 use App\Domain\DTO\LoginDTO;
 use App\Domain\DTO\ChangePasswordDTO;
-use App\Domain\DTO\CorreosDTO;
 use App\Shared\Mapper\Mapper;
 use App\Shared\Util\Utils;
 use App\Infrastructure\Repository\AdministradoresRepository;
 use App\Infrastructure\Repository\AdministradoresPermisosRepository;
+use App\Infrastructure\Repository\PermisosRepository;
 use App\Infrastructure\Repository\ProveedoresRepository;
 use App\Infrastructure\Database\Connection;
 
 
 class LoginService implements ILoginService
 {
-    private $db;
-    private $adminRepository;
-    private $adminPermisosRepository;
-    private $proveedorRepository;
+    private \PDO $db;
+    private AdministradoresRepository $adminRepository;
+    private AdministradoresPermisosRepository $adminPermisosRepository;
+    private PermisosRepository $permisosRepository;
+    private ProveedoresRepository $proveedorRepository;
 
     public function __construct()
     {
         $this->db = (new Connection())->dbsistemas_proveedores;
         $this->adminRepository = new AdministradoresRepository($this->db);
         $this->adminPermisosRepository = new AdministradoresPermisosRepository($this->db);
+        $this->permisosRepository = new PermisosRepository($this->db);
         $this->proveedorRepository = new ProveedoresRepository($this->db);
     }
 
@@ -43,8 +45,25 @@ class LoginService implements ILoginService
 
             $administradorDTO = Mapper::modelToAdministradoresDTO($administradorDTO);
 
-            $permisosDTO = Mapper::listModelToPermisosDTO($this->adminPermisosRepository->findPermissionsByUserId($administradorDTO->id_administrador));
-            $administradorDTO->permisosDTO = $permisosDTO;
+            $adminPermisosModels = $this->adminPermisosRepository->findByIdAdministrador($administradorDTO->id_administrador);
+            $adminPermisosDTO = Mapper::modelToListAdministradoresPermisosDTO($adminPermisosModels);
+
+            $permisosModels = $this->permisosRepository->findAll();
+            $permisosDTO = Mapper::modelToListPermisosDTO($permisosModels);
+
+            $permisosMap = [];
+            foreach ($permisosDTO as $permisoDTO) {
+                $permisosMap[$permisoDTO->id_permiso] = $permisoDTO;
+            }
+
+            $permisosDelAdmin = [];
+            foreach ($adminPermisosDTO as $adminPermisoDTO) {
+                if (isset($permisosMap[$adminPermisoDTO->id_permiso_administrador])) {
+                    $permisosDelAdmin[] = $permisosMap[$adminPermisoDTO->id_permiso_administrador];
+                }
+            }
+
+            $administradorDTO->permisosDTO = $permisosDelAdmin;
             $dto->administradorDTO = $administradorDTO;
         } else {
             $proveedorDTO = $this->proveedorRepository->findByUsuario($usuario);
@@ -63,7 +82,7 @@ class LoginService implements ILoginService
     public function recuperarContrasena(ChangePasswordDTO $dto): bool
     {
         try {
-            $usuario = $dto->usuario; // el trim se hace en el handler
+            $usuario = $dto->usuario;
 
             $tempPassword = $dto->tempPassword;
             $hashedPassword = $dto->nuevaPassword;
