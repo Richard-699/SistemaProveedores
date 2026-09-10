@@ -18,17 +18,16 @@ if (!isset($_SESSION['is_admin'])) {
 
     <link rel="shortcut icon" href="../../../../../public/img/LogoBlanco.png">
     <link rel="stylesheet" href="../../../../../public/css/libs/vendor.bundle.css">
-    <link rel="stylesheet" href="../../../../../public/css/Administrador/index.css">
+    <link rel="stylesheet" href="../../../../../public/css/Administrador/index.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
     <?php include '../Shared/header.php'; ?>
     <div class="video-wrapper">
         <video class="video-principal" autoplay loop muted playsinline>
-            <source src="../../../../../public/video/VideoPrincipal - Trim.mp4" type="video/mp4">
+            <source src="../../../../../public/video/Video Project.mp4" type="video/mp4">
             Tu navegador no soporta el formato de video.
         </video>
-    </div>
     </div>
     <?php include '../Shared/footer.php'; ?>
 
