@@ -54,15 +54,12 @@ if($updateContrasena){
                 showConfirmButton: false,
                 timer: 2000 // Cierra automáticamente después de 3 segundos
             });';
-    if($Id_proveedor == null){
+    if (isset($_SESSION["id_rol_usuarios"]) && $_SESSION["id_rol_usuarios"] == 1) {
+        echo 'setTimeout(function() { window.location.href = "../../Views/Admin/index.php"; }, 2000);';
+    } elseif ($Id_proveedor == null) {
         echo 'setTimeout(function() { window.location.href = "../../Views/User/index.php"; }, 2000);';
-    }else{
+    } else {
         echo 'setTimeout(function() { window.location.href = "../../Views/Supplier/index.php"; }, 2000);';
-        /* if($proveedor_aprobado == 1){
-            echo 'setTimeout(function() { window.location.href = "../../Views/Supplier/index.php"; }, 2000);';
-        }else{
-            echo 'setTimeout(function() { window.location.href = "../../Views/Laft/index.php"; }, 2000);';
-        } */
     }
 
     
