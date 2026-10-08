@@ -159,7 +159,7 @@ error_reporting(0);
                                     while ($MostrarProveedores = mysqli_fetch_array($consultarProveedores)) {
                                     ?>
                                         <tr>
-                                            <td class="text-start"><?php echo $MostrarProveedores['numero_acreedor']; ?></td>
+                                            <td class="text-start"><?php echo (!empty($MostrarProveedores['numero_acreedor']) && $MostrarProveedores['numero_acreedor'] != 0) ? $MostrarProveedores['numero_acreedor'] : 'Sin asignar'; ?></td>
                                             <td><?php echo $MostrarProveedores['nombre_proveedor']; ?></td>
                                             <td><?php echo $MostrarProveedores['tipo_proveedor']; ?></td>
                                         </tr>

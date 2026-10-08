@@ -2,8 +2,12 @@
 $idioma = $_GET['idioma'] ?? 'es';
 $new_idioma = ucfirst($idioma);
 $ruta = 'IdiomaConfig/' . $new_idioma . '.php';
-include($ruta);
 
+if (!file_exists($ruta)) {
+    $ruta = 'IdiomaConfig/Es.php';
+}
+include($ruta);
+/** @var array $lang */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +57,7 @@ include($ruta);
                         </button>
                     </div>
                     <p style="text-align: center; margin: 0 auto;">
-                        <a href="#" id="reset-password-link"><?php echo $lang['Forgot_Password']; ?></a>
+                        <a href="recuperarContrasena.php?idioma=<?php echo htmlspecialchars($idioma); ?>" id="reset-password-link"><?php echo $lang['Forgot_Password']; ?></a>
                     </p>
                     <p style="text-align: center; margin: 0 auto;"><?php echo $lang['Sin_cuenta']; ?> <a href="registro.php"><?php echo $lang['Register']; ?></a></p>
                 </form>
@@ -85,18 +89,6 @@ include($ruta);
             const icon = document.querySelector(`[onclick="togglePassword('${inputId}')"] i`);
             icon.textContent = type === 'password' ? 'visibility' : 'visibility_off';
         }
-
-        document.getElementById('reset-password-link').addEventListener('click', function(event) {
-        event.preventDefault();
-        
-        Swal.fire({
-            title: 'Restablecer Contraseña',
-            text: 'Para restablecer la contraseña debes solicitarlo al administrador.',
-            icon: 'info',
-            confirmButtonText: 'Aceptar',
-            confirmButtonColor: '#0093B2'
-        });
-    });
     </script>
 </body>
 
