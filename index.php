@@ -43,14 +43,23 @@ include($ruta);
                     <div class="mb-4 form-group">
                         <input autocomplete="off" type="password" class="custom-input" id="inputPassword" name="password" placeholder=" " required>
                         <label for="password" class="floating-label"><?php echo $lang['Password']; ?></label>
-                        <button class="password-toggle" id="passwordToggle" type="button" onclick="togglePassword('inputPassword')">
-                            <i class="material-icons" id="passwordIcon">visibility</i>
+                        <button class="password-toggle" id="passwordToggle" type="button" onclick="togglePassword('inputPassword')" aria-label="Mostrar contraseña">
+                            <span id="passwordIcon" class="d-inline-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0093B2" viewBox="0 0 16 16">
+                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                                </svg>
+                            </span>
                         </button>
                     </div>
 
                     <div class="d-grid mb-4">
-                        <button type="submit" value="Ingresar" name="btningresar" class="btn btn-success align-items-center" id="btningresar">
-                            <i class="material-icons align-middle" style="font-size: 24px;">login</i> <span class="align-middle"><?php echo $lang['Login']; ?></span>
+                        <button type="submit" value="Ingresar" name="btningresar" class="btn btn-success d-flex align-items-center justify-content-center gap-2" id="btningresar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                            </svg>
+                            <span><?php echo $lang['Login']; ?></span>
                         </button>
                     </div>
                     <p style="text-align: center; margin: 0 auto;">
@@ -73,6 +82,9 @@ include($ruta);
         const passwordToggle = document.getElementById('passwordToggle');
         const passwordIcon = document.getElementById('passwordIcon');
 
+        const svgEye = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0093B2" viewBox="0 0 16 16"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/></svg>`;
+        const svgEyeSlash = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0093B2" viewBox="0 0 16 16"><path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/><path d="M11.297 9.124a3.5 3.5 0 0 0-4.42-4.42l1.096 1.096a1.5 1.5 0 0 1 1.656 1.656z"/><path d="M10.73 12.733A8 8 0 0 1 8 13c-5 0-8-5-8-5a13 13 0 0 1 2.072-2.877l1.408 1.408A6 6 0 0 0 8 11.5c.782 0 1.52-.162 2.18-.45z"/><path d="M13.646 14.354l-12-12 .708-.708 12 12z"/></svg>`;
+
         passwordInput.addEventListener('input', togglePasswordIcon);
 
         function togglePasswordIcon() {
@@ -83,8 +95,10 @@ include($ruta);
             const passwordInput = document.getElementById(inputId);
             const type = passwordInput.type === 'password' ? 'text' : 'password';
             passwordInput.type = type;
-            const icon = document.querySelector(`[onclick="togglePassword('${inputId}')"] i`);
-            icon.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+            const iconContainer = document.querySelector(`[onclick="togglePassword('${inputId}')"] #passwordIcon`) || document.getElementById('passwordIcon');
+            if (iconContainer) {
+                iconContainer.innerHTML = type === 'password' ? svgEye : svgEyeSlash;
+            }
         }
     </script>
 </body>

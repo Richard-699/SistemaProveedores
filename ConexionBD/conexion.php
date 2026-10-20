@@ -11,8 +11,11 @@ $isLocal = (php_sapi_name() === 'cli')
 $conexion = null;
 
 if ($isLocal) {
-    // Intentar conexión local (XAMPP)
-    $conexion = @new mysqli("localhost", "root", "", "sistema_proveedores_v2");
+    // Intentar conexión local (XAMPP): la base de datos principal con la tabla usuarios es proveedores_hwi
+    $conexion = @new mysqli("localhost", "root", "", "proveedores_hwi");
+    if ($conexion->connect_errno) {
+        $conexion = @new mysqli("localhost", "root", "", "sistema_proveedores_v2");
+    }
     if ($conexion->connect_errno) {
         $conexion = @new mysqli("localhost", "root", "", "sistema_proveedores_vieja");
     }

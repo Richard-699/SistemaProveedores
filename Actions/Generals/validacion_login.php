@@ -17,7 +17,7 @@ if (!empty($_POST["btningresar"])) {
         $consultarUsuario = mysqli_query($conexion, "SELECT * FROM usuarios 
                                         LEFT JOIN proveedores ON usuarios.id_proveedor_usuarios = proveedores.Id_proveedor
                                         WHERE correo_usuario='$usuario'");
-        if (mysqli_num_rows($consultarUsuario) == 0) {
+        if (!$consultarUsuario || mysqli_num_rows($consultarUsuario) == 0) {
             echo '<script>';
             echo 'Swal.fire({
                         icon: "error",
