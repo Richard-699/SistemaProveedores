@@ -1,5 +1,6 @@
 # Ignorar carpetas de carga de usuarios
-public_html/SistemaProveedores/documents/
+documents/
+documents/*
 
 .env
 .gitignore
