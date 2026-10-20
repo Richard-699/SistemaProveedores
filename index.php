@@ -36,9 +36,6 @@ include($ruta);
                 <h2 class="fw-bold text-center py-4"><?php echo $lang['Login']; ?></h2>
 
                 <form method="POST" action="Actions/Generals/validacion_login.php">
-                    <?php
-                    include "ConexionBD/conexion.php";
-                    ?>
                     <div class="mb-4 form-group mt-5">
                         <input autocomplete="off" type="text" class="custom-input" id="usuario" name="usuario" placeholder=" " required>
                         <label for="Usuario" class="floating-label"><?php echo $lang['User']; ?></label>
