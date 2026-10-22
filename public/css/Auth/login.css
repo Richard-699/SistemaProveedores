@@ -115,7 +115,7 @@ body {
 }
 
 .btn-success {
-    background-color: #0093B2;
+    background-color: #015a70;
     color: white;
     border: none;
     border-radius: 8px;
@@ -129,9 +129,9 @@ body {
 }
 
 .btn-success:hover {
-    background-color: #072B31;
+    background-color: #014354;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 147, 178, 0.4);
+    box-shadow: 0 6px 15px rgba(1, 90, 112, 0.4);
 }
 
 .footer-links {
@@ -142,7 +142,7 @@ body {
 }
 
 .footer-links a {
-    color: #0093B2;
+    color: #015a70;
     text-decoration: none;
     font-weight: 500;
 }

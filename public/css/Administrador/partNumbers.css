@@ -1,0 +1,78 @@
+.table-container {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin: 0;
+}
+
+.custom-thead th {
+    background-color: #002b36 !important;
+    color: white !important;
+}
+
+.btn-custom-teal {
+    background-color: #015a70 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    padding: 7px 16px !important;
+    box-shadow: 0 2px 6px rgba(1, 90, 112, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-custom-teal:hover {
+    background-color: #014354 !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(1, 90, 112, 0.4);
+}
+
+.btn-custom-teal:active {
+    transform: scale(0.98);
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 20px;
+}
+
+.swal-btn-confirm {
+    background-color: #015a70 !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.swal-btn-confirm:hover {
+    background-color: #014354 !important;
+}
+
+.swal-btn-cancel {
+    background-color: #5a6268 !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.swal-btn-cancel:hover {
+    background-color: #4a5258 !important;
+}
+
+.fancybox__container {
+    --fancybox-bg: rgba(0, 0, 0, 0.4) !important;
+}
+
+.fancybox__backdrop {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}

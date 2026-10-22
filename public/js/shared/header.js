@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.status === 'success') {
                     window.location.href = data.redirect;
                 } else {
-                    ocultarCarga();
+                    await ocultarCarga();
                     console.error('Error al cerrar sesión:', data.message);
                     isLoggingOut = false;
                 }
             } catch (error) {
-                ocultarCarga();
+                await ocultarCarga();
                 console.error('Error en la petición:', error);
                 isLoggingOut = false;
             }

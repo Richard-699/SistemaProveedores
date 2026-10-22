@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Inject icons
     const iconLock1 = document.getElementById('icon-lock1');
     const iconLock2 = document.getElementById('icon-lock2');
     const iconEye1 = document.getElementById('icon-eye1');
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmPassword = document.getElementById('confirmPassword');
     const passwordToggle1 = document.getElementById('passwordToggle1');
     const passwordToggle2 = document.getElementById('passwordToggle2');
-    const errorSpan = document.getElementById('errorConfirmPassword');
     const btnCambiar = document.getElementById('btnCambiar');
 
     const cambiarContrasenaForm = document.getElementById('cambiarContrasenaForm');

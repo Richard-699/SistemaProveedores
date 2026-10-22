@@ -33,12 +33,12 @@ include($ruta);
             <form id="loginForm" novalidate>
                 <div class="form-group">
                     <span class="input-icon" id="icon-user"></span>
-                    <input autocomplete="off" type="text" class="custom-input" id="usuario" name="usuario" placeholder="<?php echo $lang['User']; ?>" required>
+                    <input autocomplete="off" type="text" class="custom-input" id="usuario" name="usuario" placeholder="<?php echo $lang['User']; ?>">
                 </div>
                 
                 <div class="form-group">
                     <span class="input-icon" id="icon-lock"></span>
-                    <input autocomplete="off" type="password" class="custom-input" id="inputPassword" name="password" placeholder="<?php echo $lang['Password']; ?>" required>
+                    <input autocomplete="off" type="password" class="custom-input" id="inputPassword" name="password" placeholder="<?php echo $lang['Password']; ?>">
                     <button class="password-toggle" id="passwordToggle" type="button" style="display: none;">
                         <span id="icon-eye"></span>
                     </button>

@@ -5,9 +5,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
 
 if (!isset($_SESSION['is_admin'])) {
     header("Location: ../Auth/login.php");
@@ -27,8 +24,8 @@ if ($_SESSION['is_admin'] && isset($_SESSION['administrador'])) {
 }
 ?>
 <?php
-    // Obtener la URL base dinámicamente para enlazar correctamente los estilos
-    $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/SistemaProveedores";
+// Obtener la URL base dinámicamente para enlazar correctamente los estilos
+$baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/SistemaProveedores";
 ?>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,11 +33,11 @@ if ($_SESSION['is_admin'] && isset($_SESSION['administrador'])) {
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>/public/css/shared/estilos_header.css">
 
 <div id="sidebar" class="sidebar">
-    <a class="fondo-img" href="index.php">
+    <a class="fondo-img" href="../Administrador/index.php">
         <img src="../../../../../public/img/LogoBlanco.png" class="img-logo">
     </a>
 
-    <a href="index.php" class="mt-3 hov nav-link"><i class="fas fa-home"></i> Inicio</a>
+    <a href="../Administrador/index.php" class="mt-3 hov nav-link"><i class="fas fa-home"></i> Inicio</a>
     <hr>
 
     <?php
@@ -49,13 +46,13 @@ if ($_SESSION['is_admin'] && isset($_SESSION['administrador'])) {
 
         switch ($idPermiso) {
             case 1:
-                echo '<a class="hov nav-link" href="../Proveedor/proveedores.php"><i class="fas fa-users"></i> Proveedores</a><hr>';
+                echo '<a class="hov nav-link" href="../Administrador/proveedores.php"><i class="fas fa-users"></i> Proveedores</a><hr>';
                 break;
             case 2:
-                echo '<a class="hov nav-link" href="../User/partNumbers.php"><i class="fas fa-robot"></i> PartNumber</a><hr>';
+                echo '<a class="hov nav-link" href="../Administrador/partNumbers.php"><i class="material-icons">precision_manufacturing</i> Part Numbers</a><hr>';
                 break;
             case 4:
-                echo '<a class="hov nav-link" href="../Administrador/administradores.php"><i class="fas fa-key"></i> Gestión Accesos</a><hr>';
+                echo '<a class="hov nav-link" href="../Administrador/administradores.php"><i class="fa-solid fa-users-gear"></i> Administradores</a><hr>';
                 break;
             case 5:
                 echo '<a class="hov nav-link" href="../User/historicoLAFT.php"><i class="fas fa-history"></i> Histórico LAFT</a><hr>';
@@ -65,7 +62,6 @@ if ($_SESSION['is_admin'] && isset($_SESSION['administrador'])) {
                 break;
             case 7:
                 echo '<a class="hov nav-link" href="../User/resultadoCbd.php"><i class="fas fa-file-alt"></i> Resultado Cbd</a><hr>';
-                echo '<a class="hov nav-link" href="../User/serviciosSuministros.php"><i class="fas fa-pencil-ruler"></i> Servicios/Suministros</a><hr>';
                 break;
         }
     }
@@ -83,4 +79,4 @@ if ($_SESSION['is_admin'] && isset($_SESSION['administrador'])) {
             <a href="#" id="BtnCerrarSesionMenu" class="text-dark"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </div>
     </nav>
-<script src="<?php echo $baseUrl; ?>/public/js/shared/header.js"></script>
+    <script src="<?php echo $baseUrl; ?>/public/js/shared/header.js"></script>

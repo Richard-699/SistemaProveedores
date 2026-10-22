@@ -128,8 +128,30 @@ class AdministradoresRepository implements IAdministradoresRepository
 
     public function eliminarAdministrador(string $id): bool
     {
-        $stmt = $this->db->prepare("DELETE FROM proveedores_hwi_administradores WHERE id_administrador = :id");
+        $stmt = $this->db->prepare("UPDATE proveedores_hwi_administradores SET id_estado_administrador = 5 WHERE id_administrador = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
+    }
+
+    public function updateAdministradorProveedor(string $idAdminActual, string $idNuevoAdmin): bool
+    {
+        $stmt = $this->db->prepare("UPDATE proveedores_hwi SET id_administrador_proveedor = :idNuevoAdmin WHERE id_administrador_proveedor = :idAdminActual");
+        $stmt->bindParam(':idNuevoAdmin', $idNuevoAdmin);
+        $stmt->bindParam(':idAdminActual', $idAdminActual);
+        return $stmt->execute();
+    }
+
+    /**
+     * @return Administradores[]
+     */
+    public function findByTipoNegociador(int $idTipoNegociador): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM proveedores_hwi_administradores WHERE id_tipo_negociador = :idTipoNegociador ORDER BY nombre_administrador ASC, apellidos_administrador ASC");
+        $stmt->bindParam(':idTipoNegociador', $idTipoNegociador, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return array_map([Administradores::class, 'fromArray'], $rows);
     }
 }

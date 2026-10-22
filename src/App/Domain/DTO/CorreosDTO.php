@@ -2,8 +2,11 @@
 
 namespace App\Domain\DTO;
 
-class CorreosDTO {
+class CorreosDTO
+{
     public function __construct(
-        public string $correo
+        public ?int $id_correo = null,
+        public ?string $id_proveedor_correo = null,
+        public ?string $correo = null
     ) {}
 }

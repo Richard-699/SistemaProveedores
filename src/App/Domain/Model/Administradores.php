@@ -12,7 +12,8 @@ class Administradores
         public int $id_area_administrador,
         public string $password_administrador,
         public int $id_estado_administrador,
-        public int $password_is_temporal
+        public int $password_is_temporal,
+        public ?int $id_tipo_negociador = null
     ) {}
 
     public static function fromArray(array $data): self
@@ -25,7 +26,8 @@ class Administradores
             $data['id_area_administrador'] ?? null,
             $data['password_administrador'] ?? null,
             $data['id_estado_administrador'] ?? null,
-            $data['password_is_temporal'] ?? null
+            $data['password_is_temporal'] ?? null,
+            $data['id_tipo_negociador'] ?? null
         );
     }
 

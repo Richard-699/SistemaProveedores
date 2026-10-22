@@ -9,26 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('btningresar');
 
     const selectArea = document.getElementById('id_area_usuario');
+    const grupoTipoNegociador = document.getElementById('grupoTipoNegociador');
+    const selectTipoNegociador = document.getElementById('id_tipo_negociador');
+
     if (selectArea) {
-        async function loadAreas() {
-            try {
-                const res = await fetch('../../Handler/Auth/registroHandler.php?action=getAreas');
-                const data = await res.json();
-                if (data.status === 'success') {
-                    data.data.forEach(area => {
-                        const option = document.createElement('option');
-                        option.value = area.id_area;
-                        option.textContent = area.nombre_area;
-                        selectArea.appendChild(option);
-                    });
-                } else {
-                    console.error('Error cargando áreas:', data.message);
-                }
-            } catch (err) {
-                console.error('Error de red al cargar áreas:', err);
+        selectArea.addEventListener('change', function () {
+            const selectedText = selectArea.options[selectArea.selectedIndex]?.text?.toLowerCase() || '';
+            const esNegociacion = this.value === '1' || selectedText.includes('negociaci');
+
+            if (esNegociacion && grupoTipoNegociador && selectTipoNegociador) {
+                grupoTipoNegociador.classList.remove('d-none');
+            } else if (grupoTipoNegociador && selectTipoNegociador) {
+                grupoTipoNegociador.classList.add('d-none');
+                selectTipoNegociador.value = '';
             }
-        }
-        loadAreas();
+        });
     }
 
     if (passwordInput && confirmPasswordInput) {
@@ -47,6 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        const selectedAreaText = selectArea?.options[selectArea.selectedIndex]?.text?.toLowerCase() || '';
+        const esNegociacion = selectArea?.value === '1' || selectedAreaText.includes('negociaci');
+        if (esNegociacion && selectTipoNegociador && !selectTipoNegociador.value) {
+            notify('error', 'Por favor selecciona si eres un negociador directo o indirecto.');
+            selectTipoNegociador.focus();
+            return;
+        }
 
         try {
             const btn = document.getElementById('btningresar');

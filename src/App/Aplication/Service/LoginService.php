@@ -11,6 +11,7 @@ use App\Infrastructure\Repository\AdministradoresRepository;
 use App\Infrastructure\Repository\AdministradoresPermisosRepository;
 use App\Infrastructure\Repository\PermisosRepository;
 use App\Infrastructure\Repository\ProveedoresRepository;
+use App\Infrastructure\Repository\CorreosRepository;
 use App\Infrastructure\Database\Connection;
 
 
@@ -21,6 +22,7 @@ class LoginService implements ILoginService
     private AdministradoresPermisosRepository $adminPermisosRepository;
     private PermisosRepository $permisosRepository;
     private ProveedoresRepository $proveedorRepository;
+    private CorreosRepository $correosRepository;
 
     public function __construct()
     {
@@ -29,6 +31,7 @@ class LoginService implements ILoginService
         $this->adminPermisosRepository = new AdministradoresPermisosRepository($this->db);
         $this->permisosRepository = new PermisosRepository($this->db);
         $this->proveedorRepository = new ProveedoresRepository($this->db);
+        $this->correosRepository = new CorreosRepository($this->db);
     }
 
     public function obtenerdatoslogin(LoginDTO $dto): LoginDTO
@@ -91,10 +94,11 @@ class LoginService implements ILoginService
                 $adminDTO = $this->adminRepository->findByCorreo($usuario);
 
                 if (!$adminDTO) {
-                    throw new \Exception("No se pudo obtener el id del administrador.");
+                    throw new \Exception("No se encontró un usuario administrador registrado con este correo.");
                 }
 
                 $adminDTO = Mapper::modelToAdministradoresDTO($adminDTO);
+                $dto->administradorDTO = $adminDTO;
 
                 $adminDTO->password_administrador = $hashedPassword;
                 $adminDTO->password_is_temporal = $dto->isTemporal;
@@ -107,10 +111,11 @@ class LoginService implements ILoginService
                 $proveedor = $this->proveedorRepository->findByUsuario($usuario);
 
                 if (!$proveedor) {
-                    throw new \Exception("No se pudo obtener el id del proveedor.");
+                    throw new \Exception("No se encontró un proveedor registrado con el usuario o correo ingresado.");
                 }
 
                 $proveedorDTO = Mapper::modelToProveedoresDTO($proveedor);
+                $dto->proveedorDTO = $proveedorDTO;
 
                 $proveedorId = $proveedorDTO->id_proveedor;
                 $proveedorDTO->password_proveedor = $hashedPassword;
@@ -121,7 +126,7 @@ class LoginService implements ILoginService
                     throw new \Exception("No se pudo actualizar la contraseña del proveedor.");
                 }
 
-                $correosModel = $this->proveedorRepository->getCorreosByProveedorId($proveedorId);
+                $correosModel = $this->correosRepository->findByProveedorId($proveedorId);
                 if (empty($correosModel)) {
                     throw new \Exception("No se encontraron correos registrados para este proveedor.");
                 }

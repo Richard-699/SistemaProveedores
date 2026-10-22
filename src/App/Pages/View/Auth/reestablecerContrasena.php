@@ -37,7 +37,7 @@ if (!isset($_SESSION['is_temporal']) || $_SESSION['is_temporal'] != 1) {
             <form id="cambiarContrasenaForm" novalidate>
                 <div class="form-group">
                     <span class="input-icon" id="icon-lock1"></span>
-                    <input autocomplete="off" type="password" class="custom-input" id="nuevaPassword" name="nuevaPassword" placeholder="Nueva Contraseña" required>
+                    <input autocomplete="off" type="password" class="custom-input" id="nuevaPassword" name="nuevaPassword" placeholder="Nueva Contraseña">
                     <button class="password-toggle" id="passwordToggle1" type="button" style="display: none;">
                         <span id="icon-eye1"></span>
                     </button>
@@ -45,7 +45,7 @@ if (!isset($_SESSION['is_temporal']) || $_SESSION['is_temporal'] != 1) {
 
                 <div class="form-group">
                     <span class="input-icon" id="icon-lock2"></span>
-                    <input autocomplete="off" type="password" class="custom-input" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña" required>
+                    <input autocomplete="off" type="password" class="custom-input" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña">
                     <button class="password-toggle" id="passwordToggle2" type="button" style="display: none;">
                         <span id="icon-eye2"></span>
                     </button>

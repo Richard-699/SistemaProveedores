@@ -1,17 +1,5 @@
 let tablaAdministradores;
 
-function ajustarAlturaSelect2() {
-    setTimeout(function () {
-        let container = $('#selectPermisos').next('.select2-container');
-        if (container.length) {
-            container.find('.select2-selection--multiple').css({
-                'height': 'auto',
-                'min-height': '120px'
-            });
-        }
-    }, 50);
-}
-
 
 $(document).ready(function () {
     tablaAdministradores = $('#tabla-administradores').DataTable({
@@ -66,12 +54,12 @@ $(document).ready(function () {
                             <button class="btn btn-primary btn-sm me-1" onclick="editar('${data}')">
                                 <i class="fa-solid fa-pencil"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm" onclick="eliminar('${data}')">
+                            <button class="btn btn-danger btn-sm" onclick="eliminar('${data}', ${row.id_area_administrador}, ${row.id_tipo_negociador || null})">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         `;
                     } else if (row.id_estado_administrador == 5) {
-                        return `<span class="badge bg-danger">Rechazado</span>`;
+                        return `<span class="badge bg-danger">Inactivo</span>`;
                     } else {
                         return `
                             <button class="btn btn-success btn-sm me-1" onclick="aprobar('${data}')">
@@ -111,30 +99,61 @@ async function obtenerPermisos() {
     }
 }
 
+async function obtenerAdministradores() {
+    try {
+        const response = await fetch('../../Handler/Administrador/administradoresHandler.php?action=onGetAdministradores');
+        const result = await response.json();
+        if (result.success) {
+            sessionStorage.setItem('administradoresSistema', JSON.stringify(result.data));
+        } else {
+            notify('danger', 'Error al obtener administradores: ' + result.message);
+        }
+    } catch (error) {
+        notify('danger', 'Excepción al cargar administradores. Intente recargar la página.');
+    }
+}
+
 async function aprobar(id) {
     mostrarCarga();
     try {
         await obtenerPermisos();
-
-        const responseHtml = await fetch('_aprobarAdministrador.php');
-        const html = await responseHtml.text();
+        sessionStorage.setItem('admin_id_gestionar', id);
 
         await ocultarCarga();
 
-        Fancybox.show([{
-            src: html,
-            type: 'html'
-        }], {
-            closeButton: false,
-            dragToClose: false,
-            on: {
-                done: (fancybox, slide) => {
-                    $('#admin_id_gestionar').val(id);
-                    if (typeof llenarSelectPermisos === 'function') llenarSelectPermisos();
-                    if (typeof initSelect2Permisos === 'function') initSelect2Permisos();
-                }
-            }
-        });
+        Fancybox.show(
+            [
+                {
+                    src: '_aprobarAdministrador.php',
+                    type: "ajax",
+                },
+            ],
+            {
+                dragToClose: false,
+                closeButton: false,
+                Panzoom: {
+                    touch: false,
+                },
+                on: {
+                    reveal: (fancybox, slide) => {
+                        ocultarCarga();
+                    },
+                    destroy: (fancybox) => {
+                        sessionStorage.removeItem("admin_id_gestionar");
+
+                        if (typeof tablaAdministradores !== "undefined" && tablaAdministradores) {
+                            tablaAdministradores.ajax.reload(null, false);
+                        }
+
+                        document.body.classList.remove("fancybox-active");
+                        document.body.style.cursor = "default";
+                    },
+                },
+
+                trapFocus: false,
+                placeFocusBack: false,
+            },
+        );
     } catch (error) {
         await ocultarCarga();
         notify('danger', 'Error al abrir la ventana de aprobación: ' + error);
@@ -146,41 +165,48 @@ async function editar(id) {
     try {
         await obtenerPermisos();
 
-        const [responseHtml, responsePermisos] = await Promise.all([
-            fetch('_editarAdministrador.php').then(res => res.text()),
-            $.ajax({
-                url: '../../Handler/Administrador/administradoresHandler.php',
-                type: 'GET',
-                data: {
-                    action: 'obtenerPermisosAdmin',
-                    id_administrador: id
-                }
-            })
-        ]);
+        const response = await fetch(`../../Handler/Administrador/administradoresHandler.php?action=obtenerPermisosAdmin&id_administrador=${id}`);
+        const responsePermisos = await response.json();
+
+        sessionStorage.setItem('admin_id_gestionar', id);
+        sessionStorage.setItem('permisosAdminActual', JSON.stringify(responsePermisos.data || []));
 
         await ocultarCarga();
 
-        Fancybox.show([{
-            src: responseHtml,
-            type: 'html'
-        }], {
-            closeButton: false,
-            dragToClose: false,
-            on: {
-                done: (fancybox, slide) => {
-                    $('#admin_id_gestionar').val(id);
-                    if (typeof llenarSelectPermisos === 'function') llenarSelectPermisos();
-                    if (typeof initSelect2Permisos === 'function') initSelect2Permisos();
+        Fancybox.show(
+            [
+                {
+                    src: '_editarAdministrador.php',
+                    type: "ajax",
+                },
+            ],
+            {
+                dragToClose: false,
+                closeButton: false,
+                Panzoom: {
+                    touch: false,
+                },
+                on: {
+                    reveal: (fancybox, slide) => {
+                        ocultarCarga();
+                    },
+                    destroy: (fancybox) => {
+                        sessionStorage.removeItem("admin_id_gestionar");
+                        sessionStorage.removeItem("permisosAdminActual");
 
-                    if (responsePermisos && responsePermisos.success) {
-                        $('#selectPermisos').val(responsePermisos.data).trigger('change');
-                        ajustarAlturaSelect2();
-                    } else if (responsePermisos && !responsePermisos.success) {
-                        notify('danger', 'Error al obtener los permisos actuales: ' + responsePermisos.message);
-                    }
-                }
-            }
-        });
+                        if (typeof tablaAdministradores !== "undefined" && tablaAdministradores) {
+                            tablaAdministradores.ajax.reload(null, false);
+                        }
+
+                        document.body.classList.remove("fancybox-active");
+                        document.body.style.cursor = "default";
+                    },
+                },
+
+                trapFocus: false,
+                placeFocusBack: false,
+            },
+        );
     } catch (error) {
         await ocultarCarga();
         notify('danger', 'Error al abrir la ventana de edición: ' + error);
@@ -224,40 +250,95 @@ function rechazar(id) {
     });
 }
 
-function eliminar(id) {
-    Swal.fire({
-        title: '¿Eliminar administrador?',
-        text: 'Esta acción no se puede deshacer.',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, eliminar',
-        cancelButtonText: 'Cancelar',
-        customClass: {
-            confirmButton: 'swal-btn-confirm',
-            cancelButton: 'swal-btn-cancel'
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            mostrarCarga();
-            $.ajax({
-                url: '../../Handler/Administrador/administradoresHandler.php',
-                type: 'POST',
-                data: { action: 'eliminar', id_administrador: id },
-                success: async function (response) {
-                    await ocultarCarga();
-                    if (response.success) {
-                        notify('success', response.message);
-                        tablaAdministradores.ajax.reload();
-                    } else {
-                        notify('danger', response.message);
-                    }
-                },
-                error: async function () {
-                    await ocultarCarga();
-                    notify('danger', 'Error de red o de servidor.');
+async function eliminar(id, idArea, idTipoNegociador) {
+    if (idArea === 1) {
+        mostrarCarga();
+        try {
+            await obtenerAdministradores();
+            sessionStorage.setItem('admin_id_eliminar', id);
+            sessionStorage.setItem('admin_tipo_negociador_eliminar', idTipoNegociador || '');
+
+            await ocultarCarga();
+
+            Fancybox.show(
+                [
+                    {
+                        src: '_eliminarAdministrador.php',
+                        type: "ajax",
+                    },
+                ],
+                {
+                    dragToClose: false,
+                    closeButton: false,
+                    Panzoom: {
+                        touch: false,
+                    },
+                    on: {
+                        reveal: (fancybox, slide) => {
+                            ocultarCarga();
+                        },
+                        destroy: (fancybox) => {
+                            sessionStorage.removeItem("admin_id_eliminar");
+                            sessionStorage.removeItem("admin_tipo_negociador_eliminar");
+
+                            if (typeof tablaAdministradores !== "undefined" && tablaAdministradores) {
+                                tablaAdministradores.ajax.reload(null, false);
+                            }
+
+                            document.body.classList.remove("fancybox-active");
+                            document.body.style.cursor = "default";
+                        },
+                    },
+                    trapFocus: false,
+                    placeFocusBack: false,
                 }
-            });
+            );
+        } catch (error) {
+            await ocultarCarga();
+            notify('danger', 'Error al abrir la ventana de eliminación: ' + error);
         }
-    });
+    } else {
+        Swal.fire({
+            title: '¿Inactivar administrador?',
+            text: '¿Está seguro de que desea inactivar este administrador?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, inactivar',
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                confirmButton: 'swal-btn-confirm',
+                cancelButton: 'swal-btn-cancel'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                mostrarCarga();
+                $.ajax({
+                    url: '../../Handler/Administrador/administradoresHandler.php',
+                    type: 'POST',
+                    data: { action: 'eliminarAdministrador', id_administrador: id },
+                    success: async function (response) {
+                        await ocultarCarga();
+                        if (response.success) {
+                            notify('success', response.message);
+                            tablaAdministradores.ajax.reload(null, false);
+                        } else {
+                            notify('danger', response.message);
+                        }
+                    },
+                    error: async function () {
+                        await ocultarCarga();
+                        notify('danger', 'Error de red o de servidor.');
+                    }
+                });
+            }
+        });
+    }
 }
+
+$(document).on('click', '[data-fancybox-close], .btn-close', function (e) {
+    if (typeof Fancybox !== 'undefined' && Fancybox.getInstance()) {
+        e.preventDefault();
+        Fancybox.close();
+    }
+});
 

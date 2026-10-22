@@ -11,7 +11,7 @@ use App\Infrastructure\Repository\PermisosRepository;
 use App\Infrastructure\Database\Connection;
 use App\Shared\Util\Utils;
 use App\Shared\Mapper\Mapper;
-use App\Infrastructure\Repository\AreasRepository;
+use App\Domain\Enum\Area;
 use Exception;
 use Throwable;
 
@@ -22,7 +22,6 @@ class AdministradoresService implements IAdministradoresService
     private AdministradoresRepository $administradoresRepository;
     private AdministradoresPermisosRepository $administradoresPermisosRepository;
     private PermisosRepository $permisosRepository;
-    private AreasRepository $areasRepository;
 
     public function __construct()
     {
@@ -30,7 +29,6 @@ class AdministradoresService implements IAdministradoresService
         $this->administradoresRepository = new AdministradoresRepository($this->db);
         $this->administradoresPermisosRepository = new AdministradoresPermisosRepository($this->db);
         $this->permisosRepository = new PermisosRepository($this->db);
-        $this->areasRepository = new AreasRepository($this->db);
     }
 
     public function obtenerAdministradorPorId(string $idAdmin): AdministradoresDTO
@@ -118,16 +116,40 @@ class AdministradoresService implements IAdministradoresService
         }
     }
 
-    public function eliminarAdministrador(string $idAdmin): bool
+    public function eliminarAdministrador(string $idAdmin, ?string $idNuevoAdmin = null): bool
     {
         try {
             $this->db->beginTransaction();
 
-            $this->administradoresPermisosRepository->delete($idAdmin);
+            $adminDTO = $this->obtenerAdministradorPorId($idAdmin);
 
-            $eliminado = $this->administradoresRepository->eliminarAdministrador($idAdmin);
-            if (!$eliminado) {
-                throw new Exception("Error al eliminar el administrador.");
+            // Si el administrador pertenece al área de Negociación 
+            if ((int)$adminDTO->id_area_administrador === 1) {
+                if (empty($idNuevoAdmin)) {
+                    throw new Exception("Debe seleccionar el administrador al cual se transferirán los proveedores.");
+                }
+
+                $nuevoAdminDTO = $this->obtenerAdministradorPorId($idNuevoAdmin);
+
+                if ((int)$nuevoAdminDTO->id_estado_administrador !== 4) {
+                    throw new Exception("El administrador seleccionado para transferir los proveedores no está activo.");
+                }
+
+                if ($adminDTO->id_tipo_negociador !== null && $nuevoAdminDTO->id_tipo_negociador !== null) {
+                    if ((int)$adminDTO->id_tipo_negociador !== (int)$nuevoAdminDTO->id_tipo_negociador) {
+                        throw new Exception("El tipo de negociador debe coincidir con el del administrador a inactivar.");
+                    }
+                }
+
+                $proveedoresTransferidos = $this->administradoresRepository->updateAdministradorProveedor($idAdmin, $idNuevoAdmin);
+                if (!$proveedoresTransferidos) {
+                    throw new Exception("Error al transferir los proveedores al nuevo administrador.");
+                }
+            }
+
+            $administradorInactivado = $this->administradoresRepository->eliminarAdministrador($idAdmin);
+            if (!$administradorInactivado) {
+                throw new Exception("Error al inactivar el administrador.");
             }
 
             $this->db->commit();
@@ -179,23 +201,11 @@ class AdministradoresService implements IAdministradoresService
             }
             $administradoresDTO = Mapper::modelToListAdministradoresDTO($administradoresModels);
 
-            $areasModels = $this->areasRepository->findAll();
-            if (empty($areasModels)) {
-                throw new Exception("No se encontraron áreas.");
-            }
-
-            $areasDTO = Mapper::modelToListAreasDTO($areasModels);
-
-            $areasMap = [];
-            foreach ($areasDTO as $areaDTO) {
-                $areasMap[$areaDTO->id_area] = $areaDTO->nombre_area;
-            }
-
-            foreach ($administradoresDTO as $adminDTO) {
-                if ($adminDTO->id_area_administrador !== null && isset($areasMap[$adminDTO->id_area_administrador])) {
-                    $adminDTO->nombre_area = $areasMap[$adminDTO->id_area_administrador];
-                }
-            }
+            // Excluir administradores inactivos (id_estado_administrador == 5)
+            $administradoresDTO = array_values(array_filter(
+                $administradoresDTO,
+                fn(AdministradoresDTO $admin) => (int)$admin->id_estado_administrador !== 5
+            ));
 
             return $administradoresDTO;
         } catch (Throwable $e) {

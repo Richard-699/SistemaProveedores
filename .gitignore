@@ -2,3 +2,6 @@ vendor/
 composer.phar
 .env
 *.mp4
+__pycache__/
+*.pyc
+

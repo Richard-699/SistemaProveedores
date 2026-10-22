@@ -1,6 +1,4 @@
-
 function mostrarCarga() {
-
     let overlay = document.getElementById('global-spinner-overlay');
     if (overlay) {
         overlay.style.opacity = '1';

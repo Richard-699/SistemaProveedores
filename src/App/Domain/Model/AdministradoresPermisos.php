@@ -12,17 +12,13 @@ class AdministradoresPermisos
     public static function fromArray(array $data): self
     {
         return new self(
-            $data['id_administrador_permiso'] ?? '',
-            $data['id_permiso_administrador'] ?? 0
+            $data['id_administrador_permiso'] ?? null,
+            $data['id_permiso_administrador'] ?? null
         );
     }
 
     public function toArray(): array
     {
-        return [
-            'id_administrador_permiso' => $this->id_administrador_permiso,
-            'id_permiso_administrador' => $this->id_permiso_administrador
-        ];
+        return get_object_vars($this);
     }
 }
-

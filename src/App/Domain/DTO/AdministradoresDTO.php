@@ -21,6 +21,7 @@ class AdministradoresDTO
         public ?string $password_raw = null,
         public ?string $confirm_password = null,
         public ?string $nombre_area = null,
-        public array $permisos = []
+        public array $permisos = [],
+        public ?int $id_tipo_negociador = null
     ) {}
 }

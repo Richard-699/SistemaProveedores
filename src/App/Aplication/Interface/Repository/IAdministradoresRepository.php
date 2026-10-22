@@ -22,4 +22,9 @@ interface IAdministradoresRepository
     public function updateEstado(string $id, int $estado): bool;
     public function eliminarAdministrador(string $id): bool;
     public function findById(string $id): ?Administradores;
+    public function updateAdministradorProveedor(string $idAdminActual, string $idNuevoAdmin): bool;
+    /**
+     * @return Administradores[]
+     */
+    public function findByTipoNegociador(int $idTipoNegociador): array;
 }

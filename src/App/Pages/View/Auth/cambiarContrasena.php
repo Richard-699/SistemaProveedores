@@ -30,7 +30,7 @@ session_start();
             <form id="reestablecerForm" novalidate>
                 <div class="form-group">
                     <span class="input-icon" id="icon-user"></span>
-                    <input autocomplete="off" type="text" class="custom-input" id="usuario" name="usuario" placeholder="Ingresa tu usuario o correo electrónico" required>
+                    <input autocomplete="off" type="text" class="custom-input" id="usuario" name="usuario" placeholder="Ingresa tu usuario o correo electrónico">
                 </div>
 
                 <button type="submit" class="btn-success" id="btnRecuperar">

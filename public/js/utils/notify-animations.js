@@ -5,7 +5,10 @@
     const style = document.createElement('style');
     style.id = 'notify-animation-styles';
     style.textContent = `
-        /* ── Animaciones para Bootstrap Notify ── */
+        /* ── Estilos y Animaciones para Bootstrap Notify ── */
+        [data-notify="container"] {
+            z-index: 99999 !important;
+        }
         .animated {
             animation-duration: 0.4s;
             animation-fill-mode: both;

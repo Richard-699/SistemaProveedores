@@ -4,7 +4,8 @@ session_start();
 ob_start();
 
 use App\Aplication\Service\RegistroService;
-use App\Aplication\Service\AreasService;
+use App\Domain\Enum\Area;
+use App\Domain\Enum\TipoProveedor;
 use App\Domain\DTO\AdministradoresDTO;
 use App\Shared\Validation\Validator;
 use App\Shared\Util\Utils;
@@ -18,6 +19,8 @@ if ($requestMethod === 'POST' && ($action === 'registrarAdministrador' || empty(
     registrar($_POST);
 } elseif ($requestMethod === 'GET' && $action === 'getAreas') {
     getAreas();
+} elseif ($requestMethod === 'GET' && $action === 'getTiposNegociador') {
+    getTiposNegociador();
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Método no permitido']);
     exit;
@@ -38,6 +41,11 @@ function registrar(array $formData)
             ? (int) $formData['id_area_usuario']
             : null;
 
+        $id_tipo_negociador = null;
+        if ($id_area_usuario === 1 && isset($formData['id_tipo_negociador']) && $formData['id_tipo_negociador'] !== '') {
+            $id_tipo_negociador = (int) $formData['id_tipo_negociador'];
+        }
+
         $id_admin = Utils::generarGuid();
 
         $password_hash = password_hash($password_raw, PASSWORD_DEFAULT);
@@ -54,7 +62,8 @@ function registrar(array $formData)
             permisosDTO: [],
             is_admin: null,
             password_raw: $password_raw,
-            confirm_password: $formData['confirmPassword'] ?? null
+            confirm_password: $formData['confirmPassword'] ?? null,
+            id_tipo_negociador: $id_tipo_negociador
         );
 
         Validator::validateDTO($administradorDTO);
@@ -74,12 +83,21 @@ function registrar(array $formData)
 function getAreas()
 {
     try {
-        $areasService = new AreasService();
-        $areas = $areasService->obtenerAreas();
-        echo json_encode(['status' => 'success', 'data' => $areas]);
+        echo json_encode(['status' => 'success', 'data' => Area::toArray()]);
         exit;
-    } catch (\Exception $e) {
+    } catch (\Throwable $e) {
         echo json_encode(['status' => 'error', 'message' => 'Error al cargar áreas: ' . $e->getMessage()]);
+        exit;
+    }
+}
+
+function getTiposNegociador()
+{
+    try {
+        echo json_encode(['status' => 'success', 'data' => TipoProveedor::toArray()]);
+        exit;
+    } catch (\Throwable $e) {
+        echo json_encode(['status' => 'error', 'message' => 'Error al cargar tipos de negociador: ' . $e->getMessage()]);
         exit;
     }
 }

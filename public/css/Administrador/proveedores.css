@@ -1,0 +1,271 @@
+.table-container {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin: 0;
+}
+
+.custom-thead th {
+    background-color: #002b36 !important;
+    color: white !important;
+    padding-left: 12px !important;
+    padding-right: 28px !important;
+    white-space: nowrap;
+}
+
+#tabla-proveedores thead th:first-child {
+    min-width: 130px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 20px;
+}
+
+.badge-activo,
+.badge-aprobado {
+    background-color: #198754 !important;
+    color: #fff !important;
+}
+
+.badge-pendiente {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.badge-revision {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+.badge-rechazado {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+.badge-inactivo {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.btn-custom-teal {
+    background-color: #015a70 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    padding: 7px 16px !important;
+    box-shadow: 0 2px 6px rgba(1, 90, 112, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-custom-teal:hover {
+    background-color: #014354 !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(1, 90, 112, 0.4);
+}
+
+.btn-custom-teal:active {
+    transform: scale(0.98);
+}
+
+.btn-exportar-excel {
+    background-color: #107c41 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 7px 16px !important;
+    box-shadow: 0 2px 6px rgba(16, 124, 65, 0.25) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-exportar-excel:hover {
+    background-color: #0b5e31 !important;
+    color: #ffffff !important;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(16, 124, 65, 0.35) !important;
+}
+
+.btn-exportar-excel:active {
+    transform: scale(0.98);
+}
+
+.btn-exportar-excel:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.text-custom-teal {
+    color: #015a70 !important;
+}
+
+.fancybox__container {
+    --fancybox-bg: rgba(0, 0, 0, 0.4) !important;
+}
+
+.fancybox__backdrop {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.btn-filter-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 5px 14px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+    height: 33px !important;
+}
+
+.btn-filter-pill:hover {
+    background-color: #f8fafc !important;
+    border-color: #94a3b8 !important;
+    color: #0f172a !important;
+}
+
+.btn-filter-pill.has-filters {
+    background-color: #f0fdfa !important;
+    border-color: #015a70 !important;
+    color: #015a70 !important;
+    font-weight: 600 !important;
+}
+
+.btn-filter-pill .filter-count-badge {
+    background-color: #015a70;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 9999px;
+    line-height: 1.2;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+}
+
+.dataTables_wrapper .dataTables_filter label {
+    margin-bottom: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.active-filters-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.filter-chip {
+    background-color: #015a70;
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    box-shadow: 0 1px 4px rgba(1, 90, 112, 0.2);
+}
+
+.filter-chip:hover {
+    background-color: #014354;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(1, 90, 112, 0.3);
+}
+
+.filter-chip .filter-chip-close {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    transition: opacity 0.15s, color 0.15s;
+}
+
+.filter-chip:hover .filter-chip-close {
+    opacity: 1;
+    color: #fca5a5;
+}
+
+.btn-clear-all-chips {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 4px 6px;
+    margin-left: auto;
+    transition: color 0.15s ease;
+}
+
+.btn-clear-all-chips:hover {
+    color: #dc2626;
+}
+
+/* SweetAlert2 - Botones de confirmación */
+.swal-btn-confirm {
+    background-color: #015a70 !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.swal-btn-confirm:hover {
+    background-color: #014354 !important;
+}
+
+.swal-btn-cancel {
+    background-color: #5a6268 !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.swal-btn-cancel:hover {
+    background-color: #4a5258 !important;
+}
+
+.swal2-container {
+    z-index: 99999 !important;
+}

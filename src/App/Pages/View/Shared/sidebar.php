@@ -7,8 +7,8 @@ $permisos = isset($_SESSION['permisos']) ? $_SESSION['permisos'] : [];
 $nombre_usuario = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario'] : '';
 ?>
 <?php
-    // Obtener la URL base dinámicamente para enlazar correctamente los estilos
-    $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/SistemaProveedores";
+// Obtener la URL base dinámicamente para enlazar correctamente los estilos
+$baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/SistemaProveedores";
 ?>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,7 +24,7 @@ $nombre_usuario = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario
 
     <ul class="list-unstyled px-2 d-flex flex-column gap-1">
         <li class="mt-4">
-            <a href="index.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
+            <a href="../Administrador/index.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
                 <i class="material-icons">home</i> <span> Inicio
                 </span></a>
         </li><?php if (in_array(1, $permisos)): ?><li class="">
@@ -48,14 +48,14 @@ $nombre_usuario = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario
                     </span></a>
             </li>
             <li class="">
-                <a href="../User/partNumbers.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
+                <a href="../Administrador/partNumbers.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
                     <i class="material-icons">precision_manufacturing</i> <span> PartNumbers
                     </span></a>
             </li><?php endif; ?>
 
         <?php if (in_array(4, $permisos)): ?><li>
                 <a href="../Administrador/administradores.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
-                    <i class="material-icons">key</i> <span> Gestión Accesos
+                    <i class="fa-solid fa-users-gear"></i> <span> Administradores
                     </span></a>
             </li><?php endif; ?>
         <?php if (in_array(5, $permisos)): ?><li class="">
@@ -68,14 +68,8 @@ $nombre_usuario = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario
                 <a href="../User/resultadoCbd.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
                     <i class="material-icons">description</i> <span> Resultado Cbd
                     </span></a>
-            </li>
-            <li class="">
-                <a href="../User/serviciosSuministros.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
-                    <i class="material-icons">design_services</i> <span> Servicios/Suministros
-                    </span></a>
             </li><?php endif; ?>
 
-        <!-- Proveedores Vinculados (Visible para todos) -->
         <li class="">
             <a href="../User/proveedores.php" class="text-decoration-none px-3 py-2 d-block text-nowrap">
                 <i class="material-icons">how_to_reg</i> <span> Proveedores Vinculados

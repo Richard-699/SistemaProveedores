@@ -47,6 +47,7 @@ switch ($requestMethod) {
                 rechazarAdministrador($_POST);
                 break;
             case 'eliminar':
+            case 'eliminarAdministrador':
                 eliminarAdministrador($_POST);
                 break;
             default:
@@ -182,12 +183,18 @@ function eliminarAdministrador(array $formData)
 {
     try {
         $id_admin = $formData['id_administrador'] ?? '';
-        Validator::validateIdAdministrador($id_admin);
+        $id_nuevo_admin = !empty($formData['id_nuevo_administrador']) ? $formData['id_nuevo_administrador'] : null;
+
+        Validator::validateEliminarAdministrador($id_admin, $id_nuevo_admin);
 
         $administradoresService = new AdministradoresService();
-        $administradoresService->eliminarAdministrador($id_admin);
+        $administradoresService->eliminarAdministrador($id_admin, $id_nuevo_admin);
 
-        echo json_encode(['success' => true, 'message' => 'Administrador eliminado correctamente.']);
+        $mensaje = $id_nuevo_admin
+            ? 'Administrador inactivado y proveedores transferidos correctamente.'
+            : 'Administrador inactivado correctamente.';
+
+        echo json_encode(['success' => true, 'message' => $mensaje]);
         exit;
     } catch (\Exception $e) {
         echo json_encode(['success' => false, 'message' => $e->getMessage()]);

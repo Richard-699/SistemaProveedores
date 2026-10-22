@@ -1,0 +1,64 @@
+#content-editar-partnumber {
+    overflow: visible !important;
+}
+
+.fancybox__content:has(#content-editar-partnumber) {
+    overflow: visible !important;
+}
+
+.partnumber-preview-box {
+    width: 140px;
+    height: 140px;
+    background-color: #f8fafc;
+    border: 2.5px solid #d1d5db;
+    border-radius: 40px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.partnumber-preview-box:hover {
+    border-color: #015a70;
+    background-color: #f0f7f9;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.swal2-container {
+    z-index: 99999 !important;
+}
+
+#content-editar-partnumber>div {
+    width: 760px !important;
+    max-width: 100% !important;
+}
+
+.btn-custom-teal {
+    background-color: #015a70 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    padding: 7px 16px !important;
+    box-shadow: 0 2px 6px rgba(1, 90, 112, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-custom-teal:hover {
+    background-color: #014354 !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(1, 90, 112, 0.4);
+}
+
+.btn-custom-teal:active {
+    transform: scale(0.98);
+}
+
+

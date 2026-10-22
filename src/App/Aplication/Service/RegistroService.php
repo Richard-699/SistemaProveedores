@@ -7,6 +7,7 @@ use App\Domain\DTO\AdministradoresDTO;
 use App\Shared\Mapper\Mapper;
 use App\Shared\Util\Utils;
 use App\Infrastructure\Repository\AdministradoresRepository;
+use App\Domain\Enum\TipoProveedor;
 use App\Infrastructure\Database\Connection;
 
 class RegistroService implements IRegistroService
@@ -50,7 +51,7 @@ class RegistroService implements IRegistroService
 
             $correosStrings = [$administradorDTO->correo_hwi_administrador];
             $enviado = Utils::enviarCorreo($correosStrings, $asunto, $titulo, $contenidoHtml);
-            
+
             if (!$enviado) {
                 throw new \Exception("Usuario registrado, pero hubo un error al enviar el correo de notificación al nuevo usuario.");
             }
@@ -77,5 +78,10 @@ class RegistroService implements IRegistroService
         } catch (\Exception $e) {
             throw $e;
         }
+    }
+
+    public function obtenerTiposNegociador(): array
+    {
+        return TipoProveedor::toArray();
     }
 }
