@@ -20,17 +20,17 @@ if (empty($input_usuario)) {
 }
 
 try {
-    $stmt = $conexion->prepare("SELECT u.Id_usuario, u.nombre_usuario, u.apellidos_usuario, u.correo_usuario, p.nombre_proveedor 
+    $stmt = $conexion->prepare("SELECT u.Id_usuario, u.nombre_usuario, u.apellidos_usuario, u.correo_usuario, p.nombre_proveedor, p.correo_proveedor 
         FROM usuarios u 
         LEFT JOIN proveedores p ON u.id_proveedor_usuarios = p.Id_proveedor 
-        WHERE u.correo_usuario = ? OR u.nombre_usuario = ? 
+        WHERE u.correo_usuario = ? OR u.nombre_usuario = ? OR p.correo_proveedor = ?
         LIMIT 1");
 
     if (!$stmt) {
         throw new Exception("Error al preparar la consulta: " . $conexion->error);
     }
 
-    $stmt->bind_param("ss", $input_usuario, $input_usuario);
+    $stmt->bind_param("sss", $input_usuario, $input_usuario, $input_usuario);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
@@ -46,8 +46,12 @@ try {
     $id_usuario = (int)$usuario['Id_usuario'];
 
     // Determinar dirección de correo de destino
-    $correo_destino = filter_var($usuario['correo_usuario'], FILTER_VALIDATE_EMAIL) ? $usuario['correo_usuario'] : '';
-    if (empty($correo_destino) && filter_var($input_usuario, FILTER_VALIDATE_EMAIL)) {
+    $correo_destino = '';
+    if (!empty($usuario['correo_proveedor']) && filter_var($usuario['correo_proveedor'], FILTER_VALIDATE_EMAIL)) {
+        $correo_destino = $usuario['correo_proveedor'];
+    } elseif (!empty($usuario['correo_usuario']) && filter_var($usuario['correo_usuario'], FILTER_VALIDATE_EMAIL)) {
+        $correo_destino = $usuario['correo_usuario'];
+    } elseif (filter_var($input_usuario, FILTER_VALIDATE_EMAIL)) {
         $correo_destino = $input_usuario;
     }
 
